@@ -4,6 +4,12 @@ function Bash-Alias([string]$name, [string]$command) {
     New-Item "Function:\global:$name" -Value $sb | Out-Null
 }
 
+# Show path to executable
+function which ($command) {
+    Get-Command -Name $command -ErrorAction SilentlyContinue |
+    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+}
+
 function RMF([string]$path) { Remove-Item -Recurse -Force $path }
 
 # Get-Property
