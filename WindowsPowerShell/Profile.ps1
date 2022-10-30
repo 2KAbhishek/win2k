@@ -35,3 +35,11 @@ Bash-Alias vi "nvim @args"
 # Modules
 Import-Module Terminal-Icons
 
+# PSReadLine
+Set-PSReadLineOption -BellStyle None
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+
+# PSFzf
+Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
+
