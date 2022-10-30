@@ -11,12 +11,16 @@ Del alias:gp -Force
 # Get-Location
 Del alias:gl -Force
 
+Bash-Alias .. "cd .."
 Bash-Alias ga "git add @args"
 Bash-Alias gc "git commit -m @args"
-Bash-Alias gp "git push"
-Bash-Alias gl "git pull"
-Bash-Alias gss "git status -s"
-Bash-Alias glog "git log"
-Bash-Alias .. "cd .."
 Bash-Alias gcam "git commit -a -m @args"
+Bash-Alias gg "lazygit"
+Bash-Alias gl "git pull"
+Bash-Alias glog "git log"
+Bash-Alias gp "git push"
+Bash-Alias gss "git status -s"
 Bash-Alias q "exit"
+Bash-Alias sci "scoop install @args"
+Bash-Alias vi "nvim"
+
