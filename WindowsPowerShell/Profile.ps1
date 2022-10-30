@@ -22,5 +22,10 @@ Bash-Alias gp "git push"
 Bash-Alias gss "git status -s"
 Bash-Alias q "exit"
 Bash-Alias sci "scoop install @args"
-Bash-Alias vi "nvim"
+Bash-Alias scr "scoop uninstall @args"
+Bash-Alias scu "scoop update @args"
+Bash-Alias vi "nvim @args"
+
+# Modules
+Import-Module Terminal-Icons
 
