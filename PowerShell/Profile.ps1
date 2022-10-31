@@ -30,7 +30,7 @@ Bash-Alias gss "git status -s"
 Bash-Alias q "exit"
 Bash-Alias sci "scoop install @args"
 Bash-Alias scr "scoop uninstall @args"
-Bash-Alias scu "scoop update @args"
+Bash-Alias scu "scoop update *"
 Bash-Alias vi "nvim @args"
 
 # Modules
