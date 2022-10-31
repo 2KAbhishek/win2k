@@ -30,7 +30,12 @@ Bash-Alias gss "git status -s"
 Bash-Alias q "exit"
 Bash-Alias sci "scoop install @args"
 Bash-Alias scr "scoop uninstall @args"
+Bash-Alias scr "scoop search @args"
 Bash-Alias scu "scoop update *"
+Bash-Alias wgi "winget install @args"
+Bash-Alias wgr "winget uninstall @args"
+Bash-Alias wgr "winget search @args"
+Bash-Alias wgu "winget upgrade -all "
 Bash-Alias vi "nvim @args"
 
 # Modules
