@@ -1,6 +1,6 @@
 # Scoop Packages
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop install winget powershell oh-my-posh powertoys 7zip ag bat delta exa fasd fd fzf gh git gzip lazygit less lsd msys ntop navi openssh ripgrep vifm wget nodejs16 python
+scoop install winget powershell oh-my-posh powertoys 7zip ag bat delta exa fasd fd fzf gh git gzip lazygit less lsd make msys ntop navi openssh ripgrep vifm wget nodejs16 python
 
 Install-Module -Name Terminal-Icons -Repository PSGallery -Force
 Install-Module -Name z -Force -AllowClobber
