@@ -4,3 +4,6 @@ PowerShell/Modules/
 
 # Terminal
 Terminal/state.json
+
+# yasb
+.yasb/yasb.log
