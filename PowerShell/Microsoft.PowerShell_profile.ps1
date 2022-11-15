@@ -9,4 +9,4 @@ function TileWindows {
     # Start-Process python.exe $Home\Projects\yasb\src\main.py  -WindowStyle hidden
 }
 
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$HOME/Documents/Posh2K/posh2k.omp.json" | Invoke-Expression
