@@ -1,1 +1,6 @@
 # Excluded files
+# PowerShell
+PowerShell/Modules/
+
+# Terminal
+Terminal/state.json
