@@ -90,12 +90,8 @@ Planning to add `<feature/module>`.
 
 ### To-Do
 
-- [x] Setup repo
-- [ ] Think real hard
-- [ ] Start typing
-- [ ] Change me
 - [ ] Update README
-- [ ] Finish it
+- [ ] Add screenshot with komorebi on Windows
 
 Hit the ⭐ button if you found this useful.
 
