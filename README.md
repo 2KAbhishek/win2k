@@ -1,6 +1,6 @@
 <div align = "center">
 
-<h1><a href="https://2kabhishek.github.io/Winfiles">Winfiles</a></h1>
+<h1><a href="https://github.com/2kabhishek/Winfiles">Winfiles</a></h1>
 
 <a href="https://github.com/2KAbhishek/Winfiles/blob/main/LICENSE">
 <img alt="License" src="https://img.shields.io/github/license/2kabhishek/Winfiles?style=flat&color=eee&label="> </a>
@@ -20,33 +20,32 @@
 <a href="https://github.com/2KAbhishek/Winfiles/pulse">
 <img alt="Last Updated" src="https://img.shields.io/github/last-commit/2kabhishek/Winfiles?style=flat&color=e06c75&label="> </a>
 
-<h3>Short sweet headline with 🎇🎉</h3>
+<h3>Short Sweet Headline 🎇🎉</h3>
 
 <figure>
-  <img src= "images/screenshot.png" alt="Winfiles Demo">
+  <img src="images/screenshot.png" alt="Winfiles in action">
   <br/>
-  <figcaption>Winfiles screenshot</figcaption>
+  <figcaption>Winfiles in action</figcaption>
 </figure>
 
 </div>
 
-## What is this
+Winfiles is a `<utility/tool>` that allows `<target_audience>` to `<action>`.
 
-Winfiles is a `<utility/tool/feature>` that allows `<insert_target_audience>` to do `<action/task_it_does>`.
+## ✨ Features
 
-## Inspiration
+- Supports foo
+- Can do bar
+- Works with bazz
 
-Winfiles was inspired by `<reason/idea>`.
+## Setup
 
-## Prerequisites
+### ⚡ Requirements
 
-Before you begin, ensure you have met the following requirements:
+- foo >= bar
+- bazz
 
-- You have installed the latest version of `<coding_language/dependency/requirement_1>`
-
-## Getting Winfiles
-
-To get Winfiles, follow these steps:
+### 🚀 Installation
 
 ```bash
 git clone https://github.com/2kabhishek/Winfiles
@@ -54,51 +53,58 @@ cd Winfiles
 <install_command>
 ```
 
-## Using Winfiles
+### 💻 Usage
 
 ```bash
 USAGE:
-    command [FLAGS] [OPTIONS]
-
-FLAGS:
-    -h, --help              Prints help information.
-
-OPTIONS:
-    -o, --option <value>    Option description.
-    Options are: a, b. [default: a]
-
+    Winfiles [FLAGS] [OPTIONS]
 Example:
-
-
+    Winfiles
 ```
 
-## How it was built
-
-Winfiles was built using `<tech/library>`
-
-## Challenges faced
-
-While building Winfiles the main challenges were `<issue/difficulty>`
-
-## What I learned
-
-While building Winfiles I `<learned/accomplished>` about `<learning/accomplishment>`
-
-## What's next
+## What's Next
 
 Planning to add `<feature/module>`.
 
-### To-Do
+### ✅ To-Do
 
-- [ ] Update README
-- [ ] Add screenshot with komorebi on Windows
+- [x] Setup repo
+- [ ] Think real hard
+- [ ] Start typing
 
-Hit the ⭐ button if you found this useful.
+##  Behind The Code
 
-## More Info
+### 🌈 Inspiration
+
+Winfiles was inspired by `<reason/idea>`.
+
+### 💡 Challenges/Learnings
+
+- The main challenges were `<issue/difficulty>`
+- I learned about `<learning/accomplishment>`
+
+### 🧰 Tooling
+
+- [Dotfiles](https://github.com/2kabhishek/Dotfiles) — Dev Environment
+- [nvim2k](https://github.com/2kabhishek/nvim2k) — Personalized Editor
+- [awesome2k](https://github.com/2kabhishek/awesome2k) — Tiling Window Manager
+
+### 🔍 More Info
+
+- [similar](https://github.com/2kabhishek/similar) — a related repo
+
+<hr>
 
 <div align="center">
 
-<a href="https://github.com/2KAbhishek/Winfiles">Source</a> | <a href="https://2kabhishek.github.io/Winfiles">Website</a>
+<strong>⭐ hit the star button if you found this useful ⭐</strong><br>
+
+<a href="https://github.com/2KAbhishek/Winfiles">Source</a>
+| <a href="https://2kabhishek.github.io/blog" target="_blank">Blog </a>
+| <a href="https://twitter.com/2kabhishek" target="_blank">Twitter </a>
+| <a href="https://linkedin.com/in/2kabhishek" target="_blank">LinkedIn </a>
+| <a href="https://2kabhishek.github.io/links" target="_blank">More Links </a>
+| <a href="https://2kabhishek.github.io/projects" target="_blank">Other Projects </a>
 
 </div>
+
