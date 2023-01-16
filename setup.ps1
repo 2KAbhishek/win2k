@@ -10,6 +10,8 @@ Install-Module -Name z -Force -AllowClobber
 Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber
 Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
 
+Update-Module
+
 # Powershell
 cmd /c mklink /d %HOMEPATH%\Documents\WindowsPowerShell %CD%\PowerShell\
 # Powershell 7
