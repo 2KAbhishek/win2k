@@ -1,3 +1,7 @@
+# Install scoop
+# Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
+irm get.scoop.sh | iex
+
 # Scoop Packages
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
 scoop install winget powershell oh-my-posh powertoys 7zip ag bat delta exa fasd `
