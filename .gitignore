@@ -6,4 +6,4 @@ PowerShell/Modules/
 Terminal/state.json
 
 # yasb
-.yasb/yasb.log
+.config/yasb/yasb.log
