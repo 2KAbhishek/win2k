@@ -81,6 +81,10 @@ But if you want to use Tiling Window Manager without keybindings:
 
 Run `StartTiling`/`StopTiling` on a Powershell prompt to control tiling.
 
+I recommend using PowerTools to add some keybindings, for example:
+
+- <kbd>Win</kbd> + <kbd>q</kbd> for closing current window
+
 #### Status Bar
 
 You can use yasb to show a status bar, similar to polybar.
@@ -94,7 +98,22 @@ If you want to try out other fonts, you can also use oh-my-posh to install fonts
 
 Just run `oh-my-posh font install` and select the font of your choice.
 
-#### More Configs
+#### More Tools
+
+I have intentionally kept the default list of packages to bare essentials.
+
+If you want any other tools you can install them with scoop or winget.
+
+```ps1
+# Install VS Code
+scoop install code
+# Install winget
+scoop install winget
+```
+
+You can also search for packages using `scoop search name`.
+
+#### Other Configs
 
 For most tools I'm symlinking configs over from my main [Dotfiles](https://github.com/2kabhishek/Dotfiles).
 
