@@ -4,12 +4,12 @@
     "actions": 
     [
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+shift+v"
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "up"
+            },
+            "keys": "alt+shift+k"
         },
         {
             "command": 
@@ -20,7 +20,44 @@
             "keys": "ctrl+shift+c"
         },
         {
-            "command": "unbound"
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "alt+\\"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "down"
+            },
+            "keys": "alt+shift+j"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+shift+minus"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+shift+plus"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+z"
+        },
+        {
+            "command": "unbound",
+            "keys": ""
         },
         {
             "command": 
@@ -40,8 +77,150 @@
             "keys": "alt+enter"
         },
         {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "keys": "alt+minus"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 7
+            },
+            "keys": "alt+shift+8"
+        },
+        {
             "command": "toggleFocusMode",
-            "keys": "ctrl+shift+z"
+            "keys": "alt+z"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "alt+l"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 0
+            },
+            "keys": "alt+shift+1"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "alt+j"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 3
+            },
+            "keys": "alt+shift+4"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 5
+            },
+            "keys": "alt+shift+6"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "alt+k"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "alt+h"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 1
+            },
+            "keys": "alt+shift+2"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 2
+            },
+            "keys": "alt+shift+3"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 4
+            },
+            "keys": "alt+shift+5"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 6
+            },
+            "keys": "alt+shift+7"
+        },
+        {
+            "command": 
+            {
+                "action": "quakeMode"
+            },
+            "keys": "f12"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "right"
+            },
+            "keys": "alt+shift+l"
+        },
+        {
+            "command": "closeWindow"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 8
+            },
+            "keys": "alt+shift+9"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "left"
+            },
+            "keys": "alt+shift+h"
+        },
+        {
+            "command": "closePane",
+            "keys": "alt+x"
         }
     ],
     "alwaysShowTabs": false,
