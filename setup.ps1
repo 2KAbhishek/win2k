@@ -1,10 +1,6 @@
-# Install scoop
-# Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
-irm get.scoop.sh | iex
-
 # Scoop Packages
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop install winget powershell oh-my-posh powertoys 7zip ag bat delta exa fasd `
+scoop install winget powershell oh-my-posh powertoys 7zip ag bat delta exa fasd komorebi `
 fd fzf gh git gzip lazygit less lsd make msys ntop navi openssh ripgrep vifm wget nodejs16 python
 
 scoop update *
@@ -14,7 +10,7 @@ Install-Module -Name z -Scope CurrentUser -Force -AllowClobber
 Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber
 Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
 
-Update-Module -Scope CurrentUser
+Update-Module
 
 # Powershell
 cmd /c mklink /d %HOMEPATH%\Documents\WindowsPowerShell %CD%\config\PowerShell\
