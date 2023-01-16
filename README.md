@@ -20,7 +20,7 @@
 <a href="https://github.com/2KAbhishek/Winfiles/pulse">
 <img alt="Last Updated" src="https://img.shields.io/github/last-commit/2kabhishek/Winfiles?style=flat&color=e06c75&label="> </a>
 
-<h3>Short Sweet Headline 🎇🎉</h3>
+<h3>Ultimate Dev Setup for Windows 🪟🪄</h3>
 
 <figure>
   <img src="images/screenshot.png" alt="Winfiles in action">
@@ -30,68 +30,104 @@
 
 </div>
 
-Winfiles is a `<utility/tool>` that allows `<target_audience>` to `<action>`.
+Winfiles is a set of hand crafted configs for setting up a complete dev environment on Windows.
+
+It makes developing on Windows much more pleasant for CLI lovers.
 
 ## ✨ Features
 
-- Supports foo
-- Can do bar
-- Works with bazz
+- Can setup a complete dev environment within minutes
+- Full featured CLI dev environment on Windows (natively, without WSL!)
+- Powerful personalized editing with [nvim2k](https://github.com/2kabhishek/nvim2k)
+- Shiny prompt with [oh-my-posh](https://ohmyposh.dev/) and [Posh2K](https://github.com/2kabhishek/Posh2K)
+- Modern and intuitive keybindings for Windows
+- Tiling window management with [komorebi](https://github.com/LGUG2Z/komorebi) and [AutoHotKey](https://www.autohotkey.com/)
+- Statusbar support with [yasb](https://github.com/denBot/yasb)
+- More!!
 
 ## Setup
 
 ### ⚡ Requirements
 
-- foo >= bar
-- bazz
+- Powershell >= 7 (recommended), Most features should work on Powershell 1.0
+- [scoop](https://scoop.sh/) - for package management
+- [Meslo Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf) - Recommended font for glyphs support
 
 ### 🚀 Installation
 
-```bash
+```ps1
+# Install scoop
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
+irm get.scoop.sh | iex
+
+# Install git if you haven't already
+scoop install git
+
 git clone https://github.com/2kabhishek/Winfiles
 cd Winfiles
-<install_command>
+
+.\setup.ps1
 ```
+
+This will install all necessary packages, modules and setup symlinks for you.
 
 ### 💻 Usage
 
-```bash
-USAGE:
-    Winfiles [FLAGS] [OPTIONS]
-Example:
-    Winfiles
-```
+#### Tiling
+
+Tiling is disabled by default as AutoHotKey keybindings are somewhat buggy.
+
+But if you want to use Tiling Window Manager without keybindings:
+
+Run `StartTiling`/`StopTiling` on a Powershell prompt to control tiling.
+
+#### Status Bar
+
+You can use yasb to show a status bar, similar to polybar.
+Follow instructions on [yasb](https://github.com/denBot/yasb) to setup.
+
+My yasb configs are [here](https://github.com/2KAbhishek/Winfiles/tree/main/config/yasb)
+
+#### Extra Fonts
+
+If you want to try out other fonts, you can also use oh-my-posh to install fonts
+
+Just run `oh-my-posh font install` and select the font of your choice.
+
+#### More Configs
+
+For most tools I'm symlinking configs over from my main [Dotfiles](https://github.com/2kabhishek/Dotfiles).
+
+You can do the same or plugin your own.
 
 ## What's Next
 
-Planning to add `<feature/module>`.
-
 ### ✅ To-Do
 
-- [x] Setup repo
-- [ ] Think real hard
-- [ ] Start typing
+- [ ] Dcoument Keybindings
+- [ ] Fix AutoHotKey tiling
 
-##  Behind The Code
+## Behind The Code
 
 ### 🌈 Inspiration
 
-Winfiles was inspired by `<reason/idea>`.
+I find working on Windows somewhat unpleasant, WSL although tries and fixes it, but it felt constrained.
+
+That's why I decided to setup a dev environment using native windows tooling.
 
 ### 💡 Challenges/Learnings
 
-- The main challenges were `<issue/difficulty>`
-- I learned about `<learning/accomplishment>`
+- The main challenge was to figure out all the pieces of this puzzle and solving it.
+- Learned a lot about Powershell and did quite some scripting with it.
+- Learned more about the Windows ecosystem, different environment variables, configs etc.
+- Had lots of fun!
 
 ### 🧰 Tooling
 
 - [Dotfiles](https://github.com/2kabhishek/Dotfiles) — Dev Environment
 - [nvim2k](https://github.com/2kabhishek/nvim2k) — Personalized Editor
-- [awesome2k](https://github.com/2kabhishek/awesome2k) — Tiling Window Manager
-
-### 🔍 More Info
-
-- [similar](https://github.com/2kabhishek/similar) — a related repo
+- Powershell
+- Windows Terminal
 
 <hr>
 
@@ -107,4 +143,3 @@ Winfiles was inspired by `<reason/idea>`.
 | <a href="https://2kabhishek.github.io/projects" target="_blank">Other Projects </a>
 
 </div>
-
