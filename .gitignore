@@ -1,9 +1,9 @@
 # Excluded files
 # PowerShell
-.config/PowerShell/Modules/
+config/PowerShell/Modules/
 
 # Terminal
-.config/Terminal/state.json
+config/Terminal/state.json
 
 # yasb
-.config/yasb/yasb.log
+config/yasb/yasb.log
