@@ -30,13 +30,13 @@
 
 </div>
 
-Winfiles is a set of hand crafted configs for setting up a complete dev environment on Windows.
+Winfiles is a set of handcrafted configs for setting up a complete dev environment on Windows.
 
 It makes developing on Windows much more pleasant for CLI lovers.
 
 ## ✨ Features
 
-- Can setup a complete dev environment within minutes
+- Can set up a complete dev environment within minutes
 - Full featured CLI dev environment on Windows (natively, without WSL!)
 - Powerful personalized editing with [nvim2k](https://github.com/2kabhishek/nvim2k)
 - Shiny and extensible prompt with [oh-my-posh](https://ohmyposh.dev/) and [Posh2K](https://github.com/2kabhishek/Posh2K)
@@ -50,8 +50,9 @@ It makes developing on Windows much more pleasant for CLI lovers.
 ### ⚡ Requirements
 
 - Powershell >= 7 (recommended), Most features should work on Powershell 1.0
-- [scoop](https://scoop.sh/) - for package management
-- [Meslo Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf) - Recommended font for glyphs support
+- [scoop](https://scoop.sh/) — for package management
+- [Meslo Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf) — Recommended font for glyphs support
+- Git with SSH setup — for cloning submodules, you can easily do this with the [GitHub CLI](https://cli.github.com/) by running `gh auth login` and selecting SSH as protocol.
 
 ### 🚀 Installation
 
@@ -88,7 +89,7 @@ I recommend using PowerTools to add some keybindings, for example:
 #### Status Bar
 
 You can use yasb to show a status bar, similar to polybar.
-Follow instructions on [yasb](https://github.com/denBot/yasb) to setup.
+Follow instructions on [yasb](https://github.com/denBot/yasb) to set up.
 
 My yasb configs are [here](https://github.com/2KAbhishek/Winfiles/tree/main/config/yasb)
 
@@ -132,7 +133,7 @@ You can do the same or plugin your own.
 
 I find working on Windows somewhat unpleasant, WSL although tries and fixes it, but it felt constrained.
 
-That's why I decided to setup a dev environment using native windows tooling.
+That's why I decided to set up a dev environment using native windows tooling.
 
 ### 💡 Challenges/Learnings
 
