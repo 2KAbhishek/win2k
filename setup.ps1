@@ -20,7 +20,7 @@ cmd /c mklink /d %HOMEPATH%\Documents\PowerShell\ %CD%\config\PowerShell\
 cmd /c mklink /d %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\ %CD%\config\Terminal\
 
 # Fetch submodules
-git submodule update --init
+git submodule update --init --recursive
 
 cmd /c mklink /d %LOCALAPPDATA%\nvim %CD%\config\nvim2k\
 cmd /c mklink /d %HOMEPATH%\Documents\Posh2K %CD%\config\Posh2K\
