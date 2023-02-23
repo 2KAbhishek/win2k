@@ -52,7 +52,6 @@ It makes developing on Windows much more pleasant for CLI lovers.
 - Powershell >= 7 (recommended), Most features should work on Powershell 1.0
 - [scoop](https://scoop.sh/) — for package management
 - [Meslo Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf) — Recommended font for glyphs support
-- Git with SSH setup — for cloning submodules, you can easily do this with the [GitHub CLI](https://cli.github.com/) by running `gh auth login` and selecting SSH as protocol.
 
 ### 🚀 Installation
 
