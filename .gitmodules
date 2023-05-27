@@ -2,5 +2,5 @@
     path = config/Posh2K
     url = ../Posh2K.git
 [submodule "dots"]
-	path = dots
-	url = ../Dotfiles.git
+    path = dots
+    url = ../Dotfiles.git
