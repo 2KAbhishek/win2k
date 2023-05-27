@@ -1,6 +1,3 @@
 [submodule "config/Posh2K"]
     path = config/Posh2K
     url = git@github.com:2KAbhishek/Posh2K.git
-[submodule "config/nvim2k"]
-    path = config/nvim2k
-    url = git@github.com:2KAbhishek/nvim2k.git
