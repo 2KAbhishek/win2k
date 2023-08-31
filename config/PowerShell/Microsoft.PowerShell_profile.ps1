@@ -13,4 +13,4 @@ function StopTiling {
     taskkill /f /im komorebi.exe
 }
 
-oh-my-posh init pwsh --config "$HOME/Documents/Posh2K/posh2k.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$HOME/Documents/posh2k/posh2k.omp.json" | Invoke-Expression
