@@ -1,36 +1,36 @@
 <div align = "center">
 
-<h1><a href="https://github.com/2kabhishek/Winfiles">Winfiles</a></h1>
+<h1><a href="https://github.com/2kabhishek/win2k">win2k</a></h1>
 
-<a href="https://github.com/2KAbhishek/Winfiles/blob/main/LICENSE">
-<img alt="License" src="https://img.shields.io/github/license/2kabhishek/Winfiles?style=flat&color=eee&label="> </a>
+<a href="https://github.com/2KAbhishek/win2k/blob/main/LICENSE">
+<img alt="License" src="https://img.shields.io/github/license/2kabhishek/win2k?style=flat&color=eee&label="> </a>
 
-<a href="https://github.com/2KAbhishek/Winfiles/graphs/contributors">
-<img alt="People" src="https://img.shields.io/github/contributors/2kabhishek/Winfiles?style=flat&color=ffaaf2&label=People"> </a>
+<a href="https://github.com/2KAbhishek/win2k/graphs/contributors">
+<img alt="People" src="https://img.shields.io/github/contributors/2kabhishek/win2k?style=flat&color=ffaaf2&label=People"> </a>
 
-<a href="https://github.com/2KAbhishek/Winfiles/stargazers">
-<img alt="Stars" src="https://img.shields.io/github/stars/2kabhishek/Winfiles?style=flat&color=98c379&label=Stars"></a>
+<a href="https://github.com/2KAbhishek/win2k/stargazers">
+<img alt="Stars" src="https://img.shields.io/github/stars/2kabhishek/win2k?style=flat&color=98c379&label=Stars"></a>
 
-<a href="https://github.com/2KAbhishek/Winfiles/network/members">
-<img alt="Forks" src="https://img.shields.io/github/forks/2kabhishek/Winfiles?style=flat&color=66a8e0&label=Forks"> </a>
+<a href="https://github.com/2KAbhishek/win2k/network/members">
+<img alt="Forks" src="https://img.shields.io/github/forks/2kabhishek/win2k?style=flat&color=66a8e0&label=Forks"> </a>
 
-<a href="https://github.com/2KAbhishek/Winfiles/watchers">
-<img alt="Watches" src="https://img.shields.io/github/watchers/2kabhishek/Winfiles?style=flat&color=f5d08b&label=Watches"> </a>
+<a href="https://github.com/2KAbhishek/win2k/watchers">
+<img alt="Watches" src="https://img.shields.io/github/watchers/2kabhishek/win2k?style=flat&color=f5d08b&label=Watches"> </a>
 
-<a href="https://github.com/2KAbhishek/Winfiles/pulse">
-<img alt="Last Updated" src="https://img.shields.io/github/last-commit/2kabhishek/Winfiles?style=flat&color=e06c75&label="> </a>
+<a href="https://github.com/2KAbhishek/win2k/pulse">
+<img alt="Last Updated" src="https://img.shields.io/github/last-commit/2kabhishek/win2k?style=flat&color=e06c75&label="> </a>
 
 <h3>Ultimate Dev Setup for Windows 🪟🪄</h3>
 
 <figure>
-  <img src="images/screenshot.png" alt="Winfiles in action">
+  <img src="images/screenshot.png" alt="win2k in action">
   <br/>
-  <figcaption>Winfiles in action</figcaption>
+  <figcaption>win2k in action</figcaption>
 </figure>
 
 </div>
 
-Winfiles is a set of handcrafted configs for setting up a complete dev environment on Windows.
+win2k is a set of handcrafted configs for setting up a complete dev environment on Windows.
 
 It makes developing on Windows much more pleasant for CLI lovers.
 
@@ -63,8 +63,8 @@ irm get.scoop.sh | iex
 # Install git if you haven't already
 scoop install git
 
-git clone https://github.com/2kabhishek/Winfiles
-cd Winfiles
+git clone https://github.com/2kabhishek/win2k
+cd win2k
 
 .\setup.ps1
 ```
@@ -90,7 +90,7 @@ I recommend using PowerTools to add some keybindings, for example:
 You can use yasb to show a status bar, similar to polybar.
 Follow instructions on [yasb](https://github.com/denBot/yasb) to set up.
 
-My yasb configs are [here](https://github.com/2KAbhishek/Winfiles/tree/main/config/yasb)
+My yasb configs are [here](https://github.com/2KAbhishek/win2k/tree/main/config/yasb)
 
 #### Extra Fonts
 
@@ -154,7 +154,7 @@ That's why I decided to set up a dev environment using native windows tooling.
 
 <strong>⭐ hit the star button if you found this useful ⭐</strong><br>
 
-<a href="https://github.com/2KAbhishek/Winfiles">Source</a>
+<a href="https://github.com/2KAbhishek/win2k">Source</a>
 | <a href="https://2kabhishek.github.io/blog" target="_blank">Blog </a>
 | <a href="https://twitter.com/2kabhishek" target="_blank">Twitter </a>
 | <a href="https://linkedin.com/in/2kabhishek" target="_blank">LinkedIn </a>
