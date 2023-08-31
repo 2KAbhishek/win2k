@@ -1,6 +1,6 @@
 [submodule "dots"]
     path = dots
-    url = ../Dotfiles.git
+	url = ../dots2k.git
 [submodule "config/posh2k"]
     path = config/posh2k
     url = ../posh2k
