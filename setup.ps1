@@ -22,5 +22,5 @@ cmd /c mklink /d %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe
 # Fetch submodules
 git submodule update --init --recursive
 
-cmd /c mklink /d %LOCALAPPDATA%\nvim %CD%\dots\.config\nvim
+cmd /c mklink /d %LOCALAPPDATA%\nvim %CD%\dots\config\nvim
 cmd /c mklink /d %HOMEPATH%\Documents\posh2k %CD%\config\posh2k\
