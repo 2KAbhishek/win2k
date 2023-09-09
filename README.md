@@ -63,7 +63,7 @@ irm get.scoop.sh | iex
 # Install git if you haven't already
 scoop install git
 
-git clone https://github.com/2kabhishek/win2k
+git clone --recurse-submodules https://github.com/2kabhishek/win2k
 cd win2k
 
 .\setup.ps1
@@ -143,7 +143,7 @@ That's why I decided to set up a dev environment using native windows tooling.
 
 ### 🧰 Tooling
 
-- [Dotfiles](https://github.com/2kabhishek/Dotfiles) — Dev Environment
+- [Dotfiles](https://github.com/2kabhishek/dots2k) — Dev Environment
 - [nvim2k](https://github.com/2kabhishek/nvim2k) — Personalized Editor
 - Powershell
 - Windows Terminal
