@@ -4,6 +4,10 @@
     "actions": 
     [
         {
+            "command": "toggleFocusMode",
+            "keys": "alt+z"
+        },
+        {
             "command": 
             {
                 "action": "swapPane",
@@ -22,6 +26,14 @@
         {
             "command": 
             {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "alt+j"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "right"
             },
@@ -31,9 +43,26 @@
             "command": 
             {
                 "action": "swapPane",
+                "direction": "left"
+            },
+            "keys": "alt+shift+h"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
                 "direction": "down"
             },
             "keys": "alt+shift+j"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
         },
         {
             "command": "find",
@@ -56,19 +85,6 @@
             "keys": "ctrl+shift+z"
         },
         {
-            "command": "unbound",
-            "keys": ""
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
-        },
-        {
             "command": 
             {
                 "action": "splitPane",
@@ -88,13 +104,33 @@
             "command": 
             {
                 "action": "movePane",
+                "index": 5
+            },
+            "keys": "alt+shift+6"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 6
+            },
+            "keys": "alt+shift+7"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
                 "index": 7
             },
             "keys": "alt+shift+8"
         },
         {
-            "command": "toggleFocusMode",
-            "keys": "alt+z"
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "right"
+            },
+            "keys": "alt+shift+l"
         },
         {
             "command": 
@@ -115,26 +151,14 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "alt+j"
-        },
-        {
-            "command": 
-            {
                 "action": "movePane",
                 "index": 3
             },
             "keys": "alt+shift+4"
         },
         {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 5
-            },
-            "keys": "alt+shift+6"
+            "command": "closePane",
+            "keys": "alt+x"
         },
         {
             "command": 
@@ -143,6 +167,22 @@
                 "direction": "up"
             },
             "keys": "alt+k"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 2
+            },
+            "keys": "alt+shift+3"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 8
+            },
+            "keys": "alt+shift+9"
         },
         {
             "command": 
@@ -164,25 +204,9 @@
             "command": 
             {
                 "action": "movePane",
-                "index": 2
-            },
-            "keys": "alt+shift+3"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
                 "index": 4
             },
             "keys": "alt+shift+5"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 6
-            },
-            "keys": "alt+shift+7"
         },
         {
             "command": 
@@ -192,35 +216,7 @@
             "keys": "f12"
         },
         {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "right"
-            },
-            "keys": "alt+shift+l"
-        },
-        {
             "command": "closeWindow"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 8
-            },
-            "keys": "alt+shift+9"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "left"
-            },
-            "keys": "alt+shift+h"
-        },
-        {
-            "command": "closePane",
-            "keys": "alt+x"
         }
     ],
     "alwaysShowTabs": false,
@@ -229,18 +225,24 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 160,
     "initialRows": 50,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
         {
             "backgroundImage": null,
-            "backgroundImageOpacity": 0.45000000000000001,
+            "backgroundImageOpacity": 0.45,
             "colorScheme": "Mild",
             "experimental.retroTerminalEffect": false,
             "font": 
             {
                 "face": "MesloLGSDZ NF",
-                "size": 9
+                "size": 9.0
             },
             "opacity": 80,
             "useAcrylic": false
@@ -256,7 +258,7 @@
             {
                 "guid": "{f7900814-dc9b-5f76-a4bc-65789c05a4eb}",
                 "hidden": false,
-                "icon": "C:\\Users\\DELL\\Projects\\GitHub\\refind-dark\\icons\\os_arch.png",
+                "icon": "C:\\Users\\DELL\\Projects\\GitHub\\Maintain\\refind2k\\icons\\os_arch.png",
                 "name": "Arch",
                 "source": "Windows.Terminal.Wsl"
             },
@@ -275,7 +277,7 @@
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
-                "icon": "C:\\Users\\DELL\\Projects\\GitHub\\refind-dark\\icons\\os_ubuntu.png",
+                "icon": "C:\\Users\\DELL\\Projects\\GitHub\\Maintain\\refind2k\\icons\\os_ubuntu.png",
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
             },
@@ -540,5 +542,6 @@
     ],
     "startOnUserLogin": false,
     "tabWidthMode": "equal",
+    "themes": [],
     "useAcrylicInTabRow": true
 }
