@@ -71,6 +71,8 @@ cd win2k
 
 This will install all necessary packages, modules and setup symlinks for you.
 
+If setup runs into errors, you can try hitting `Win+x` and open `Terminal (Admin)` and try running setup there or try running the setup commands manually.
+
 ### 💻 Usage
 
 #### Tiling
