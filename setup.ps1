@@ -22,3 +22,5 @@ cmd /c mklink /d %HOMEPATH%\Documents\PowerShell\ %CD%\config\PowerShell\
 
 cmd /c mklink /d %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\ %CD%\config\Terminal\
 cmd /c mklink /d %HOMEPATH%\Documents\posh2k %CD%\config\posh2k\
+
+cmd /c mklink /d %APPDATA%\lazygit %CD%\dots2k\config\lazygit
