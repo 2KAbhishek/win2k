@@ -21,5 +21,4 @@ cmd /c mklink /d %HOMEPATH%\Documents\WindowsPowerShell %CD%\config\PowerShell\
 cmd /c mklink /d %HOMEPATH%\Documents\PowerShell\ %CD%\config\PowerShell\
 
 cmd /c mklink /d %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\ %CD%\config\Terminal\
-cmd /c mklink /d %LOCALAPPDATA%\nvim %CD%\dots\config\nvim
 cmd /c mklink /d %HOMEPATH%\Documents\posh2k %CD%\config\posh2k\
