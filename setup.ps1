@@ -21,11 +21,11 @@ New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\WindowsPowerShell
 # PowerShell 7
 New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\PowerShell" -Target "$PWD\config\PowerShell" -Force
 
-# Terminal
-New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Target "$PWD\config\Terminal" -Force
-
 # posh2k
 New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\posh2k" -Target "$PWD\config\posh2k" -Force
+
+# Terminal
+New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Target "$PWD\config\Terminal" -Force
 
 # lazygit
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target "$PWD\dots2k\config\lazygit" -Force
