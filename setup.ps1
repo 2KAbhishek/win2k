@@ -32,26 +32,8 @@ New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target "$PWD\dots2
 
 # Config
 $toolPaths = @(
-    "autorandr",
-    "bat",
-    "broot",
-    "bundle",
-    "cmus",
-    "delta",
-    "fish",
-    "fontconfig",
-    "gitignore.global",
-    "htop",
-    "i3",
-    "i3status",
-    "kitty",
-    "libinput-gestures.conf",
-    "qutebrowser",
-    "ranger",
-    "shell",
-    "sysinfo.conkyrc",
-    "topgrade.toml",
-    "xplr"
+    "autorandr", "bat", "broot", "bundle", "cmus", "delta", "fish", "fontconfig", "gitignore.global", "htop", "i3", "i3status",
+    "kitty", "libinput-gestures.conf", "qutebrowser", "ranger", "shell", "sysinfo.conkyrc", "topgrade.toml", "xplr"
 )
 
 foreach ($toolPath in $toolPaths) {
@@ -62,20 +44,8 @@ foreach ($toolPath in $toolPaths) {
 
 # Home
 $homePaths = @(
-    ".bashrc",
-    ".dircolors",
-    ".dmenurc",
-    ".gitconfig",
-    ".inputrc",
-    ".luarc.json",
-    ".prettierrc",
-    ".pryrc",
-    ".pystartup",
-    ".stylua.toml",
-    ".tmux.conf",
-    ".vimrc",
-    ".Xresources",
-    ".zshrc"
+    ".bashrc", ".dircolors", ".dmenurc", ".gitconfig", ".inputrc", ".luarc.json", ".prettierrc", ".pryrc",
+    ".pystartup", ".stylua.toml", ".tmux.conf", ".vimrc", ".Xresources", ".zshrc"
 )
 
 foreach ($homePath in $homePaths) {
