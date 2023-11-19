@@ -127,6 +127,7 @@ You can do the same or plugin your own.
 
 - [ ] Dcoument Keybindings
 - [ ] Fix AutoHotKey tiling
+- [ ] Add symlinks from dots2k, e.g: for lazygit, ranger etc
 
 ## Behind The Code
 
