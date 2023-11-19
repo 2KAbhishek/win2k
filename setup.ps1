@@ -15,12 +15,72 @@ Update-Module
 # Fetch submodules
 git submodule update --init --recursive
 
-# Powershell
-cmd /c mklink /d %HOMEPATH%\Documents\WindowsPowerShell %CD%\config\PowerShell\
-# Powershell 7
-cmd /c mklink /d %HOMEPATH%\Documents\PowerShell\ %CD%\config\PowerShell\
+# PowerShell
+New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\WindowsPowerShell" -Target "$PWD\config\PowerShell" -Force
 
-cmd /c mklink /d %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\ %CD%\config\Terminal\
-cmd /c mklink /d %HOMEPATH%\Documents\posh2k %CD%\config\posh2k\
+# PowerShell 7
+New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\PowerShell" -Target "$PWD\config\PowerShell" -Force
 
-cmd /c mklink /d %APPDATA%\lazygit %CD%\dots2k\config\lazygit
+# Terminal
+New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Target "$PWD\config\Terminal" -Force
+
+# posh2k
+New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\posh2k" -Target "$PWD\config\posh2k" -Force
+
+# lazygit
+New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target "$PWD\dots2k\config\lazygit" -Force
+
+# Config
+$toolPaths = @(
+    "autorandr",
+    "bat",
+    "broot",
+    "bundle",
+    "cmus",
+    "delta",
+    "fish",
+    "fontconfig",
+    "gitignore.global",
+    "htop",
+    "i3",
+    "i3status",
+    "kitty",
+    "libinput-gestures.conf",
+    "qutebrowser",
+    "ranger",
+    "shell",
+    "sysinfo.conkyrc",
+    "topgrade.toml",
+    "xplr"
+)
+
+foreach ($toolPath in $toolPaths) {
+    $source = Join-Path $PWD "dots2k\config\$toolPath"
+    $destination = Join-Path $env:USERPROFILE ".config\$toolPath"
+    New-Item -ItemType SymbolicLink -Path $destination -Target $source -Force
+}
+
+# Home
+$homePaths = @(
+    ".bashrc",
+    ".dircolors",
+    ".dmenurc",
+    ".gitconfig",
+    ".inputrc",
+    ".luarc.json",
+    ".prettierrc",
+    ".pryrc",
+    ".pystartup",
+    ".stylua.toml",
+    ".tmux.conf",
+    ".vimrc",
+    ".Xresources",
+    ".zshrc"
+)
+
+foreach ($homePath in $homePaths) {
+    $source = Join-Path $PWD "dots2k\config\$homePath"
+    $destination = Join-Path $env:USERPROFILE $homePath
+    New-Item -ItemType SymbolicLink -Path $destination -Target $source -Force
+}
+
