@@ -1,6 +1,6 @@
 # Scoop Packages
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop install winget powershell oh-my-posh powertoys 7zip ag bat delta eza zoxide komorebi `
+scoop install winget powershell oh-my-posh powertoys 7zip ag bat delta eza zoxide komorebi whkd `
 fd fzf gh git gzip lazygit less lsd make msys ntop navi openssh ripgrep vifm wget nodejs python
 
 scoop update *
@@ -26,6 +26,10 @@ New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\posh2k" -Target "
 
 # Terminal
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Target "$PWD\config\Terminal" -Force
+
+# Komorebi
+New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\.config\komorebi" -Target "$PWD\config\komorebi" -Force
+New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\.config\whkdrc" -Target "$PWD\config\whkdrc" -Force
 
 # lazygit
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target "$PWD\dots2k\config\lazygit" -Force
