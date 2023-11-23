@@ -1,22 +1,22 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
             "command": "toggleFocusMode",
-            "keys": "alt+z"
+            "keys": "ctrl+z"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "swapPane",
                 "direction": "up"
             },
-            "keys": "alt+shift+k"
+            "keys": "ctrl+shift+k"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -24,45 +24,45 @@
             "keys": "ctrl+shift+c"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "down"
             },
-            "keys": "alt+j"
+            "keys": "ctrl+j"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "right"
             },
-            "keys": "alt+\\"
+            "keys": "ctrl+\\"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "swapPane",
                 "direction": "left"
             },
-            "keys": "alt+shift+h"
+            "keys": "ctrl+shift+h"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "swapPane",
                 "direction": "down"
             },
-            "keys": "alt+shift+j"
+            "keys": "ctrl+shift+j"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "keys": "alt+shift+d"
+            "keys": "ctrl+shift+d"
         },
         {
             "command": "find",
@@ -74,142 +74,142 @@
         },
         {
             "command": "unbound",
-            "keys": "alt+shift+minus"
+            "keys": "ctrl+shift+minus"
         },
         {
             "command": "unbound",
-            "keys": "alt+shift+plus"
+            "keys": "ctrl+shift+plus"
         },
         {
             "command": "unbound",
             "keys": "ctrl+shift+z"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "down"
             },
-            "keys": "alt+enter"
+            "keys": "ctrl+enter"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "down"
             },
-            "keys": "alt+minus"
+            "keys": "ctrl+minus"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 5
             },
-            "keys": "alt+shift+6"
+            "keys": "ctrl+shift+6"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 6
             },
-            "keys": "alt+shift+7"
+            "keys": "ctrl+shift+7"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 7
             },
-            "keys": "alt+shift+8"
+            "keys": "ctrl+shift+8"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "swapPane",
                 "direction": "right"
             },
-            "keys": "alt+shift+l"
+            "keys": "ctrl+shift+l"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "right"
             },
-            "keys": "alt+l"
+            "keys": "ctrl+l"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 0
             },
-            "keys": "alt+shift+1"
+            "keys": "ctrl+shift+1"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 3
             },
-            "keys": "alt+shift+4"
+            "keys": "ctrl+shift+4"
         },
         {
             "command": "closePane",
-            "keys": "alt+x"
+            "keys": "ctrl+x"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "up"
             },
-            "keys": "alt+k"
+            "keys": "ctrl+k"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 2
             },
-            "keys": "alt+shift+3"
+            "keys": "ctrl+shift+3"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 8
             },
-            "keys": "alt+shift+9"
+            "keys": "ctrl+shift+9"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "left"
             },
-            "keys": "alt+h"
+            "keys": "ctrl+h"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 1
             },
-            "keys": "alt+shift+2"
+            "keys": "ctrl+shift+2"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "movePane",
                 "index": 4
             },
-            "keys": "alt+shift+5"
+            "keys": "ctrl+shift+5"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "quakeMode"
             },
@@ -225,21 +225,21 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 160,
     "initialRows": 50,
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "backgroundImage": null,
             "backgroundImageOpacity": 0.45,
             "colorScheme": "Mild",
             "experimental.retroTerminalEffect": false,
-            "font": 
+            "font":
             {
                 "face": "MesloLGSDZ NF",
                 "size": 9.0
@@ -247,7 +247,7 @@
             "opacity": 80,
             "useAcrylic": false
         },
-        "list": 
+        "list":
         [
             {
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
@@ -307,7 +307,7 @@
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#0C0C0C",
