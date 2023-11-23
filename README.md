@@ -41,7 +41,7 @@ It makes developing on Windows much more pleasant for CLI lovers.
 - Powerful personalized editing with [nvim2k](https://github.com/2kabhishek/nvim2k)
 - Shiny and extensible prompt with [oh-my-posh](https://ohmyposh.dev/) and [Posh2K](https://github.com/2kabhishek/Posh2K)
 - Modern and intuitive keybindings for Windows Terminal inspired by [tmux-tilit](https://github.com/2kabhishek/tmux-tilit)
-- Tiling window management with [komorebi](https://github.com/LGUG2Z/komorebi) and [AutoHotKey](https://www.autohotkey.com/)
+- Tiling window management with [komorebi](https://github.com/LGUG2Z/komorebi) and [whkd](https://github.com/LGUG2Z/whkd)
 - Statusbar support with [yasb](https://github.com/denBot/yasb)
 - More!!
 
@@ -55,7 +55,7 @@ It makes developing on Windows much more pleasant for CLI lovers.
 
 ### 🚀 Installation
 
-```ps1
+```powershell
 # Install scoop
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
 irm get.scoop.sh | iex
@@ -106,7 +106,7 @@ I have intentionally kept the default list of packages to bare essentials.
 
 If you want any other tools you can install them with scoop or winget.
 
-```ps1
+```powershell
 # Install VS Code
 scoop install code
 # Install winget
@@ -120,13 +120,6 @@ You can also search for packages using `scoop search name`.
 For most tools I'm symlinking configs over from my main [Dotfiles](https://github.com/2kabhishek/Dotfiles).
 
 You can do the same or plugin your own.
-
-## What's Next
-
-### ✅ To-Do
-
-- [ ] Dcoument Keybindings
-- [ ] Fix AutoHotKey tiling
 
 ## Behind The Code
 
@@ -145,8 +138,9 @@ That's why I decided to set up a dev environment using native windows tooling.
 
 ### 🧰 Tooling
 
-- [Dotfiles](https://github.com/2kabhishek/dots2k) — Dev Environment
+- [dots2k](https://github.com/2kabhishek/dots2k) — Dev Environment
 - [nvim2k](https://github.com/2kabhishek/nvim2k) — Personalized Editor
+- [qute2k](https://github.com/2kabhishek/qute2k) — Personalized Browser
 - Powershell
 - Windows Terminal
 
