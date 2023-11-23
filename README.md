@@ -117,7 +117,7 @@ You can also search for packages using `scoop search name`.
 
 #### Other Configs
 
-For most tools I'm symlinking configs over from my main [Dotfiles](https://github.com/2kabhishek/Dotfiles).
+For most tools I'm symlinking configs over from my main [dots2k](https://github.com/2kabhishek/dots2k).
 
 You can do the same or plugin your own.
 
