@@ -258,7 +258,7 @@
             {
                 "guid": "{f7900814-dc9b-5f76-a4bc-65789c05a4eb}",
                 "hidden": false,
-                "icon": "C:\\Users\\DELL\\Projects\\GitHub\\Maintain\\refind2k\\icons\\os_arch.png",
+                "icon": "C:\\Users\\abhishek\\Projects\\GitHub\\Maintain\\refind2k\\icons\\os_arch.png",
                 "name": "Arch",
                 "source": "Windows.Terminal.Wsl"
             },
@@ -277,7 +277,7 @@
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
-                "icon": "C:\\Users\\DELL\\Projects\\GitHub\\Maintain\\refind2k\\icons\\os_ubuntu.png",
+                "icon": "C:\\Users\\abhishek\\Projects\\GitHub\\Maintain\\refind2k\\icons\\os_ubuntu.png",
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
             },
