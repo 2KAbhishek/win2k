@@ -15,6 +15,9 @@ Update-Module
 # Fetch submodules
 git submodule update --init --recursive
 
+# Install Font
+oh-my-posh font install Meslo
+
 # PowerShell
 New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\WindowsPowerShell" -Target "$PWD\config\PowerShell" -Force
 
@@ -25,6 +28,7 @@ New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\PowerShell" -Targ
 New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\posh2k" -Target "$PWD\config\posh2k" -Force
 
 # Terminal
+Move-Item -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Destination "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState.bak" -Force
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Target "$PWD\config\Terminal" -Force
 
 # Komorebi
