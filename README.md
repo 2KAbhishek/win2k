@@ -61,7 +61,7 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a 
 irm get.scoop.sh | iex
 
 # Install git if you haven't already
-scoop install git
+scoop install 7zip git
 
 git clone --recurse-submodules https://github.com/2kabhishek/win2k
 cd win2k
