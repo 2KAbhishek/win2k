@@ -47,12 +47,6 @@ It makes developing on Windows much more pleasant for CLI lovers.
 
 ## Setup
 
-### ⚡ Requirements
-
-- Powershell >= 7 (recommended), Most features should work on Powershell 1.0
-- [scoop](https://scoop.sh/) — for package management
-- [Meslo Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/S-DZ/Regular/complete/Meslo%20LG%20S%20DZ%20Regular%20Nerd%20Font%20Complete.ttf) — Recommended font for glyphs support
-
 ### 🚀 Installation
 
 - Enable remote script execution (Only needed one time)
@@ -71,17 +65,51 @@ scoop install aria2 7zip git
 ```powershell
 git clone --recurse-submodules https://github.com/2kabhishek/win2k
 ```
-- Run setup (Recommended to run in Admin mode)
+- Run setup in Admin mode (Press <kbd>Win</kbd> + <kbd>x</kbd> and select `Terminal (Admin)`)
 ```powershell
 cd win2k
 .\setup.ps1
 ```
-
 This will install all necessary packages, modules and setup symlinks for you.
 
 If setup runs into errors, try running the command in an admin mode or run the command from `setup.ps1` manually.
 
 ### 💻 Usage
+
+#### Configure Git
+
+It is recommended to setup git and GitHub before anything else.
+
+```powershell
+git config --global user.name "Your Name"
+git config --global user.name "your@email.com"
+
+git config --global commit.gpgSign false #Disable GPG signing
+
+gh auth login #Login to github
+```
+
+If you want to use GPG signing [check this](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
+
+#### Setting Up Neovim
+
+Next I would recommend setting up [nvim2k](https://github.com/2kabhishek/nvim2k)
+
+- Clone the repo in a appropriate location
+```powershell
+git clone https://github.com/2kabhishek/nvim2k
+```
+- Setup symlink
+```powershell
+New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\nvim2k" -Force
+```
+
+#### PowerToys
+
+I recommend using PowerTools to add some keybindings, for example:
+
+- <kbd>Win</kbd> + <kbd>q</kbd> for closing current window
+- Remap <kbd>Caps Lock</kbd> to <kbd>Esc</kbd> for efficiency 
 
 #### Tiling
 
@@ -90,10 +118,6 @@ Tiling is disabled by default as AutoHotKey keybindings are somewhat buggy.
 But if you want to use Tiling Window Manager without keybindings:
 
 Run `StartTiling`/`StopTiling` on a Powershell prompt to control tiling.
-
-I recommend using PowerTools to add some keybindings, for example:
-
-- <kbd>Win</kbd> + <kbd>q</kbd> for closing current window
 
 #### Status Bar
 
@@ -106,7 +130,7 @@ My yasb configs are [here](https://github.com/2KAbhishek/win2k/tree/main/config/
 
 If you want to try out other fonts, you can also use oh-my-posh to install fonts
 
-Just run `oh-my-posh font install` and select the font of your choice.
+Just run `oh-my-posh font install` in an Admin window and select the font of your choice.
 
 #### More Tools
 
