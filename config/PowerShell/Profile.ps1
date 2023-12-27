@@ -49,16 +49,18 @@ Bash-Alias gsv "git status -v"
 Bash-Alias gtop 'cd "$(git rev-parse --show-toplevel)"'
 Bash-Alias la "ls"
 Bash-Alias me "nvim README.md"
+Bash-Alias p2k "nvim $env:HOMEPATH\Documents\posh2k\posh2k.omp.json"
+Bash-Alias pwshrc "nvim $env:HOMEPATH\Documents\PowerShell\Profile.ps1"
 Bash-Alias q "exit"
 Bash-Alias sci "scoop install @args"
 Bash-Alias scr "scoop uninstall @args"
 Bash-Alias scs "scoop search @args"
 Bash-Alias scu "scoop update *"
+Bash-Alias vi "nvim @args"
 Bash-Alias wgi "winget install @args"
 Bash-Alias wgr "winget uninstall @args"
 Bash-Alias wgs "winget search @args"
 Bash-Alias wgu "winget upgrade -all "
-Bash-Alias vi "nvim @args"
 
 # Modules
 Import-Module Terminal-Icons
