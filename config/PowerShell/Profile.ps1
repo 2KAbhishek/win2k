@@ -48,6 +48,7 @@ Bash-Alias gss "git status -s"
 Bash-Alias gsv "git status -v"
 Bash-Alias gtop 'cd "$(git rev-parse --show-toplevel)"'
 Bash-Alias la "ls"
+Bash-Alias ll "ls"
 Bash-Alias me "nvim README.md"
 Bash-Alias p2k "nvim $env:HOMEPATH\Documents\posh2k\posh2k.omp.json"
 Bash-Alias pwshrc "nvim $env:HOMEPATH\Documents\PowerShell\Profile.ps1"
