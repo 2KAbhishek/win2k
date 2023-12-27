@@ -4,10 +4,6 @@
     "actions": 
     [
         {
-            "command": "toggleFocusMode",
-            "keys": "ctrl+z"
-        },
-        {
             "command": 
             {
                 "action": "swapPane",
@@ -16,28 +12,8 @@
             "keys": "ctrl+shift+k"
         },
         {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+shift+c"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "ctrl+j"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "right"
-            },
-            "keys": "ctrl+\\"
+            "command": "toggleFocusMode",
+            "keys": "ctrl+z"
         },
         {
             "command": 
@@ -58,6 +34,30 @@
         {
             "command": 
             {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "ctrl+j"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "ctrl+\\"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -73,6 +73,30 @@
             "keys": "ctrl+shift+v"
         },
         {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 5
+            },
+            "keys": "ctrl+shift+6"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 7
+            },
+            "keys": "alt+8"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 6
+            },
+            "keys": "ctrl+shift+7"
+        },
+        {
             "command": "unbound",
             "keys": "ctrl+shift+minus"
         },
@@ -83,6 +107,42 @@
         {
             "command": "unbound",
             "keys": "ctrl+shift+z"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+1"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+2"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+3"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+4"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+5"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+6"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+7"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+8"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+alt+9"
         },
         {
             "command": 
@@ -103,18 +163,18 @@
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 5
+                "action": "swapPane",
+                "direction": "right"
             },
-            "keys": "ctrl+shift+6"
+            "keys": "ctrl+shift+l"
         },
         {
             "command": 
             {
-                "action": "movePane",
+                "action": "switchToTab",
                 "index": 6
             },
-            "keys": "ctrl+shift+7"
+            "keys": "alt+7"
         },
         {
             "command": 
@@ -123,14 +183,6 @@
                 "index": 7
             },
             "keys": "ctrl+shift+8"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "right"
-            },
-            "keys": "ctrl+shift+l"
         },
         {
             "command": 
@@ -149,24 +201,16 @@
             "keys": "ctrl+shift+1"
         },
         {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 3
-            },
-            "keys": "ctrl+shift+4"
-        },
-        {
             "command": "closePane",
             "keys": "ctrl+x"
         },
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "up"
+                "action": "movePane",
+                "index": 3
             },
-            "keys": "ctrl+k"
+            "keys": "ctrl+shift+4"
         },
         {
             "command": 
@@ -183,6 +227,14 @@
                 "index": 8
             },
             "keys": "ctrl+shift+9"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+k"
         },
         {
             "command": 
@@ -217,6 +269,62 @@
         },
         {
             "command": "closeWindow"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 0
+            },
+            "keys": "alt+1"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 1
+            },
+            "keys": "alt+2"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 2
+            },
+            "keys": "alt+3"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 3
+            },
+            "keys": "alt+4"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 4
+            },
+            "keys": "alt+5"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 5
+            },
+            "keys": "alt+6"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 4294967295
+            },
+            "keys": "alt+9"
         }
     ],
     "alwaysShowTabs": true,
