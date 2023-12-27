@@ -55,6 +55,8 @@ It makes developing on Windows much more pleasant for CLI lovers.
 
 ### 🚀 Installation
 
+It is recommended to run these commands in Admin mode, you can hit `Win + x` and select `Terminal (Admin)` to open an Admin window.
+
 ```powershell
 # Install scoop
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
