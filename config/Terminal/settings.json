@@ -1,14 +1,10 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
+    "actions": 
     [
         {
-            "command": "toggleFocusMode",
-            "keys": "ctrl+z"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "swapPane",
                 "direction": "up"
@@ -16,39 +12,11 @@
             "keys": "ctrl+shift+k"
         },
         {
-            "command":
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+shift+c"
+            "command": "toggleFocusMode",
+            "keys": "ctrl+z"
         },
         {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "ctrl+j"
-        },
-        {
-            "command":
-            {
-                "action": "splitPane",
-                "split": "right"
-            },
-            "keys": "ctrl+\\"
-        },
-        {
-            "command":
-            {
-                "action": "swapPane",
-                "direction": "left"
-            },
-            "keys": "ctrl+shift+h"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "swapPane",
                 "direction": "down"
@@ -56,7 +24,39 @@
             "keys": "ctrl+shift+j"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "left"
+            },
+            "keys": "ctrl+shift+h"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "ctrl+j"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "ctrl+\\"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "command": 
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -73,6 +73,22 @@
             "keys": "ctrl+shift+v"
         },
         {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 5
+            },
+            "keys": "ctrl+shift+6"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 6
+            },
+            "keys": "ctrl+shift+7"
+        },
+        {
             "command": "unbound",
             "keys": "ctrl+shift+minus"
         },
@@ -85,7 +101,7 @@
             "keys": "ctrl+shift+z"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "down"
@@ -93,7 +109,7 @@
             "keys": "ctrl+enter"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "down"
@@ -101,31 +117,7 @@
             "keys": "ctrl+minus"
         },
         {
-            "command":
-            {
-                "action": "movePane",
-                "index": 5
-            },
-            "keys": "ctrl+shift+6"
-        },
-        {
-            "command":
-            {
-                "action": "movePane",
-                "index": 6
-            },
-            "keys": "ctrl+shift+7"
-        },
-        {
-            "command":
-            {
-                "action": "movePane",
-                "index": 7
-            },
-            "keys": "ctrl+shift+8"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "swapPane",
                 "direction": "right"
@@ -133,7 +125,15 @@
             "keys": "ctrl+shift+l"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "movePane",
+                "index": 7
+            },
+            "keys": "ctrl+shift+8"
+        },
+        {
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "right"
@@ -141,7 +141,7 @@
             "keys": "ctrl+l"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "movePane",
                 "index": 0
@@ -149,7 +149,7 @@
             "keys": "ctrl+shift+1"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "movePane",
                 "index": 3
@@ -161,15 +161,7 @@
             "keys": "ctrl+x"
         },
         {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "ctrl+k"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "movePane",
                 "index": 2
@@ -177,7 +169,7 @@
             "keys": "ctrl+shift+3"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "movePane",
                 "index": 8
@@ -185,7 +177,15 @@
             "keys": "ctrl+shift+9"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+k"
+        },
+        {
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "left"
@@ -193,7 +193,7 @@
             "keys": "ctrl+h"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "movePane",
                 "index": 1
@@ -201,7 +201,7 @@
             "keys": "ctrl+shift+2"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "movePane",
                 "index": 4
@@ -209,7 +209,7 @@
             "keys": "ctrl+shift+5"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "quakeMode"
             },
@@ -225,42 +225,35 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 160,
     "initialRows": 50,
-    "newTabMenu":
+    "newTabMenu": 
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "backgroundImage": null,
             "backgroundImageOpacity": 0.45,
             "colorScheme": "Mild",
             "experimental.retroTerminalEffect": false,
-            "font":
+            "font": 
             {
-                "face": "MesloLGSDZ NF",
+                "face": "MesloLGL Nerd Font",
                 "size": 9.0
             },
             "opacity": 80,
             "useAcrylic": false
         },
-        "list":
+        "list": 
         [
             {
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
                 "source": "Windows.Terminal.PowershellCore"
-            },
-            {
-                "guid": "{f7900814-dc9b-5f76-a4bc-65789c05a4eb}",
-                "hidden": false,
-                "icon": "C:\\Users\\abhishek\\Projects\\GitHub\\Maintain\\refind2k\\icons\\os_arch.png",
-                "name": "Arch",
-                "source": "Windows.Terminal.Wsl"
             },
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -275,39 +268,14 @@
                 "name": "Command Prompt"
             },
             {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
-                "icon": "C:\\Users\\abhishek\\Projects\\GitHub\\Maintain\\refind2k\\icons\\os_ubuntu.png",
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{1b225c4d-470f-5c2d-83a0-866d23c7f331}",
-                "hidden": false,
-                "name": "Dev Command Prompt",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{3c1aa497-e38a-543f-ba1d-b85c2f662e7b}",
-                "hidden": false,
-                "name": "Dev PowerShell",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
-                "hidden": true,
-                "name": "Visual Studio Debug Console",
-                "source": "VSDebugConsole"
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#0C0C0C",
