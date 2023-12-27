@@ -4,6 +4,10 @@
     "actions": 
     [
         {
+            "command": "toggleFocusMode",
+            "keys": "ctrl+z"
+        },
+        {
             "command": 
             {
                 "action": "swapPane",
@@ -12,24 +16,12 @@
             "keys": "ctrl+shift+k"
         },
         {
-            "command": "toggleFocusMode",
-            "keys": "ctrl+z"
-        },
-        {
             "command": 
             {
-                "action": "swapPane",
-                "direction": "down"
+                "action": "copy",
+                "singleLine": false
             },
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "left"
-            },
-            "keys": "ctrl+shift+h"
+            "keys": "ctrl+shift+c"
         },
         {
             "command": 
@@ -50,10 +42,18 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
+                "action": "swapPane",
+                "direction": "left"
             },
-            "keys": "ctrl+shift+c"
+            "keys": "ctrl+shift+h"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "down"
+            },
+            "keys": "ctrl+shift+j"
         },
         {
             "command": 
@@ -71,22 +71,6 @@
         {
             "command": "paste",
             "keys": "ctrl+shift+v"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 5
-            },
-            "keys": "ctrl+shift+6"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 6
-            },
-            "keys": "ctrl+shift+7"
         },
         {
             "command": "unbound",
@@ -119,10 +103,18 @@
         {
             "command": 
             {
-                "action": "swapPane",
-                "direction": "right"
+                "action": "movePane",
+                "index": 5
             },
-            "keys": "ctrl+shift+l"
+            "keys": "ctrl+shift+6"
+        },
+        {
+            "command": 
+            {
+                "action": "movePane",
+                "index": 6
+            },
+            "keys": "ctrl+shift+7"
         },
         {
             "command": 
@@ -131,6 +123,14 @@
                 "index": 7
             },
             "keys": "ctrl+shift+8"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "right"
+            },
+            "keys": "ctrl+shift+l"
         },
         {
             "command": 
@@ -163,6 +163,14 @@
         {
             "command": 
             {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+k"
+        },
+        {
+            "command": 
+            {
                 "action": "movePane",
                 "index": 2
             },
@@ -175,14 +183,6 @@
                 "index": 8
             },
             "keys": "ctrl+shift+9"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "ctrl+k"
         },
         {
             "command": 
@@ -241,7 +241,7 @@
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "MesloLGL Nerd Font",
+                "face": "FiraCode Nerd Font",
                 "size": 9.0
             },
             "opacity": 80,

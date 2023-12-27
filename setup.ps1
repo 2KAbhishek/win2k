@@ -16,7 +16,7 @@ Update-Module
 git submodule update --init --recursive
 
 # Install Font
-oh-my-posh font install Meslo
+oh-my-posh font install FiraCode
 
 # PowerShell
 New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\WindowsPowerShell" -Target "$PWD\config\PowerShell" -Force
