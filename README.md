@@ -57,23 +57,31 @@ It makes developing on Windows much more pleasant for CLI lovers.
 
 It is recommended to run these commands in Admin mode, you can hit `Win + x` and select `Terminal (Admin)` to open an Admin window.
 
+- Enable remote script execution (Only needed one time)
 ```powershell
-# Install scoop
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
-irm get.scoop.sh | iex
-
-# Install git if you haven't already
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+- Install scoop
+```powershell
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+- Install git (7zip needed to extract git archive) if you haven't already
+```powershell
 scoop install 7zip git
-
+```
+- Clone win2k
+```powershell
 git clone --recurse-submodules https://github.com/2kabhishek/win2k
+```
+- Run setup
+```powershell
 cd win2k
-
 .\setup.ps1
 ```
 
 This will install all necessary packages, modules and setup symlinks for you.
 
-If setup runs into errors, you can try hitting `Win+x` and open `Terminal (Admin)` and try running setup there or try running the setup commands manually.
+If setup runs into errors, try running the setup commands manually.
 
 ### 💻 Usage
 
