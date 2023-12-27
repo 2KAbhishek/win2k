@@ -55,8 +55,6 @@ It makes developing on Windows much more pleasant for CLI lovers.
 
 ### 🚀 Installation
 
-It is recommended to run these commands in Admin mode, you can hit `Win + x` and select `Terminal (Admin)` to open an Admin window.
-
 - Enable remote script execution (Only needed one time)
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -73,7 +71,7 @@ scoop install 7zip git
 ```powershell
 git clone --recurse-submodules https://github.com/2kabhishek/win2k
 ```
-- Run setup
+- Run setup (Recommended to run in Admin mode)
 ```powershell
 cd win2k
 .\setup.ps1
@@ -81,7 +79,7 @@ cd win2k
 
 This will install all necessary packages, modules and setup symlinks for you.
 
-If setup runs into errors, try running the setup commands manually.
+If setup runs into errors, try running the command in an admin mode or run the command from `setup.ps1` manually.
 
 ### 💻 Usage
 
