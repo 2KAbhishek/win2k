@@ -1,6 +1,6 @@
 # Scoop Packages
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta `
+scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make gcc msys2`
 openssh wget nodejs python powershell powertoys winget oh-my-posh 7zip gzip komorebi whkd
 
 scoop update *
@@ -17,6 +17,9 @@ git submodule update --init --recursive
 
 # Install Font
 oh-my-posh font install FiraCode
+
+# Install neovim helper
+pip install neovim
 
 # PowerShell
 New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\WindowsPowerShell" -Target "$PWD\config\PowerShell" -Force
