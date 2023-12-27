@@ -5,10 +5,10 @@ openssh wget nodejs python powershell powertoys winget oh-my-posh 7zip gzip komo
 
 scoop update *
 
-Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
-Install-Module -Name z -Scope CurrentUser -Force -AllowClobber
-Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber
-Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
+Install-Module -Name Terminal-Icons -Repository PSGallery -Force -AllowClobber
+Install-Module -Name z -Force -AllowClobber
+Install-Module -Name PSReadLine -Force -SkipPublisherCheck -AllowClobber
+Install-Module -Name PSFzf -Force -AllowClobber
 
 Update-Module
 
