@@ -82,7 +82,7 @@ It is recommended to setup git and GitHub before anything else.
 
 ```powershell
 git config --global user.name "Your Name"
-git config --global user.name "your@email.com"
+git config --global user.email "your@email.com"
 
 git config --global commit.gpgSign false #Disable GPG signing
 
@@ -109,7 +109,7 @@ New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\nvi
 I recommend using PowerTools to add some keybindings, for example:
 
 - <kbd>Win</kbd> + <kbd>q</kbd> for closing current window
-- Remap <kbd>Caps Lock</kbd> to <kbd>Esc</kbd> for efficiency 
+- Remap <kbd>Caps Lock</kbd> to <kbd>Esc</kbd> for efficiency
 
 #### Tiling
 
