@@ -38,10 +38,10 @@ It makes developing on Windows much more pleasant for CLI lovers.
 
 - Can set up a complete dev environment within minutes
 - Full featured CLI dev environment on Windows (natively, without WSL!)
+- Shiny and extensible prompt with [oh-my-posh](https://ohmyposh.dev/) and [posh2k](https://github.com/2kabhishek/posh2k)
 - Powerful personalized editing with [nvim2k](https://github.com/2kabhishek/nvim2k)
-- Shiny and extensible prompt with [oh-my-posh](https://ohmyposh.dev/) and [Posh2K](https://github.com/2kabhishek/Posh2K)
-- Modern and intuitive keybindings for Windows inspired by [tmux-tilit](https://github.com/2kabhishek/tmux-tilit)
 - Tiling window management with [komorebi](https://github.com/LGUG2Z/komorebi) and [whkd](https://github.com/LGUG2Z/whkd)
+- Modern and intuitive keybindings for Windows inspired by [tmux-tilit](https://github.com/2kabhishek/tmux-tilit)
 - Statusbar support with [yasb](https://github.com/denBot/yasb)
 - More!!
 
