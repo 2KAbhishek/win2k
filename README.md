@@ -65,7 +65,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 - Install git (7zip and aria2 to help with scoop installations) if you haven't already
 ```powershell
-scoop install aria 7zip git
+scoop install aria2 7zip git
 ```
 - Clone win2k
 ```powershell
