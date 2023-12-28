@@ -115,10 +115,6 @@ I also use the PowerToys Run launcher mapped to <kbd>Win</kbd> + <kbd>Space</kbd
 
 #### Tiling
 
-Tiling is disabled by default as AutoHotKey keybindings are somewhat buggy.
-
-But if you want to use Tiling Window Manager without keybindings:
-
 Run `StartTiling`/`StopTiling` on a Powershell prompt to control tiling.
 
 #### Status Bar
