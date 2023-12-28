@@ -106,10 +106,12 @@ New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\nvi
 
 #### PowerToys
 
-I recommend using PowerTools to add some keybindings, for example:
+I recommend using PowerToys to add some keybindings, for example:
 
 - <kbd>Win</kbd> + <kbd>q</kbd> for closing current window
 - Remap <kbd>Caps Lock</kbd> to <kbd>Esc</kbd> for efficiency
+
+I also use the PowerToys Run launcher mapped to <kbd>Win</kbd> + <kbd>Space</kbd>
 
 #### Tiling
 
