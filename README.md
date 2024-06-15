@@ -50,33 +50,49 @@ It makes developing on Windows much more pleasant for CLI lovers.
 ### 🚀 Installation
 
 - Enable remote script execution (Only needed one time)
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
+
 - Install scoop
+
 ```powershell
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
+
 - Install git (7zip and aria2 to help with scoop installations) if you haven't already
+
 ```powershell
 scoop install aria2 7zip git
 ```
+
 - Clone win2k
+
 ```powershell
 git clone --recurse-submodules https://github.com/2kabhishek/win2k
 ```
-- Run setup in Admin mode (Press <kbd>Win</kbd> + <kbd>x</kbd> and select `Terminal (Admin)`)
+
+- Run setup in **Admin mode** (Press <kbd>Win</kbd> + <kbd>x</kbd> and select `Terminal (Admin)`)
+
 ```powershell
 cd win2k
 .\setup.ps1
 ```
+
 This will install all necessary packages, modules and setup symlinks for you.
 
-If setup runs into errors, try running the command in an admin mode or run the command from `setup.ps1` manually.
+If setup runs into errors, try running the command in admin mode again or run the command from `setup.ps1` manually.
 
 ### 💻 Usage
 
-#### Configure Git
+#### Windows Terminal
+
+If you are having issues starting up Windows Terminal after the setup, you can try removing the folder:
+
+`C:\Users\<your-user-name>\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState`
+
+#### Git
 
 It is recommended to setup git and GitHub before anything else.
 
@@ -91,15 +107,18 @@ gh auth login #Login to github
 
 If you want to use GPG signing [check this](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
-#### Setting Up Neovim
+#### Neovim
 
 Next I would recommend setting up [nvim2k](https://github.com/2kabhishek/nvim2k)
 
 - Clone the repo in a appropriate location
+
 ```powershell
 git clone https://github.com/2kabhishek/nvim2k
 ```
+
 - Setup symlink
+
 ```powershell
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\nvim2k" -Force
 ```
@@ -124,7 +143,7 @@ Follow instructions on [yasb](https://github.com/denBot/yasb) to set up.
 
 My yasb configs are [here](https://github.com/2KAbhishek/win2k/tree/main/config/yasb)
 
-#### Extra Fonts
+#### Fonts
 
 If you want to try out other fonts, you can also use oh-my-posh to install fonts
 
