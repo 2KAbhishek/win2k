@@ -1,7 +1,6 @@
 # Scoop Packages
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make gcc msys2`
-openssh wget curl nodejs python powershell powertoys winget oh-my-posh 7zip gzip komorebi whkd
+scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make gcc msys2 openssh wget curl nodejs python powershell powertoys winget oh-my-posh 7zip gzip komorebi whkd
 
 scoop update *
 
@@ -46,8 +45,8 @@ New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu
 
 # Config
 $toolPaths = @(
-    "bat", "broot", "bundle", "cmus", "delta", "fish", "gitignore.global",
-    "htop", "kitty", "ranger", "shell", "topgrade.toml", "xplr"
+    "bat", "bundle", "cmus", "delta", "gitignore.global", "htop",
+    "alacritty", "kitty", "ranger", "shell", "topgrade.toml"
 )
 
 foreach ($toolPath in $toolPaths) {
@@ -58,8 +57,8 @@ foreach ($toolPath in $toolPaths) {
 
 # Home
 $homePaths = @(
-    ".bashrc", ".dircolors", ".gitconfig", ".inputrc", ".luarc.json", ".prettierrc", ".pryrc",
-    ".pystartup", ".stylua.toml", ".tmux.conf", ".vimrc", ".Xresources", ".zshrc"
+    ".bashrc", ".dircolors", ".gitconfig", ".inputrc", ".luarc.json",
+    ".prettierrc", ".pryrc", ".pystartup", ".stylua.toml", ".vimrc", ".Xresources"
 )
 
 foreach ($homePath in $homePaths) {
