@@ -125,10 +125,10 @@ New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\nvi
 
 #### PowerToys
 
-I recommend using PowerToys to add some keybindings, for example:
+I recommend using PowerToys to add some keybindings using the `Keyboard Manager`, for example:
 
-- <kbd>Win</kbd> + <kbd>q</kbd> for closing current window
-- Remap <kbd>Caps Lock</kbd> to <kbd>Esc</kbd> for efficiency
+- Remap <kbd>Caps Lock</kbd> to <kbd>Esc</kbd> for quick access in vim
+- Remap <kbd>Win</kbd> + <kbd>q</kbd> to send <kbd>Alt</kbd> + <kbd>F4</kbd> for closing current window, using the Remap Shortcuts
 
 I also use the PowerToys Run launcher mapped to <kbd>Win</kbd> + <kbd>Space</kbd>
 
