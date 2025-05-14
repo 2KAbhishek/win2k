@@ -1,16 +1,9 @@
 # Scoop Packages
 scoop config aria2-warning-enabled false
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make gcc msys2 openssh wget curl nodejs python powershell powertoys winget oh-my-posh 7zip gzip komorebi whkd
+scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make msys2 openssh wget curl nodejs python powershell powertoys winget oh-my-posh 7zip gzip komorebi whkd
 
 scoop update *
-
-Install-Module -Name Terminal-Icons -Repository PSGallery -Force -AllowClobber
-Install-Module -Name z -Force -AllowClobber
-Install-Module -Name PSReadLine -Force -SkipPublisherCheck -AllowClobber
-Install-Module -Name PSFzf -Force -AllowClobber
-
-Update-Module
 
 # Fetch submodules
 git submodule update --init --recursive
@@ -29,6 +22,13 @@ New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\PowerShell" -Targ
 
 # posh2k
 New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\posh2k" -Target "$PWD\config\posh2k" -Force
+
+Install-Module -Name Terminal-Icons -Repository PSGallery -Force -AllowClobber
+Install-Module -Name z -Force -AllowClobber
+Install-Module -Name PSReadLine -Force -SkipPublisherCheck -AllowClobber
+Install-Module -Name PSFzf -Force -AllowClobber
+
+Update-Module
 
 # Terminal
 Move-Item -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Destination "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState.bak" -Force
