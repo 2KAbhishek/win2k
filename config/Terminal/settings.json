@@ -293,16 +293,16 @@
             "keys": "ctrl+shift+h"
         },
         {
-            "id": "User.splitPane.864CD510",
-            "keys": "ctrl+\\"
+            "id": "User.swapPane.F747588A",
+            "keys": "ctrl+shift+j"
         },
         {
             "id": "User.switchToTab.D7681B66",
             "keys": "alt+8"
         },
         {
-            "id": "User.swapPane.F747588A",
-            "keys": "ctrl+shift+j"
+            "id": "User.splitPane.864CD510",
+            "keys": "ctrl+\\"
         },
         {
             "id": null,
@@ -480,7 +480,7 @@
                 "face": "FiraCode Nerd Font",
                 "size": 9
             },
-            "opacity": 80,
+            "opacity": 100,
             "useAcrylic": false
         },
         "list": 
