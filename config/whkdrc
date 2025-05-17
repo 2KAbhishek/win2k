@@ -43,6 +43,7 @@ alt + shift + oem_minus : komorebic resize-axis vertical decrease
 # Manipulate windows
 alt + t                 : komorebic toggle-float
 alt + shift + f         : komorebic toggle-monocle
+alt + q                 : komorebic close
 
 # Window manager options
 alt + shift + r         : komorebic retile
@@ -56,6 +57,9 @@ alt + y                 : komorebic flip-layout vertical
 alt + 1                 : komorebic focus-workspace 0
 alt + 2                 : komorebic focus-workspace 1
 alt + 3                 : komorebic focus-workspace 2
+alt + 4                 : komorebic focus-workspace 3
+alt + 5                 : komorebic focus-workspace 4
+alt + 6                 : komorebic focus-workspace 5
 
 # Move windows across workspaces
 alt + shift + 1         : komorebic move-to-workspace 0
