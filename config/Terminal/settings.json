@@ -1,567 +1,535 @@
 {
-    "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
-    [
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "up"
-            },
-            "id": "User.swapPane.6CD791B"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "id": "User.moveFocus.F747588A"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "id": "User.splitPane.A6751878"
-        },
-        {
-            "command": "toggleFocusMode",
-            "id": "User.toggleFocusMode"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "left"
-            },
-            "id": "User.swapPane.2A0DA8E0"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "right"
-            },
-            "id": "User.splitPane.864CD510"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "down"
-            },
-            "id": "User.swapPane.F747588A"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 1
-            },
-            "id": "User.switchToTab.2A0DA8E0"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 0
-            },
-            "id": "User.switchToTab.D3F0B923"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 4
-            },
-            "id": "User.movePane.BE165E24"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "id": "User.moveFocus.87C324ED"
-        },
-        {
-            "command": 
-            {
-                "action": "quakeMode"
-            },
-            "id": "User.quakeMode.F1E129A4"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 5
-            },
-            "id": "User.movePane.371F23CF"
-        },
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "id": "User.copy.644BA8F2"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
-            "command": "paste",
-            "id": "User.paste"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 6
-            },
-            "id": "User.movePane.AA286976"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 7
-            },
-            "id": "User.switchToTab.D7681B66"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 5
-            },
-            "id": "User.switchToTab.75247157"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "right"
-            },
-            "id": "User.swapPane.87C324ED"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 7
-            },
-            "id": "User.movePane.A012FE32"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 6
-            },
-            "id": "User.switchToTab.787314EB"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 4
-            },
-            "id": "User.switchToTab.F747588A"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 0
-            },
-            "id": "User.movePane.90CDC17E"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 3
-            },
-            "id": "User.movePane.40FB39DA"
-        },
-        {
-            "command": "closePane",
-            "id": "User.closePane"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 8
-            },
-            "id": "User.movePane.1330677A"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 2
-            },
-            "id": "User.movePane.B01DF59A"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "id": "User.moveFocus.6CD791B"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "id": "User.moveFocus.2A0DA8E0"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 1
-            },
-            "id": "User.movePane.EA17F97A"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 2
-            },
-            "id": "User.switchToTab.87C324ED"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 3
-            },
-            "id": "User.switchToTab.6CD791B"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 4294967295
-            },
-            "id": "User.switchToTab.9CB19EED"
-        }
-    ],
-    "alwaysShowTabs": true,
-    "copyFormatting": "none",
-    "copyOnSelect": true,
-    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "initialCols": 160,
-    "initialRows": 50,
-    "keybindings": 
-    [
-        {
-            "id": "User.quakeMode.F1E129A4",
-            "keys": "f12"
-        },
-        {
-            "id": "User.swapPane.6CD791B",
-            "keys": "ctrl+shift+k"
-        },
-        {
-            "id": "User.splitPane.A6751878",
-            "keys": "ctrl+shift+d"
-        },
-        {
-            "id": "User.toggleFocusMode",
-            "keys": "ctrl+z"
-        },
-        {
-            "id": "User.moveFocus.F747588A",
-            "keys": "ctrl+j"
-        },
-        {
-            "id": "User.swapPane.2A0DA8E0",
-            "keys": "ctrl+shift+h"
-        },
-        {
-            "id": "User.swapPane.F747588A",
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "id": "User.switchToTab.D7681B66",
-            "keys": "alt+8"
-        },
-        {
-            "id": "User.splitPane.864CD510",
-            "keys": "ctrl+\\"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+5"
-        },
-        {
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+shift+c"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+z"
-        },
-        {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+8"
-        },
-        {
-            "id": "User.paste",
-            "keys": "ctrl+shift+v"
-        },
-        {
-            "id": "User.movePane.AA286976",
-            "keys": "ctrl+shift+7"
-        },
-        {
-            "id": "User.movePane.371F23CF",
-            "keys": "ctrl+shift+6"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+7"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+4"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+minus"
-        },
-        {
-            "id": "User.closePane",
-            "keys": "ctrl+x"
-        },
-        {
-            "id": "User.switchToTab.75247157",
-            "keys": "alt+6"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+1"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+plus"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+9"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+2"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+3"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+6"
-        },
-        {
-            "id": "User.moveFocus.2A0DA8E0",
-            "keys": "ctrl+h"
-        },
-        {
-            "id": "Terminal.SplitPaneDown",
-            "keys": "ctrl+enter"
-        },
-        {
-            "id": "User.movePane.B01DF59A",
-            "keys": "ctrl+shift+3"
-        },
-        {
-            "id": "Terminal.SplitPaneDown",
-            "keys": "ctrl+minus"
-        },
-        {
-            "id": "User.movePane.1330677A",
-            "keys": "ctrl+shift+9"
-        },
-        {
-            "id": "User.swapPane.87C324ED",
-            "keys": "ctrl+shift+l"
-        },
-        {
-            "id": "User.switchToTab.9CB19EED",
-            "keys": "alt+9"
-        },
-        {
-            "id": "User.movePane.A012FE32",
-            "keys": "ctrl+shift+8"
-        },
-        {
-            "id": "User.switchToTab.787314EB",
-            "keys": "alt+7"
-        },
-        {
-            "id": "User.moveFocus.87C324ED",
-            "keys": "ctrl+l"
-        },
-        {
-            "id": "User.switchToTab.F747588A",
-            "keys": "alt+5"
-        },
-        {
-            "id": "User.movePane.90CDC17E",
-            "keys": "ctrl+shift+1"
-        },
-        {
-            "id": "User.movePane.40FB39DA",
-            "keys": "ctrl+shift+4"
-        },
-        {
-            "id": "User.moveFocus.6CD791B",
-            "keys": "ctrl+k"
-        },
-        {
-            "id": "User.movePane.BE165E24",
-            "keys": "ctrl+shift+5"
-        },
-        {
-            "id": "User.movePane.EA17F97A",
-            "keys": "ctrl+shift+2"
-        },
-        {
-            "id": "User.switchToTab.D3F0B923",
-            "keys": "alt+1"
-        },
-        {
-            "id": "User.switchToTab.2A0DA8E0",
-            "keys": "alt+2"
-        },
-        {
-            "id": "User.switchToTab.87C324ED",
-            "keys": "alt+3"
-        },
-        {
-            "id": "User.switchToTab.6CD791B",
-            "keys": "alt+4"
-        }
-    ],
-    "newTabMenu": 
-    [
-        {
-            "type": "remainingProfiles"
-        }
-    ],
-    "profiles": 
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "actions": [
     {
-        "defaults": 
-        {
-            "backgroundImage": null,
-            "backgroundImageOpacity": 0.45,
-            "colorScheme": "Mild",
-            "experimental.retroTerminalEffect": false,
-            "font": 
-            {
-                "face": "FiraCode Nerd Font",
-                "size": 9
-            },
-            "opacity": 100,
-            "useAcrylic": false
-        },
-        "list": 
-        [
-            {
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "hidden": false,
-                "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore"
-            },
-            {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "Command Prompt"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            }
-        ]
+      "command": "toggleFocusMode",
+      "id": "User.toggleFocusMode"
     },
-    "schemes": 
-    [
-        {
-            "background": "#000000",
-            "black": "#101014",
-            "blue": "#1688F0",
-            "brightBlack": "#646478",
-            "brightBlue": "#14ADFA",
-            "brightCyan": "#58E3FF",
-            "brightGreen": "#16C60C",
-            "brightPurple": "#FA3EFF",
-            "brightRed": "#FF0230",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#FFC707",
-            "cursorColor": "#1688F0",
-            "cyan": "#21C6DD",
-            "foreground": "#FFFFFF",
-            "green": "#14D214",
-            "name": "Mild",
-            "purple": "#A117ED",
-            "red": "#ED001F",
-            "selectionBackground": "#1688F0",
-            "white": "#F5F5F5",
-            "yellow": "#FFF003"
-        },
-        {
-            "background": "#000000",
-            "black": "#000000",
-            "blue": "#1688F0",
-            "brightBlack": "#555753",
-            "brightBlue": "#1886CF",
-            "brightCyan": "#13C4E2",
-            "brightGreen": "#83D631",
-            "brightPurple": "#EB3AF0",
-            "brightRed": "#FF1807",
-            "brightWhite": "#EEEEEC",
-            "brightYellow": "#FCB53B",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#0CD6CD",
-            "foreground": "#D3D7CF",
-            "green": "#2EEB55",
-            "name": "Tango Dark (modified)",
-            "purple": "#A447E3",
-            "red": "#EB0841",
-            "selectionBackground": "#FFFFFF",
-            "white": "#D3D7CF",
-            "yellow": "#F2D906"
-        }
-    ],
-    "showTabsInTitlebar": true,
-    "tabWidthMode": "equal",
-    "themes": [],
-    "useAcrylicInTabRow": true
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "auto",
+        "splitMode": "duplicate"
+      },
+      "id": "User.splitPane.A6751878"
+    },
+    {
+      "command": {
+        "action": "swapPane",
+        "direction": "up"
+      },
+      "id": "User.swapPane.6CD791B"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "down"
+      },
+      "id": "User.moveFocus.F747588A"
+    },
+    {
+      "command": {
+        "action": "swapPane",
+        "direction": "left"
+      },
+      "id": "User.swapPane.2A0DA8E0"
+    },
+    {
+      "command": {
+        "action": "swapPane",
+        "direction": "down"
+      },
+      "id": "User.swapPane.F747588A"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "right"
+      },
+      "id": "User.splitPane.864CD510"
+    },
+    {
+      "command": {
+        "action": "quakeMode"
+      },
+      "id": "User.quakeMode.F1E129A4"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "right"
+      },
+      "id": "User.moveFocus.87C324ED"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 4
+      },
+      "id": "User.movePane.BE165E24"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 0
+      },
+      "id": "User.switchToTab.D3F0B923"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 1
+      },
+      "id": "User.switchToTab.2A0DA8E0"
+    },
+    {
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "id": "User.copy.644BA8F2"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 5
+      },
+      "id": "User.movePane.371F23CF"
+    },
+    {
+      "command": "find",
+      "id": "User.find"
+    },
+    {
+      "command": "paste",
+      "id": "User.paste"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 6
+      },
+      "id": "User.movePane.AA286976"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 7
+      },
+      "id": "User.switchToTab.D7681B66"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 5
+      },
+      "id": "User.switchToTab.75247157"
+    },
+    {
+      "command": {
+        "action": "swapPane",
+        "direction": "right"
+      },
+      "id": "User.swapPane.87C324ED"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 7
+      },
+      "id": "User.movePane.A012FE32"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 6
+      },
+      "id": "User.switchToTab.787314EB"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 4
+      },
+      "id": "User.switchToTab.F747588A"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 0
+      },
+      "id": "User.movePane.90CDC17E"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 3
+      },
+      "id": "User.movePane.40FB39DA"
+    },
+    {
+      "command": "closePane",
+      "id": "User.closePane"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 8
+      },
+      "id": "User.movePane.1330677A"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 2
+      },
+      "id": "User.movePane.B01DF59A"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "up"
+      },
+      "id": "User.moveFocus.6CD791B"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "left"
+      },
+      "id": "User.moveFocus.2A0DA8E0"
+    },
+    {
+      "command": {
+        "action": "movePane",
+        "index": 1
+      },
+      "id": "User.movePane.EA17F97A"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 2
+      },
+      "id": "User.switchToTab.87C324ED"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 3
+      },
+      "id": "User.switchToTab.6CD791B"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 4294967295
+      },
+      "id": "User.switchToTab.9CB19EED"
+    }
+  ],
+  "alwaysShowTabs": true,
+  "copyFormatting": "none",
+  "copyOnSelect": true,
+  "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+  "initialCols": 160,
+  "initialRows": 50,
+  "keybindings": [
+    {
+      "id": "User.swapPane.6CD791B",
+      "keys": "ctrl+shift+k"
+    },
+    {
+      "id": "User.splitPane.A6751878",
+      "keys": "ctrl+shift+d"
+    },
+    {
+      "id": "User.quakeMode.F1E129A4",
+      "keys": "f12"
+    },
+    {
+      "id": "User.toggleFocusMode",
+      "keys": "ctrl+z"
+    },
+    {
+      "id": "User.swapPane.2A0DA8E0",
+      "keys": "ctrl+shift+h"
+    },
+    {
+      "id": "User.moveFocus.F747588A",
+      "keys": "ctrl+j"
+    },
+    {
+      "id": "User.swapPane.F747588A",
+      "keys": "ctrl+shift+j"
+    },
+    {
+      "id": "User.switchToTab.D7681B66",
+      "keys": "alt+8"
+    },
+    {
+      "id": "User.splitPane.864CD510",
+      "keys": "ctrl+\\"
+    },
+    {
+      "id": "User.copy.644BA8F2",
+      "keys": "ctrl+shift+c"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+5"
+    },
+    {
+      "id": "User.find",
+      "keys": "ctrl+shift+f"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+z"
+    },
+    {
+      "id": "User.paste",
+      "keys": "ctrl+shift+v"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+8"
+    },
+    {
+      "id": "User.movePane.AA286976",
+      "keys": "ctrl+shift+7"
+    },
+    {
+      "id": "User.movePane.371F23CF",
+      "keys": "ctrl+shift+6"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+minus"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+4"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+7"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+plus"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+1"
+    },
+    {
+      "id": "User.switchToTab.75247157",
+      "keys": "alt+6"
+    },
+    {
+      "id": "User.closePane",
+      "keys": "ctrl+x"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+2"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+9"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+3"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+6"
+    },
+    {
+      "id": "Terminal.SplitPaneDown",
+      "keys": "ctrl+enter"
+    },
+    {
+      "id": "User.moveFocus.2A0DA8E0",
+      "keys": "ctrl+h"
+    },
+    {
+      "id": "Terminal.SplitPaneDown",
+      "keys": "ctrl+minus"
+    },
+    {
+      "id": "User.movePane.B01DF59A",
+      "keys": "ctrl+shift+3"
+    },
+    {
+      "id": "User.swapPane.87C324ED",
+      "keys": "ctrl+shift+l"
+    },
+    {
+      "id": "User.movePane.1330677A",
+      "keys": "ctrl+shift+9"
+    },
+    {
+      "id": "User.movePane.A012FE32",
+      "keys": "ctrl+shift+8"
+    },
+    {
+      "id": "User.switchToTab.9CB19EED",
+      "keys": "alt+9"
+    },
+    {
+      "id": "User.switchToTab.787314EB",
+      "keys": "alt+7"
+    },
+    {
+      "id": "User.moveFocus.87C324ED",
+      "keys": "ctrl+l"
+    },
+    {
+      "id": "User.switchToTab.F747588A",
+      "keys": "alt+5"
+    },
+    {
+      "id": "User.movePane.90CDC17E",
+      "keys": "ctrl+shift+1"
+    },
+    {
+      "id": "User.movePane.40FB39DA",
+      "keys": "ctrl+shift+4"
+    },
+    {
+      "id": "User.moveFocus.6CD791B",
+      "keys": "ctrl+k"
+    },
+    {
+      "id": "User.movePane.EA17F97A",
+      "keys": "ctrl+shift+2"
+    },
+    {
+      "id": "User.movePane.BE165E24",
+      "keys": "ctrl+shift+5"
+    },
+    {
+      "id": "User.switchToTab.D3F0B923",
+      "keys": "alt+1"
+    },
+    {
+      "id": "User.switchToTab.2A0DA8E0",
+      "keys": "alt+2"
+    },
+    {
+      "id": "User.switchToTab.87C324ED",
+      "keys": "alt+3"
+    },
+    {
+      "id": "User.switchToTab.6CD791B",
+      "keys": "alt+4"
+    }
+  ],
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
+  "profiles": {
+    "defaults": {
+      "backgroundImage": null,
+      "backgroundImageOpacity": 0.45,
+      "colorScheme": "Mild",
+      "experimental.retroTerminalEffect": false,
+      "font": {
+        "face": "FiraCode Nerd Font",
+        "size": 9
+      },
+      "opacity": 100,
+      "useAcrylic": false
+    },
+    "list": [
+      {
+        "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+        "hidden": false,
+        "name": "PowerShell",
+        "source": "Windows.Terminal.PowershellCore"
+      },
+      {
+        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      },
+      {
+        "commandline": "%SystemRoot%\\System32\\cmd.exe",
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "Command Prompt"
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": false,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      },
+      {
+        "guid": "{d9e4a148-7725-502a-b4cb-1ea76b265976}",
+        "hidden": false,
+        "name": "archlinux",
+        "source": "Microsoft.WSL"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "background": "#000000",
+      "black": "#101014",
+      "blue": "#1688F0",
+      "brightBlack": "#646478",
+      "brightBlue": "#14ADFA",
+      "brightCyan": "#58E3FF",
+      "brightGreen": "#16C60C",
+      "brightPurple": "#FA3EFF",
+      "brightRed": "#FF0230",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#FFC707",
+      "cursorColor": "#1688F0",
+      "cyan": "#21C6DD",
+      "foreground": "#FFFFFF",
+      "green": "#14D214",
+      "name": "Mild",
+      "purple": "#A117ED",
+      "red": "#ED001F",
+      "selectionBackground": "#1688F0",
+      "white": "#F5F5F5",
+      "yellow": "#FFF003"
+    },
+    {
+      "background": "#000000",
+      "black": "#000000",
+      "blue": "#1688F0",
+      "brightBlack": "#555753",
+      "brightBlue": "#1886CF",
+      "brightCyan": "#13C4E2",
+      "brightGreen": "#83D631",
+      "brightPurple": "#EB3AF0",
+      "brightRed": "#FF1807",
+      "brightWhite": "#EEEEEC",
+      "brightYellow": "#FCB53B",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#0CD6CD",
+      "foreground": "#D3D7CF",
+      "green": "#2EEB55",
+      "name": "Tango Dark (modified)",
+      "purple": "#A447E3",
+      "red": "#EB0841",
+      "selectionBackground": "#FFFFFF",
+      "white": "#D3D7CF",
+      "yellow": "#F2D906"
+    }
+  ],
+  "showTabsInTitlebar": true,
+  "tabWidthMode": "equal",
+  "themes": [],
+  "useAcrylicInTabRow": true
 }
