@@ -1,7 +1,7 @@
 # Scoop Packages
 scoop config aria2-warning-enabled false
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make msys2 openssh wget curl nodejs python powertoys winget oh-my-posh 7zip gzip komorebi whkd
+scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make msys2 openssh wget curl nodejs python powertoys winget oh-my-posh aria2 7zip gzip glazewm zebar
 
 scoop update *
 
@@ -34,9 +34,8 @@ Update-Module
 Move-Item -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Destination "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState.bak" -Force
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Target "$PWD\config\Terminal" -Force
 
-# Komorebi
-New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\.config\komorebi" -Target "$PWD\config\komorebi" -Force
-New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\.config\whkdrc" -Target "$PWD\config\whkdrc" -Force
+# GlazeWM and Zebar
+New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\.glzr" -Target "$PWD\config\glzr" -Force
 
 # lazygit
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target "$PWD\dots2k\config\lazygit" -Force
