@@ -37,12 +37,11 @@ It makes developing on Windows much more pleasant for CLI lovers.
 ## ✨ Features
 
 - Can set up a complete dev environment within minutes
-- Full featured CLI dev environment on Windows (natively, without WSL!)
+- Full featured native CLI dev environment on Powershell (no WSL!)
+- Tiling window management with [glazewm](https://github.com/glzr-io/glazewm)
+- Statusbar support with [zebar](https://github.com/glzr-io/zebar)
 - Shiny and extensible prompt with [oh-my-posh](https://ohmyposh.dev/) and [posh2k](https://github.com/2kabhishek/posh2k)
 - Powerful personalized editing with [nvim2k](https://github.com/2kabhishek/nvim2k)
-- Tiling window management with [komorebi](https://github.com/LGUG2Z/komorebi) and [whkd](https://github.com/LGUG2Z/whkd)
-- Modern and intuitive keybindings for Windows inspired by [tmux-tilit](https://github.com/2kabhishek/tmux-tilit)
-- Statusbar support with [yasb](https://github.com/denBot/yasb)
 - More!!
 
 ## Setup
@@ -84,6 +83,8 @@ This will install all necessary packages, modules and setup symlinks for you.
 
 If setup runs into errors, try running the command in admin mode again or run the command from `setup.ps1` manually.
 
+After setup is done, run `glazewm.exe` to start the GlazeWM - also right click on it on your system tray and enable 'Run on system startup'.
+
 ### 💻 Usage
 
 #### Windows Terminal
@@ -91,6 +92,8 @@ If setup runs into errors, try running the command in admin mode again or run th
 If you are having issues starting up Windows Terminal after the setup, you can try removing the folder:
 
 `C:\Users\<your-user-name>\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState`
+
+Also try re-installing the Terminal, adding the symlinks and then doing a restart.
 
 #### Git
 
@@ -134,14 +137,11 @@ I also use the PowerToys Run launcher mapped to <kbd>Win</kbd> + <kbd>Space</kbd
 
 #### Tiling
 
-Run `StartTiling`/`StopTiling` on a Powershell prompt to control tiling.
+GlazeWM configs [here](https://github.com/2KAbhishek/win2k/tree/main/config/glzr/glazewm)
 
 #### Status Bar
 
-You can use yasb to show a status bar, similar to polybar.
-Follow instructions on [yasb](https://github.com/denBot/yasb) to set up.
-
-My yasb configs are [here](https://github.com/2KAbhishek/win2k/tree/main/config/yasb)
+Zebar configs [here](https://github.com/2KAbhishek/win2k/tree/main/config/glzr/zebar)
 
 #### Fonts
 
