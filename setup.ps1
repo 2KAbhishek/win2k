@@ -41,9 +41,6 @@ New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\.config\whkdrc" -Target "$P
 # lazygit
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target "$PWD\dots2k\config\lazygit" -Force
 
-# Startup
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\startup.cmd" -Target "$PWD\config\startup.cmd" -Force
-
 # Config
 $toolPaths = @(
     "bat", "bundle", "cmus", "delta", "gitignore.global", "htop",
