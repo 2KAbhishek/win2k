@@ -1,7 +1,7 @@
 # Scoop Packages
 scoop config aria2-warning-enabled false
 scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
-scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make msys2 openssh wget curl nodejs python powertoys winget oh-my-posh aria2 7zip gzip glazewm zebar gcc
+scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make msys2 openssh wget curl nodejs python powertoys winget oh-my-posh aria2 7zip gzip glazewm zebar gcc clipboard
 
 scoop update *
 
