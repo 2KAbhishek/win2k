@@ -161,13 +161,13 @@ binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: 'resize'
     keybindings:
-      - commands: ['resize --width -2%']
+      - commands: ['resize --width -10%']
         bindings: ['h', 'left']
-      - commands: ['resize --width +2%']
+      - commands: ['resize --width +10%']
         bindings: ['l', 'right']
-      - commands: ['resize --height +2%']
+      - commands: ['resize --height +10%']
         bindings: ['k', 'up']
-      - commands: ['resize --height -2%']
+      - commands: ['resize --height -10%']
         bindings: ['j', 'down']
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
@@ -195,13 +195,13 @@ keybindings:
     bindings: ['alt+shift+j', 'alt+shift+down']
 
   # Resize focused window by a percentage or pixel amount.
-  - commands: ['resize --width -2%']
+  - commands: ['resize --width -10%']
     bindings: ['alt+u']
-  - commands: ['resize --width +2%']
+  - commands: ['resize --width +10%']
     bindings: ['alt+p']
-  - commands: ['resize --height +2%']
+  - commands: ['resize --height +10%']
     bindings: ['alt+o']
-  - commands: ['resize --height -2%']
+  - commands: ['resize --height -10%']
     bindings: ['alt+i']
 
   # As an alternative to the resize keybindings above, resize mode enables
