@@ -28,10 +28,10 @@ New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'PowerShell') -Targe
 # posh2k
 New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'posh2k') -Target (Join-Path $repoRoot 'config\posh2k') -Force
 
-Install-Module -Name Terminal-Icons -Repository PSGallery -Force -AllowClobber
-Install-Module -Name z -Force -AllowClobber
-Install-Module -Name PSReadLine -Force -SkipPublisherCheck -AllowClobber
-Install-Module -Name PSFzf -Force -AllowClobber
+Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
+Install-Module -Name z -Scope CurrentUser -Force -AllowClobber
+Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber
+Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
 
 Update-Module
 
