@@ -294,12 +294,12 @@
             "keys": "ctrl+shift+h"
         },
         {
-            "id": "User.moveFocus.F747588A",
-            "keys": "ctrl+j"
-        },
-        {
             "id": "User.swapPane.F747588A",
             "keys": "ctrl+shift+j"
+        },
+        {
+            "id": "User.moveFocus.F747588A",
+            "keys": "ctrl+down"
         },
         {
             "id": "User.splitPane.864CD510",
@@ -354,12 +354,12 @@
             "keys": "ctrl+shift+minus"
         },
         {
-            "id": "User.switchToTab.75247157",
-            "keys": "ctrl+6"
+            "id": "User.moveFocus.6CD791B",
+            "keys": "ctrl+up"
         },
         {
-            "id": "User.closePane",
-            "keys": "ctrl+x"
+            "id": "User.switchToTab.75247157",
+            "keys": "ctrl+6"
         },
         {
             "id": null,
@@ -390,10 +390,6 @@
             "keys": "ctrl+alt+6"
         },
         {
-            "id": "User.moveFocus.2A0DA8E0",
-            "keys": "ctrl+h"
-        },
-        {
             "id": "Terminal.SplitPaneDown",
             "keys": "ctrl+enter"
         },
@@ -418,12 +414,12 @@
             "keys": "ctrl+shift+l"
         },
         {
-            "id": "User.movePane.A012FE32",
-            "keys": "ctrl+shift+8"
+            "id": "User.moveFocus.87C324ED",
+            "keys": "ctrl+right"
         },
         {
-            "id": "User.moveFocus.87C324ED",
-            "keys": "ctrl+l"
+            "id": "User.movePane.A012FE32",
+            "keys": "ctrl+shift+8"
         },
         {
             "id": "User.switchToTab.D3F0B923",
@@ -434,12 +430,12 @@
             "keys": "ctrl+shift+1"
         },
         {
-            "id": "User.movePane.40FB39DA",
-            "keys": "ctrl+shift+4"
+            "id": null,
+            "keys": "alt+down"
         },
         {
-            "id": "User.moveFocus.6CD791B",
-            "keys": "ctrl+k"
+            "id": "User.movePane.40FB39DA",
+            "keys": "ctrl+shift+4"
         },
         {
             "id": "User.movePane.BE165E24",
@@ -468,6 +464,30 @@
         {
             "id": null,
             "keys": "alt+enter"
+        },
+        {
+            "id": null,
+            "keys": "alt+left"
+        },
+        {
+            "id": null,
+            "keys": "alt+up"
+        },
+        {
+            "id": "User.moveFocus.2A0DA8E0",
+            "keys": "ctrl+left"
+        },
+        {
+            "id": null,
+            "keys": "alt+right"
+        },
+        {
+            "id": "Terminal.MoveFocusPrevious",
+            "keys": "ctrl+`"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+left"
         }
     ],
     "newTabMenu": 
