@@ -14,14 +14,16 @@ oh-my-posh font install FiraCode
 # Install neovim helper
 pip install neovim
 
+$documents = [Environment]::GetFolderPath('MyDocuments')
+
 # PowerShell
-New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\WindowsPowerShell" -Target "$PWD\config\PowerShell" -Force
+New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'WindowsPowerShell') -Target "$PWD\config\PowerShell" -Force
 
 # PowerShell 7
-New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\PowerShell" -Target "$PWD\config\PowerShell" -Force
+New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'PowerShell') -Target "$PWD\config\PowerShell" -Force
 
 # posh2k
-New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\Documents\posh2k" -Target "$PWD\config\posh2k" -Force
+New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'posh2k') -Target "$PWD\config\posh2k" -Force
 
 Install-Module -Name Terminal-Icons -Repository PSGallery -Force -AllowClobber
 Install-Module -Name z -Force -AllowClobber
@@ -35,7 +37,7 @@ Move-Item -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8b
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Target "$PWD\config\Terminal" -Force
 
 # GlazeWM and Zebar
-New-Item -ItemType SymbolicLink -Path "$env:HOMEPATH\.glzr" -Target "$PWD\config\glzr" -Force
+New-Item -ItemType SymbolicLink -Path (Join-Path $env:USERPROFILE '.glzr') -Target "$PWD\config\glzr" -Force
 
 # lazygit
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target "$PWD\dots2k\config\lazygit" -Force
