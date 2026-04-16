@@ -5,7 +5,10 @@ $repoRoot = $PSScriptRoot
 $documents = [Environment]::GetFolderPath('MyDocuments')
 
 scoop config aria2-warning-enabled false
-scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
+$devToolsBucket = 'anderlli0053_DEV-tools'
+if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBucket' bucket" -Quiet)) {
+    scoop bucket add $devToolsBucket https://github.com/anderlli0053/DEV-tools
+}
 scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make msys2 openssh wget curl nodejs python powertoys winget oh-my-posh aria2 7zip gzip glazewm zebar gcc win32yank
 
 scoop update *
@@ -36,8 +39,20 @@ Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
 Update-Module
 
 # Terminal
-Move-Item -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Destination "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState.bak" -Force
-New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Target (Join-Path $repoRoot 'config\Terminal') -Force
+$wtLocalState = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
+$wtLocalStateBak = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState.bak"
+$wtConfigTarget = Join-Path $repoRoot 'config\Terminal'
+$localStateIsLink = $false
+if (Test-Path -LiteralPath $wtLocalState) {
+    $fsItem = Get-Item -LiteralPath $wtLocalState -Force
+    $localStateIsLink = [bool]($fsItem.Attributes -band [System.IO.FileAttributes]::ReparsePoint)
+}
+if (-not $localStateIsLink) {
+    if (Test-Path -LiteralPath $wtLocalState) {
+        Move-Item -LiteralPath $wtLocalState -Destination $wtLocalStateBak -Force
+    }
+    New-Item -ItemType SymbolicLink -Path $wtLocalState -Target $wtConfigTarget -Force
+}
 
 # GlazeWM and Zebar
 New-Item -ItemType SymbolicLink -Path (Join-Path $env:USERPROFILE '.glzr') -Target (Join-Path $repoRoot 'config\glzr') -Force
