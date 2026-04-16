@@ -89,11 +89,7 @@ After setup is done, run `glazewm.exe` to start the GlazeWM - also right click o
 
 #### Windows Terminal
 
-If you are having issues starting up Windows Terminal after the setup, you can try removing the folder:
-
-`C:\Users\<your-user-name>\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState`
-
-Also try re-installing the Terminal, adding the symlinks and then doing a restart.
+If you have windows terminal installed from the store, please uninstall it, this setup uses the `windows-terminal` package from scoop.
 
 #### Git
 
