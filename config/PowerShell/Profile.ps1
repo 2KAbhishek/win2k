@@ -70,8 +70,14 @@ Import-Module Terminal-Icons
 
 # PSReadLine
 Set-PSReadLineOption -BellStyle None
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
+$psReadLineVt = $false
+if ($Host.UI.PSObject.Properties.Match('SupportsVirtualTerminal').Count -gt 0) {
+    $psReadLineVt = $Host.UI.SupportsVirtualTerminal
+}
+if ([Environment]::UserInteractive -and $psReadLineVt) {
+    Set-PSReadLineOption -PredictionSource History
+    Set-PSReadLineOption -PredictionViewStyle ListView
+}
 
 # PSFzf
 Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
