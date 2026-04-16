@@ -53,7 +53,8 @@ Bash-Alias la "ls"
 Bash-Alias ll "ls"
 Bash-Alias me "nvim README.md"
 Bash-Alias p2k "nvim $env:HOMEPATH\Documents\posh2k\posh2k.omp.json"
-Bash-Alias pwshrc "nvim $env:HOMEPATH\Documents\PowerShell\Profile.ps1"
+Bash-Alias pwshc "nvim $env:HOMEPATH\Documents\PowerShell\Profile.ps1"
+Bash-Alias loca "nvim $env:USERPROFILE\local.ps1"
 Bash-Alias q "exit"
 Bash-Alias sci "scoop install @args"
 Bash-Alias scr "scoop uninstall @args"
@@ -81,4 +82,3 @@ if ([Environment]::UserInteractive -and $psReadLineVt) {
 
 # PSFzf
 Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
-
