@@ -1,3 +1,5 @@
+$ErrorActionPreference = 'Stop'
+
 # Scoop Packages
 $repoRoot = $PSScriptRoot
 $documents = [Environment]::GetFolderPath('MyDocuments')
