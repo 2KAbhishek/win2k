@@ -1,15 +1,17 @@
 $ErrorActionPreference = 'Stop'
 
-# Scoop Packages
 $repoRoot = $PSScriptRoot
 $documents = [Environment]::GetFolderPath('MyDocuments')
+$scoopRoot = if ($env:SCOOP) { $env:SCOOP } else { Join-Path $env:USERPROFILE 'scoop' }
 
 scoop config aria2-warning-enabled false
 $devToolsBucket = 'anderlli0053_DEV-tools'
 if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBucket' bucket" -Quiet)) {
     scoop bucket add $devToolsBucket https://github.com/anderlli0053/DEV-tools
 }
-scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make msys2 openssh wget curl nodejs python powertoys winget oh-my-posh aria2 7zip gzip glazewm zebar gcc win32yank
+
+# Scoop Packages
+scoop install neovim eza fd fzf ripgrep vifm bat less gh git lazygit delta make msys2 openssh wget curl nodejs python powertoys winget oh-my-posh aria2 7zip gzip glazewm zebar gcc win32yank windows-terminal
 
 scoop update *
 
@@ -39,20 +41,9 @@ Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
 Update-Module
 
 # Terminal
-$wtLocalState = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
-$wtLocalStateBak = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState.bak"
-$wtConfigTarget = Join-Path $repoRoot 'config\Terminal'
-$localStateIsLink = $false
-if (Test-Path -LiteralPath $wtLocalState) {
-    $fsItem = Get-Item -LiteralPath $wtLocalState -Force
-    $localStateIsLink = [bool]($fsItem.Attributes -band [System.IO.FileAttributes]::ReparsePoint)
-}
-if (-not $localStateIsLink) {
-    if (Test-Path -LiteralPath $wtLocalState) {
-        Move-Item -LiteralPath $wtLocalState -Destination $wtLocalStateBak -Force
-    }
-    New-Item -ItemType SymbolicLink -Path $wtLocalState -Target $wtConfigTarget -Force
-}
+$wtSettings = Join-Path $scoopRoot 'apps\windows-terminal\current\settings\settings.json'
+if (Test-Path -LiteralPath $wtSettings) { Remove-Item -LiteralPath $wtSettings -Force }
+New-Item -ItemType SymbolicLink -Path $wtSettings -Target (Join-Path $repoRoot 'config\Terminal\settings.json')
 
 # GlazeWM and Zebar
 New-Item -ItemType SymbolicLink -Path (Join-Path $env:USERPROFILE '.glzr') -Target (Join-Path $repoRoot 'config\glzr') -Force
