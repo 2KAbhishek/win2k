@@ -1,7 +1,9 @@
+# File for Current User, All Hosts - $PROFILE.CurrentUserAllHosts
+
 # Environment
 $env:EDITOR = "nvim"
 
-# File for Current User, All Hosts - $PROFILE.CurrentUserAllHosts
+# Aliases
 function Bash-Alias([string]$name, [string]$command) {
     try {
         $sb = [scriptblock]::Create($command)
@@ -10,7 +12,7 @@ function Bash-Alias([string]$name, [string]$command) {
         if ($cmd -match '^"') { $cmd = "& $cmd" }
         try { $sb = [scriptblock]::Create($cmd) } catch { return }
     }
-    New-Item "Function:\global:$name" -Value $sb -Force | Out-Null
+    Set-Item "Function:\global:$name" -Value $sb -Force
 }
 
 # Remove built-in aliases that conflict with git aliases
@@ -32,9 +34,6 @@ Bash-Alias scu "scoop update *"
 
 function RMF([string]$path) { Remove-Item -Recurse -Force $path }
 
-# Modules
-Import-Module Terminal-Icons
-
 # PSReadLine
 Set-PSReadLineOption -BellStyle None
 $psReadLineVt = $false
@@ -45,6 +44,3 @@ if ([Environment]::UserInteractive -and $psReadLineVt) {
     Set-PSReadLineOption -PredictionSource History
     Set-PSReadLineOption -PredictionViewStyle ListView
 }
-
-# PSFzf
-Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
