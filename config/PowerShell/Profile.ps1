@@ -1,3 +1,6 @@
+# Environment
+$env:EDITOR = "nvim"
+
 # File for Current User, All Hosts - $PROFILE.CurrentUserAllHosts
 function Bash-Alias([string]$name, [string]$command) {
     $escaped = $command.Replace("'", "''")
