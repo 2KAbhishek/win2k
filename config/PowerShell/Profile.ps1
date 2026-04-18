@@ -13,12 +13,10 @@ function Bash-Alias([string]$name, [string]$command) {
     New-Item "Function:\global:$name" -Value $sb -Force | Out-Null
 }
 
-# Get-Property
-Del alias:gp -Force
-# Get-Location
-Del alias:gl -Force
-# Get-Content
-Del alias:gc -Force
+# Remove built-in aliases that conflict with git aliases
+Del alias:gp -Force -ErrorAction SilentlyContinue
+Del alias:gl -Force -ErrorAction SilentlyContinue
+Del alias:gc -Force -ErrorAction SilentlyContinue
 
 . "$PSScriptRoot\aliases.gen.ps1"
 
