@@ -3,8 +3,13 @@ $env:EDITOR = "nvim"
 
 # File for Current User, All Hosts - $PROFILE.CurrentUserAllHosts
 function Bash-Alias([string]$name, [string]$command) {
-    $escaped = $command.Replace("'", "''")
-    $sb = [scriptblock]::Create("Invoke-Expression ('$escaped' -replace '@args',(`$args -join ' '))")
+    try {
+        $sb = [scriptblock]::Create($command)
+    } catch {
+        $cmd = $command -replace '\s*@args\s*$', '' -replace '\$(?!env:|\()(\w+)', '$env:$1'
+        if ($cmd -match '^"') { $cmd = "& $cmd" }
+        try { $sb = [scriptblock]::Create($cmd) } catch { return }
+    }
     New-Item "Function:\global:$name" -Value $sb -Force | Out-Null
 }
 
