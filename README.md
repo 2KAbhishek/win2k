@@ -160,6 +160,25 @@ scoop install winget
 
 You can also search for packages using `scoop search name`.
 
+#### Aliases
+
+Bash aliases from [dots2k](https://github.com/2kabhishek/dots2k) can be reused in PowerShell by generating a compatible file.
+
+```powershell
+# Run from the win2k root
+.\config\PowerShell\Generate-Aliases.ps1
+```
+
+This reads `dots2k/config/shell/aliases.sh` and generates `config/PowerShell/aliases.gen.ps1` with `Bash-Alias` calls that the PowerShell profile can dot-source.
+
+You can also pass custom paths:
+
+```powershell
+.\config\PowerShell\Generate-Aliases.ps1 -Source path\to\aliases.sh -Output path\to\output.ps1
+```
+
+Re-run the generator whenever you update `aliases.sh`.
+
 #### Other Configs
 
 For most tools I'm symlinking configs over from my main [dots2k](https://github.com/2kabhishek/dots2k).
