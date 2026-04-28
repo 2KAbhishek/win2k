@@ -2,6 +2,7 @@
 
 # Environment
 $env:EDITOR = "nvim"
+$env:CC = "gcc"
 
 # Aliases
 function Bash-Alias([string]$name, [string]$command) {
