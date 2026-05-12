@@ -49,7 +49,7 @@ New-Item -ItemType SymbolicLink -Path $wtSettings -Target (Join-Path $repoRoot '
 New-Item -ItemType SymbolicLink -Path (Join-Path $env:USERPROFILE '.glzr') -Target (Join-Path $repoRoot 'config\glzr') -Force
 
 # lazygit
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target (Join-Path $repoRoot 'dots2k\config\lazygit') -Force
+New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\lazygit" -Target (Join-Path $repoRoot 'dots2k\config\lazygit') -Force
 
 # Config
 $toolPaths = @(
