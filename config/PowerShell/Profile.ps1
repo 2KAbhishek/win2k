@@ -23,9 +23,10 @@ Del alias:gc -Force -ErrorAction SilentlyContinue
 
 . "$PSScriptRoot\aliases.gen.ps1"
 
-Bash-Alias p2k "nvim $env:HOMEPATH\Documents\posh2k\posh2k.omp.json"
-Bash-Alias pwshc "nvim $env:HOMEPATH\Documents\PowerShell\Profile.ps1"
-Bash-Alias loca "nvim $env:USERPROFILE\local.ps1"
+Bash-Alias p2k "$env:EDITOR $env:HOMEPATH\Documents\posh2k\posh2k.omp.json"
+Bash-Alias pwshc "$env:EDITOR $env:HOMEPATH\Documents\PowerShell\Profile.ps1"
+Bash-Alias vip "$env:EDITOR $env:LOCALAPPDATA\nvim\lua\plugins\list.lua"
+Bash-Alias loca "$env:EDITOR $env:USERPROFILE\local.ps1"
 Bash-Alias reload ". $PROFILE"
 
 Bash-Alias sci "scoop install @args"
