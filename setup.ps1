@@ -11,7 +11,7 @@ if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBuck
 }
 
 # Scoop Packages
-scoop install gow neovim eza fd fzf ripgrep vifm bat gh git lazygit delta openssh nodejs python powertoys winget oh-my-posh aria2 7zip glazewm zebar gcc win32yank windows-terminal
+scoop install gow neovim eza fd fzf ripgrep vifm bat gh git lazygit delta openssh nodejs python powertoys winget oh-my-posh aria2 7zip glazewm zebar gcc win32yank windows-terminal mise
 
 scoop update *
 
@@ -53,7 +53,7 @@ New-Item -ItemType SymbolicLink -Path "$env:APPDATA\lazygit" -Target (Join-Path 
 
 # Config
 $toolPaths = @(
-    "bat", "bundle", "cmus", "delta", "gitignore.global", "htop",
+    "bat", "bundle", "cmus", "delta", "gitignore.global", "htop", "mise"
     "alacritty", "kitty", "ranger", "shell", "topgrade.toml"
 )
 
