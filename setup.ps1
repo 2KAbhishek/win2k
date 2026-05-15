@@ -11,7 +11,7 @@ if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBuck
 }
 
 # Scoop Packages
-scoop install unxutils neovim eza fd fzf ripgrep vifm bat gh git lazygit delta openssh nodejs python powertoys winget oh-my-posh aria2 7zip glazewm zebar gcc win32yank windows-terminal
+scoop install gow neovim eza fd fzf ripgrep vifm bat gh git lazygit delta openssh nodejs python powertoys winget oh-my-posh aria2 7zip glazewm zebar gcc win32yank windows-terminal
 
 scoop update *
 
