@@ -6,12 +6,11 @@
         oh-my-posh init pwsh --config "$HOME/Documents/posh2k/posh2k.toml" | Invoke-Expression
         [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
     },
+    { (&mise activate pwsh) | Out-String | Invoke-Expression },
+    { Import-Module -Name Terminal-Icons -Global },
     {
         Import-Module -Name PSFzf -Global
         Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
-    },
-    {
-        Import-Module -Name Terminal-Icons -Global
     }
 )
 
