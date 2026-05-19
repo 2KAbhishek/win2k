@@ -4,17 +4,12 @@
     "actions": 
     [
         {
-            "command": "toggleFocusMode",
-            "id": "User.toggleFocusMode"
-        },
-        {
             "command": 
             {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
+                "action": "swapPane",
+                "direction": "up"
             },
-            "id": "User.splitPane.A6751878"
+            "id": "User.swapPane.6CD791B"
         },
         {
             "command": 
@@ -27,10 +22,15 @@
         {
             "command": 
             {
-                "action": "swapPane",
-                "direction": "up"
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
             },
-            "id": "User.swapPane.6CD791B"
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "toggleFocusMode",
+            "id": "User.toggleFocusMode"
         },
         {
             "command": 
@@ -43,18 +43,18 @@
         {
             "command": 
             {
-                "action": "swapPane",
-                "direction": "down"
-            },
-            "id": "User.swapPane.F747588A"
-        },
-        {
-            "command": 
-            {
                 "action": "splitPane",
                 "split": "right"
             },
             "id": "User.splitPane.864CD510"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "down"
+            },
+            "id": "User.swapPane.F747588A"
         },
         {
             "command": 
@@ -274,16 +274,16 @@
     "keybindings": 
     [
         {
-            "id": "User.splitPane.A6751878",
-            "keys": "ctrl+shift+d"
+            "id": "User.quakeMode.F1E129A4",
+            "keys": "f12"
         },
         {
             "id": "User.swapPane.6CD791B",
             "keys": "ctrl+shift+k"
         },
         {
-            "id": "User.quakeMode.F1E129A4",
-            "keys": "f12"
+            "id": "User.splitPane.A6751878",
+            "keys": "ctrl+shift+d"
         },
         {
             "id": "User.toggleFocusMode",
@@ -294,16 +294,16 @@
             "keys": "ctrl+shift+h"
         },
         {
-            "id": "User.swapPane.F747588A",
-            "keys": "ctrl+shift+j"
+            "id": "User.splitPane.864CD510",
+            "keys": "ctrl+\\"
         },
         {
             "id": "User.moveFocus.F747588A",
             "keys": "ctrl+down"
         },
         {
-            "id": "User.splitPane.864CD510",
-            "keys": "ctrl+\\"
+            "id": "User.swapPane.F747588A",
+            "keys": "ctrl+shift+j"
         },
         {
             "id": null,
@@ -531,18 +531,6 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{d9e4a148-7725-502a-b4cb-1ea76b265976}",
-                "hidden": false,
-                "name": "archlinux",
-                "source": "Microsoft.WSL"
             },
             {
                 "guid": "{69fda5b4-3db7-5380-9c19-53aff34f7297}",
