@@ -10,8 +10,8 @@ if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBuck
     scoop bucket add $devToolsBucket https://github.com/anderlli0053/DEV-tools
 }
 
-# Scoop Packages
-scoop install gow neovim eza fd fzf ripgrep vifm bat gh git lazygit delta openssh nodejs python powertoys winget oh-my-posh aria2 7zip glazewm zebar gcc win32yank windows-terminal mise
+# Scoop Packages (gow is first so that later package installs overwrite the shims)
+scoop install gow 7zip aria2 bat delta eza fd fzf gcc gh git glazewm jq lazygit mise neovim nodejs oh-my-posh openssh powertoys python ripgrep vifm winget windows-terminal win32yank zebar
 
 scoop update *
 
