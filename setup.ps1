@@ -52,20 +52,20 @@ New-Item -ItemType SymbolicLink -Path (Join-Path $env:USERPROFILE '.glzr') -Targ
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\lazygit" -Target (Join-Path $repoRoot 'dots2k\config\lazygit') -Force
 
 # Config
-$toolPaths = @(
-    "bat", "bundle", "cmus", "delta", "gitignore.global", "htop", "mise"
+$configPaths = @(
+    "bat", "bundle", "cmus", "git", "htop", "mise"
     "alacritty", "kitty", "ranger", "shell", "topgrade.toml"
 )
 
-foreach ($toolPath in $toolPaths) {
-    $source = Join-Path $repoRoot "dots2k\config\$toolPath"
-    $destination = Join-Path $env:USERPROFILE ".config\$toolPath"
+foreach ($configPath in $configPaths) {
+    $source = Join-Path $repoRoot "dots2k\config\$configPath"
+    $destination = Join-Path $env:USERPROFILE ".config\$configPath"
     New-Item -ItemType SymbolicLink -Path $destination -Target $source -Force
 }
 
 # Home
 $homePaths = @(
-    ".bashrc", ".dircolors", ".gitconfig", ".inputrc", ".luarc.json",
+    ".bashrc", ".dircolors", ".inputrc", ".luarc.json",
     ".prettierrc", ".pryrc", ".pystartup", ".stylua.toml", ".vimrc", ".Xresources"
 )
 
