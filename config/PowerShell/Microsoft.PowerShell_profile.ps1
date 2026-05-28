@@ -23,7 +23,7 @@ Register-EngineEvent -SourceIdentifier PowerShell.OnIdle -SupportEvent -Action {
     }
 }
 
-$localPwsh = Join-Path $env:USERPROFILE 'local.ps1'
+$localPwsh = Join-Path $PSScriptRoot 'local.ps1'
 if (Test-Path -LiteralPath $localPwsh) {
     . $localPwsh
 }

@@ -1,6 +1,7 @@
 # Excluded files
 # PowerShell
 config/PowerShell/Modules/
+config/PowerShell/local.ps1
 
 # Terminal
 config/Terminal/state.json
