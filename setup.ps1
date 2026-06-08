@@ -11,7 +11,7 @@ if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBuck
 }
 
 # Scoop Packages (gow is first so that later package installs overwrite the shims)
-scoop install gow 7zip aria2 bat delta eza fd fzf gcc gh git glazewm jq lazygit mise neovim nodejs oh-my-posh openssh powertoys python ripgrep vifm winget windows-terminal win32yank zebar
+scoop install gow 7zip aria2 bat delta eza fd fzf gcc gh git glazewm jq lazygit mise neovim nodejs oh-my-posh openssh powertoys python ripgrep tree-sitter vifm winget windows-terminal win32yank zebar
 
 scoop update *
 
