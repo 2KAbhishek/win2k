@@ -24,9 +24,9 @@ Del alias:gc -Force -ErrorAction SilentlyContinue
 
 . "$PSScriptRoot\aliases.gen.ps1"
 
-Bash-Alias p2k "$env:EDITOR $env:HOMEPATH\Documents\posh2k\posh2k.omp.json"
-Bash-Alias pwshc "$env:EDITOR $env:HOMEPATH\Documents\PowerShell\Profile.ps1"
+Bash-Alias p2k "$env:EDITOR $HOME\Documents\posh2k\posh2k.toml"
 Bash-Alias vip "$env:EDITOR $env:LOCALAPPDATA\nvim\lua\plugins\list.lua"
+Bash-Alias pwshc "$env:EDITOR $PSScriptRoot\Profile.ps1"
 Bash-Alias loca "$env:EDITOR $PSScriptRoot\local.ps1"
 Bash-Alias reload ". $PROFILE"
 
