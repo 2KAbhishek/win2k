@@ -53,8 +53,8 @@ New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\lazygit" -Target (Join-
 
 # Config
 $configPaths = @(
-    "bat", "bundle", "cmus", "git", "htop", "mise"
-    "alacritty", "kitty", "ranger", "shell", "topgrade.toml"
+    "bat", "bundle", "cmus", "git", "htop", "mise", "alacritty"
+    "kitty", "ranger", ".ripgreprc", "shell", "topgrade.toml"
 )
 
 foreach ($configPath in $configPaths) {

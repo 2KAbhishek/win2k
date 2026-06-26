@@ -3,6 +3,7 @@
 # Environment
 $env:EDITOR = "nvim"
 $env:CC = "gcc"
+$env:RIPGREP_CONFIG_PATH="~/.config/.ripgreprc"
 
 # Aliases
 function Bash-Alias([string]$name, [string]$command) {
