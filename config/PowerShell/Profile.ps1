@@ -26,6 +26,11 @@ Del alias:gc -Force -ErrorAction SilentlyContinue
 
 . "$PSScriptRoot\aliases.gen.ps1"
 
+# Clipboard & Path Helpers
+function ccp { if ($args) { $args -join ' ' | Set-Clipboard } else { $input | Set-Clipboard } }
+function cpa { Get-Clipboard }
+function pwdc { "$pwd" | Set-Clipboard }
+
 Bash-Alias p2k "$env:EDITOR $HOME\Documents\posh2k\posh2k.toml"
 Bash-Alias vip "$env:EDITOR $env:LOCALAPPDATA\nvim\lua\plugins\list.lua"
 Bash-Alias pwshc "$env:EDITOR $PSScriptRoot\Profile.ps1"
