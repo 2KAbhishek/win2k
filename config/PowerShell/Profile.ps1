@@ -3,7 +3,9 @@
 # Environment
 $env:EDITOR = "nvim"
 $env:CC = "gcc"
-$env:RIPGREP_CONFIG_PATH="$HOME\.config\.ripgreprc"
+$env:RIPGREP_CONFIG_PATH = "$HOME\.config\.ripgreprc"
+$env:INPUTRC = "$HOME\.config\readline\inputrc"
+$env:PYTHONSTARTUP = "$HOME\.config\python\startup.py"
 
 # Aliases
 function Bash-Alias([string]$name, [string]$command) {

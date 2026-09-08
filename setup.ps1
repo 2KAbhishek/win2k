@@ -1,30 +1,45 @@
+[CmdletBinding()]
+param(
+    [Alias('s')]
+    [switch]$Symlinks
+)
+
 $ErrorActionPreference = 'Stop'
 
 $repoRoot = $PSScriptRoot
 $documents = [Environment]::GetFolderPath('MyDocuments')
 $scoopRoot = if ($env:SCOOP) { $env:SCOOP } else { Join-Path $env:USERPROFILE 'scoop' }
 
-scoop config aria2-warning-enabled false
-$devToolsBucket = 'anderlli0053_DEV-tools'
-if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBucket' bucket" -Quiet)) {
-    scoop bucket add $devToolsBucket https://github.com/anderlli0053/DEV-tools
+if (-not $Symlinks) {
+    scoop config aria2-warning-enabled false
+    $devToolsBucket = 'anderlli0053_DEV-tools'
+    if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBucket' bucket" -Quiet)) {
+        scoop bucket add $devToolsBucket https://github.com/anderlli0053/DEV-tools
+    }
+
+    # Scoop Packages (gow is first so that later package installs overwrite the shims)
+    scoop install gow 7zip aria2 bat delta eza fd fzf gcc gh git glazewm jq lazygit mise neovim nodejs oh-my-posh openssh powertoys python ripgrep tree-sitter vifm winget windows-terminal win32yank zebar
+
+    scoop update *
+
+    # Fetch submodules
+    git -C $repoRoot submodule update --init --recursive
+
+    # Install Font
+    oh-my-posh font install FiraCode
+
+    # Install neovim helper
+    pip install neovim
+
+    # PowerShell
+    Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
+    Install-Module -Name z -Scope CurrentUser -Force -AllowClobber
+    Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber
+    Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
+
+    Update-Module
 }
 
-# Scoop Packages (gow is first so that later package installs overwrite the shims)
-scoop install gow 7zip aria2 bat delta eza fd fzf gcc gh git glazewm jq lazygit mise neovim nodejs oh-my-posh openssh powertoys python ripgrep tree-sitter vifm winget windows-terminal win32yank zebar
-
-scoop update *
-
-# Fetch submodules
-git -C $repoRoot submodule update --init --recursive
-
-# Install Font
-oh-my-posh font install FiraCode
-
-# Install neovim helper
-pip install neovim
-
-# PowerShell
 New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'WindowsPowerShell') -Target (Join-Path $repoRoot 'config\PowerShell') -Force
 
 # PowerShell 7
@@ -32,13 +47,6 @@ New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'PowerShell') -Targe
 
 # posh2k
 New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'posh2k') -Target (Join-Path $repoRoot 'config\posh2k') -Force
-
-Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
-Install-Module -Name z -Scope CurrentUser -Force -AllowClobber
-Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber
-Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
-
-Update-Module
 
 # Terminal
 $wtSettings = Join-Path $scoopRoot 'apps\windows-terminal\current\settings\settings.json'
@@ -53,8 +61,9 @@ New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\lazygit" -Target (Join-
 
 # Config
 $configPaths = @(
-    "bat", "bundle", "cmus", "git", "htop", "mise", "alacritty"
-    "kitty", "ranger", ".ripgreprc", "shell", "topgrade.toml"
+    "alacritty", "bat", "bundle", "cmus", "git", "htop", "kitty",
+    "mise", "python", "ranger", "readline", ".ripgreprc", "shell",
+    "topgrade.toml", "vim"
 )
 
 foreach ($configPath in $configPaths) {
@@ -65,8 +74,8 @@ foreach ($configPath in $configPaths) {
 
 # Home
 $homePaths = @(
-    ".bashrc", ".dircolors", ".inputrc", ".luarc.json",
-    ".prettierrc", ".pryrc", ".pystartup", ".stylua.toml", ".vimrc", ".Xresources"
+    ".bashrc", ".dircolors", ".luarc.json", ".prettierrc",
+    ".pryrc", ".stylua.toml", ".Xresources"
 )
 
 foreach ($homePath in $homePaths) {
