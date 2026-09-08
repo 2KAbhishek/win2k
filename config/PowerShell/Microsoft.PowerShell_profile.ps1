@@ -1,10 +1,16 @@
 # File for Current User, Current Host - $PROFILE.CurrentUserCurrentHost
 
+# Load fast and lightweight custom prompt as a fallback/default
+. "$PSScriptRoot\Prompt.ps1"
+
 # Async init queue: defers heavy module loads until after the prompt appears
 [System.Collections.Queue]$global:__initQueue = @(
     {
-        oh-my-posh init pwsh --config "$HOME/Documents/posh2k/posh2k.toml" | Invoke-Expression
-        [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
+        # Default is to use Oh My Posh, unless $global:UseLightPrompt is set to $true in local.ps1
+        if (-not $global:UseLightPrompt) {
+            oh-my-posh init pwsh --config "$HOME/Documents/posh2k/posh2k.toml" | Invoke-Expression
+            [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
+        }
     },
     { (&mise activate pwsh) | Out-String | Invoke-Expression },
     { Import-Module -Name Terminal-Icons -Global },

@@ -122,6 +122,26 @@ git clone https://github.com/2kabhishek/nvim2k
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\nvim2k" -Force
 ```
 
+#### Local Configuration (`local.ps1`)
+
+If you want to customize or override variables and commands on a specific machine without committing them to the repository, you can use the `local.ps1` file.
+
+You can open and edit this file instantly using the `loca` alias:
+
+```powershell
+loca
+```
+
+#### Switching to the Ultra-Fast Custom Prompt
+
+By default, the setup uses the feature-rich [oh-my-posh](https://ohmyposh.dev/) prompt. However, if you find it sluggish at times and prefer a fast, lightweight prompt (exactly like the one used in [dots2k for bash](https://github.com/2kabhishek/dots2k/blob/main/config/shell/prompt.sh)), you can switch prompts dynamically in your `local.ps1` configuration.
+
+To enable the lightweight prompt, add the following line to your `local.ps1` file:
+
+```powershell
+$global:UseLightPrompt = $true
+```
+
 #### PowerToys
 
 I recommend using PowerToys to add some keybindings using the `Keyboard Manager`, for example:
@@ -205,8 +225,6 @@ That's why I decided to set up a dev environment using native windows tooling.
 - [dots2k](https://github.com/2kabhishek/dots2k) — Dev Environment
 - [nvim2k](https://github.com/2kabhishek/nvim2k) — Personalized Editor
 - [qute2k](https://github.com/2kabhishek/qute2k) — Personalized Browser
-- Powershell
-- Windows Terminal
 
 <hr>
 
