@@ -84,3 +84,6 @@ foreach ($homePath in $homePaths) {
     New-Item -ItemType SymbolicLink -Path $destination -Target $source -Force
 }
 
+# Vim on Windows doesn't natively check ~/.config/vim/vimrc, so we symlink .vimrc and _vimrc
+New-Item -ItemType SymbolicLink -Path (Join-Path $env:USERPROFILE '.vimrc') -Target (Join-Path $repoRoot 'dots2k\config\vim\vimrc') -Force
+
