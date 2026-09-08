@@ -11,10 +11,9 @@ $documents = [Environment]::GetFolderPath('MyDocuments')
 $scoopRoot = if ($env:SCOOP) { $env:SCOOP } else { Join-Path $env:USERPROFILE 'scoop' }
 
 if (-not $Symlinks) {
-    scoop config aria2-warning-enabled false
-    $devToolsBucket = 'anderlli0053_DEV-tools'
-    if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "'$devToolsBucket' bucket" -Quiet)) {
-        scoop bucket add $devToolsBucket https://github.com/anderlli0053/DEV-tools
+    scoop config aria2-warning-enabled false | Out-Null
+    if (-not (scoop bucket list 2>$null | Select-String -SimpleMatch "extras" -Quiet)) {
+        scoop bucket add extras
     }
 
     # Scoop Packages (gow is first so that later package installs overwrite the shims)
