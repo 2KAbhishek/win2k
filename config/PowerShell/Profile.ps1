@@ -41,11 +41,12 @@ function RMF([string]$path) { Remove-Item -Recurse -Force $path }
 
 # PSReadLine
 Set-PSReadLineOption -BellStyle None
+Set-PSReadLineOption -HistorySaveStyle SaveIncrementally
 $psReadLineVt = $false
 if ($Host.UI.PSObject.Properties.Match('SupportsVirtualTerminal').Count -gt 0) {
     $psReadLineVt = $Host.UI.SupportsVirtualTerminal
 }
 if ([Environment]::UserInteractive -and $psReadLineVt) {
-    Set-PSReadLineOption -PredictionSource History
+    Set-PSReadLineOption -PredictionSource HistoryAndPlugin
     Set-PSReadLineOption -PredictionViewStyle ListView
 }

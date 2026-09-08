@@ -22,6 +22,7 @@ if ($global:UseLightPrompt) {
     },
     { (&mise activate pwsh) | Out-String | Invoke-Expression },
     { Import-Module -Name Terminal-Icons -Global },
+    { Import-Module -Name z -Global },
     {
         Import-Module -Name PSFzf -Global
         Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
