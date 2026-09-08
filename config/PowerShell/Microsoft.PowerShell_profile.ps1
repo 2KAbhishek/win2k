@@ -1,7 +1,15 @@
 # File for Current User, Current Host - $PROFILE.CurrentUserCurrentHost
 
-# Load fast and lightweight custom prompt as a fallback/default
-. "$PSScriptRoot\Prompt.ps1"
+# Load local overrides first so we know what prompt type to load
+$localPwsh = Join-Path $PSScriptRoot 'local.ps1'
+if (Test-Path -LiteralPath $localPwsh) {
+    . $localPwsh
+}
+
+# Load prompt based on UseLightPrompt setting
+if ($global:UseLightPrompt) {
+    . "$PSScriptRoot\Prompt.ps1"
+}
 
 # Async init queue: defers heavy module loads until after the prompt appears
 [System.Collections.Queue]$global:__initQueue = @(
@@ -27,9 +35,4 @@ Register-EngineEvent -SourceIdentifier PowerShell.OnIdle -SupportEvent -Action {
         Unregister-Event -SubscriptionId $EventSubscriber.SubscriptionId -Force
         Remove-Variable -Name '__initQueue' -Scope Global -Force
     }
-}
-
-$localPwsh = Join-Path $PSScriptRoot 'local.ps1'
-if (Test-Path -LiteralPath $localPwsh) {
-    . $localPwsh
 }
