@@ -50,19 +50,22 @@ html, body {
 }
 
 /* ==========================================================================
-   Left Section (Workspaces & GlazeWM Modes)
+   Left Section (Workspaces, GlazeWM Modes & Active Window)
    ========================================================================== */
 .section-left {
   display: flex;
   align-items: center;
   gap: 2px;
   height: 100%;
+  max-width: 40%;
+  overflow: hidden;
 }
 
 .workspaces, .binding-modes {
   display: flex;
   align-items: center;
   gap: 2px;
+  flex-shrink: 0;
 }
 
 .ws-btn {
@@ -133,6 +136,7 @@ html, body {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .paused-badge {
@@ -149,26 +153,36 @@ html, body {
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-.tiling-btn {
+/* Active Window Title */
+.window-title {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
   height: var(--btn-height);
   padding: 0 6px;
   margin-left: 2px;
-  background: var(--color0);
-  border: 1px solid var(--color1);
   color: var(--color6);
-  font-family: inherit;
-  font-size: 11px;
-  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.tiling-btn:hover {
-  background: var(--color1);
-  border-color: var(--color3);
+.window-title .icon {
+  color: var(--color12);
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+.window-title-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -178,7 +192,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 35%;
+  max-width: 32%;
   height: 100%;
 }
 
@@ -238,6 +252,7 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .media-artist {

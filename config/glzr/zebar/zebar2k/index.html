@@ -8,12 +8,16 @@
   </head>
   <body>
     <div class="bar">
-      <!-- Left Section: GlazeWM Workspaces, Binding Modes, Tiling -->
+      <!-- Left Section: GlazeWM Workspaces, Binding Modes, Active Window -->
       <div class="section-left">
         <div id="workspaces" class="workspaces"></div>
         <div id="binding-modes" class="binding-modes"></div>
         <button id="paused-badge" class="paused-badge" style="display: none;">PAUSED</button>
-        <button id="tiling-btn" class="tiling-btn" title="Toggle Tiling Direction">󰍉</button>
+        <span class="separator" id="window-separator" style="display: none;">│</span>
+        <div id="window-title" class="window-title" style="display: none;">
+          <span class="icon"></span>
+          <span id="window-title-text" class="window-title-text"></span>
+        </div>
       </div>
 
       <!-- Center Section: Media Player -->
@@ -116,7 +120,9 @@
         workspaces: document.getElementById('workspaces'),
         bindingModes: document.getElementById('binding-modes'),
         pausedBadge: document.getElementById('paused-badge'),
-        tilingBtn: document.getElementById('tiling-btn'),
+        windowSeparator: document.getElementById('window-separator'),
+        windowTitle: document.getElementById('window-title'),
+        windowTitleText: document.getElementById('window-title-text'),
 
         mediaPlayer: document.getElementById('media-player'),
         mediaPrev: document.getElementById('media-prev'),
@@ -221,10 +227,76 @@
       function updateGlazeWmControls(glazewm) {
         if (!glazewm) return;
         el.pausedBadge.style.display = glazewm.isPaused ? 'inline-flex' : 'none';
-        const isHoriz = glazewm.tilingDirection === 'horizontal';
-        el.tilingBtn.textContent = isHoriz ? '󰍉' : '󰍊';
-        el.tilingBtn.title = `Tiling: ${glazewm.tilingDirection ?? 'horizontal'}. Click to toggle.`;
       }
+
+      // ---------------------------------------------------------------------------
+      // Real-time Active Window Tracking (GlazeWM WebSocket & Polling)
+      // ---------------------------------------------------------------------------
+
+      function setActiveWindowTitle(rawTitle, processName) {
+        const title = rawTitle ? rawTitle.trim() : '';
+        if (!title) {
+          el.windowSeparator.style.display = 'none';
+          el.windowTitle.style.display = 'none';
+          return;
+        }
+
+        el.windowSeparator.style.display = 'inline-flex';
+        el.windowTitle.style.display = 'inline-flex';
+        if (el.windowTitleText.textContent !== title) {
+          el.windowTitleText.textContent = title;
+        }
+        el.windowTitle.title = `${title} (${processName ?? 'Window'})`;
+      }
+
+      let gwSocket = null;
+      function initGlazeWmSocket() {
+        try {
+          gwSocket = new WebSocket('ws://localhost:6123');
+          gwSocket.onopen = () => {
+            gwSocket.send('sub --events all');
+            gwSocket.send('query focused');
+          };
+          gwSocket.onmessage = (event) => {
+            try {
+              const msg = JSON.parse(event.data);
+              if (msg.messageType === 'client_response' && msg.data?.focused !== undefined) {
+                const focused = msg.data.focused;
+                if (focused && focused.type === 'window') {
+                  setActiveWindowTitle(focused.title, focused.processName);
+                } else {
+                  setActiveWindowTitle(null);
+                }
+              } else if (msg.messageType === 'event_subscription') {
+                gwSocket.send('query focused');
+              }
+            } catch (err) {
+              // Ignore parse errors
+            }
+          };
+          gwSocket.onclose = () => {
+            setTimeout(initGlazeWmSocket, 2000);
+          };
+          gwSocket.onerror = () => {
+            gwSocket?.close();
+          };
+        } catch (e) {
+          // Socket failed, fallback to provider updates
+        }
+      }
+
+      // 1-second heartbeat to catch in-window title changes (tab switches, terminal commands)
+      setInterval(() => {
+        if (gwSocket && gwSocket.readyState === WebSocket.OPEN) {
+          gwSocket.send('query focused');
+        }
+      }, 1000);
+
+      initGlazeWmSocket();
+
+      // ---------------------------------------------------------------------------
+      // Media & System Status Indicators
+      // ---------------------------------------------------------------------------
 
       function updateMedia(media) {
         const session = media?.currentSession;
@@ -458,10 +530,6 @@
 
       el.batteryBlock.addEventListener('click', () => {
         latestOutput.glazewm?.runCommand('shell-exec explorer.exe ms-settings:powersleep');
-      });
-
-      el.tilingBtn.addEventListener('click', () => {
-        latestOutput.glazewm?.runCommand('toggle-tiling-direction');
       });
 
       el.pausedBadge.addEventListener('click', () => {
