@@ -20,8 +20,16 @@
         </div>
       </div>
 
-      <!-- Center Section: Media Player -->
+      <!-- Center Section: Dead-center Clock (all the time) -->
       <div class="section-center">
+        <div id="clock-block" class="status-block clock-center" title="Click to open Notification Center & Calendar">
+          <span class="icon">󰥔</span>
+          <span id="clock-text">--:--</span>
+        </div>
+      </div>
+
+      <div class="section-right">
+        <!-- Media Player (capped length) -->
         <div id="media-player" class="media-player" style="display: none;">
           <button id="media-prev" class="media-btn" title="Previous">󰒮</button>
           <button id="media-toggle" class="media-btn" title="Play/Pause">󰐊</button>
@@ -32,19 +40,9 @@
             <span id="media-artist" class="media-artist"></span>
           </div>
         </div>
-      </div>
+        <span class="separator" id="media-separator" style="display: none;">│</span>
 
-      <!-- Right Section: Statusline blocks matching i3status order -->
-      <div class="section-right">
-        <!-- 1. Date / Clock -->
-        <div id="clock-block" class="status-block" title="Click to open Notification Center & Calendar">
-          <span class="icon">󰥔</span>
-          <span id="clock-text">--:--</span>
-        </div>
-
-        <span class="separator">│</span>
-
-        <!-- 2. Volume -->
+        <!-- Volume -->
         <div id="volume-block" class="status-block" title="Left click to mute/unmute, Scroll to adjust volume">
           <span id="volume-icon" class="icon">󰕾</span>
           <span id="volume-text">--%</span>
@@ -52,7 +50,7 @@
 
         <span class="separator">│</span>
 
-        <!-- 3. Bandwidth / Network -->
+        <!-- Bandwidth / Network -->
         <div id="net-block" class="status-block" title="Network Settings">
           <span id="net-icon" class="icon"></span>
           <span id="net-text"> 0 B/s</span>
@@ -60,7 +58,7 @@
 
         <span class="separator">│</span>
 
-        <!-- 4. CPU Usage -->
+        <!-- CPU Usage -->
         <div id="cpu-block" class="status-block" title="CPU Usage (Click for Task Manager)">
           <span class="icon">󰍛</span>
           <span id="cpu-text">00%</span>
@@ -68,7 +66,7 @@
 
         <span class="separator">│</span>
 
-        <!-- 5. Memory -->
+        <!-- Memory -->
         <div id="mem-block" class="status-block" title="RAM Usage (Click for Task Manager)">
           <span class="icon">󰘚</span>
           <span id="mem-text">0.0 GiB</span>
@@ -76,7 +74,7 @@
 
         <span class="separator" id="disk-separator">│</span>
 
-        <!-- 6. Disk -->
+        <!-- Disk -->
         <div id="disk-block" class="status-block" title="Disk Space (Click for File Explorer)">
           <span class="icon">󰋊</span>
           <span id="disk-text">-- GiB</span>
@@ -84,7 +82,7 @@
 
         <span class="separator" id="battery-separator" style="display: none;">│</span>
 
-        <!-- 7. Battery -->
+        <!-- Battery -->
         <div id="battery-block" class="status-block" style="display: none;">
           <span id="battery-icon" class="icon">󰁹</span>
           <span id="battery-text">--%</span>
@@ -92,7 +90,7 @@
 
         <span class="separator" id="systray-separator" style="display: none;">│</span>
 
-        <!-- 8. Systray -->
+        <!-- Systray -->
         <div id="systray-wrapper" class="systray-wrapper" style="display: none;">
           <button id="systray-toggle" class="systray-toggle" title="Expand Systray"></button>
           <div id="systray-icons" class="systray-icons" style="display: none;"></div>
@@ -124,15 +122,16 @@
         windowTitle: document.getElementById('window-title'),
         windowTitleText: document.getElementById('window-title-text'),
 
+        clockBlock: document.getElementById('clock-block'),
+        clockText: document.getElementById('clock-text'),
+
         mediaPlayer: document.getElementById('media-player'),
+        mediaSeparator: document.getElementById('media-separator'),
         mediaPrev: document.getElementById('media-prev'),
         mediaToggle: document.getElementById('media-toggle'),
         mediaNext: document.getElementById('media-next'),
         mediaTitle: document.getElementById('media-title'),
         mediaArtist: document.getElementById('media-artist'),
-
-        clockBlock: document.getElementById('clock-block'),
-        clockText: document.getElementById('clock-text'),
 
         volumeBlock: document.getElementById('volume-block'),
         volumeIcon: document.getElementById('volume-icon'),
@@ -281,7 +280,7 @@
             gwSocket?.close();
           };
         } catch (e) {
-          // Socket failed, fallback to provider updates
+          // Socket fallback
         }
       }
 
@@ -302,10 +301,12 @@
         const session = media?.currentSession;
         if (!session || !session.title) {
           el.mediaPlayer.style.display = 'none';
+          if (el.mediaSeparator) el.mediaSeparator.style.display = 'none';
           return;
         }
 
         el.mediaPlayer.style.display = 'flex';
+        if (el.mediaSeparator) el.mediaSeparator.style.display = 'inline-flex';
         el.mediaPlayer.title = `${session.title}${session.artist ? ' - ' + session.artist : ''}`;
         el.mediaTitle.textContent = session.title;
         el.mediaArtist.textContent = session.artist ? ` - ${session.artist}` : '';
@@ -458,8 +459,8 @@
         updateWorkspaces(output.glazewm);
         updateBindingModes(output.glazewm);
         updateGlazeWmControls(output.glazewm);
-        updateMedia(output.media);
         updateClock(output.date);
+        updateMedia(output.media);
         updateAudio(output.audio);
         updateNetwork(output.network);
         updateCpu(output.cpu);

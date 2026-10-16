@@ -41,6 +41,7 @@ html, body {
 }
 
 .bar {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,7 +58,7 @@ html, body {
   align-items: center;
   gap: 2px;
   height: 100%;
-  max-width: 40%;
+  max-width: calc(50% - 130px);
   overflow: hidden;
 }
 
@@ -186,27 +187,51 @@ html, body {
 }
 
 /* ==========================================================================
-   Center Section (Media Player)
+   Center Section (Dead-center Clock all the time)
    ========================================================================== */
 .section-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 32%;
   height: 100%;
+  z-index: 2;
+  pointer-events: auto;
 }
 
+.clock-center {
+  padding: 0 8px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Right Section (Media Player & Statusline Blocks)
+   ========================================================================== */
+.section-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  max-width: calc(50% - 130px);
+}
+
+/* Media Player (Capped Length) */
 .media-player {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   height: var(--btn-height);
-  padding: 0 8px;
+  padding: 0 6px;
   background: var(--color0);
   border: 1px solid var(--color1);
   color: var(--color6);
-  max-width: 100%;
+  max-width: 220px;
   overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 1;
 }
 
 .media-btn {
@@ -218,8 +243,9 @@ html, body {
   color: var(--color12);
   font-size: 12px;
   cursor: pointer;
-  padding: 0 3px;
+  padding: 0 2px;
   outline: none;
+  flex-shrink: 0;
 }
 
 .media-btn:hover {
@@ -234,10 +260,12 @@ html, body {
 .media-info {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
+  max-width: 140px;
 }
 
 .media-icon {
@@ -258,17 +286,13 @@ html, body {
 .media-artist {
   color: var(--color5);
   font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60px;
 }
 
-/* ==========================================================================
-   Right Section (Statusline Blocks matching i3status)
-   ========================================================================== */
-.section-right {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
+/* Status Blocks */
 .status-block {
   display: inline-flex;
   align-items: center;
@@ -279,6 +303,7 @@ html, body {
   font-size: 12px;
   cursor: pointer;
   transition: background 0.1s ease;
+  flex-shrink: 0;
 }
 
 .status-block:hover {
@@ -299,6 +324,7 @@ html, body {
   padding: 0 1px;
   font-weight: 300;
   user-select: none;
+  flex-shrink: 0;
 }
 
 /* Threshold Colors matching i3status.conf */
@@ -319,6 +345,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 4px;
+  flex-shrink: 0;
 }
 
 .systray-toggle {
