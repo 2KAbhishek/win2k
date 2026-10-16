@@ -1,0 +1,349 @@
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+:root {
+  --color0: #000000;
+  --color1: #282a2b;
+  --color2: #3b758c;
+  --color3: #41535b;
+  --color4: #43a5d5;
+  --color5: #d6d6d6;
+  --color6: #eeeeee;
+  --color7: #ffffff;
+  --color8: #ff0043;
+  --color10: #e6cd69;
+  --color12: #1688f0;
+
+  --bar-height: 32px;
+  --btn-height: 22px;
+  --font-family: 'FiraCode Nerd Font', 'Fira Code', 'CaskaydiaMono Nerd Font', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color0);
+  color: var(--color6);
+  font-family: var(--font-family);
+  font-size: 12px;
+  line-height: 1;
+  user-select: none;
+  cursor: default;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 0 4px;
+  background: var(--color0);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+/* ==========================================================================
+   Left Section (Workspaces & GlazeWM Modes)
+   ========================================================================== */
+.section-left {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 100%;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.ws-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  min-width: 24px;
+  padding: 0 7px;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+}
+
+/* Focused Workspace: Blue badge with black text */
+.ws-btn.ws-focused {
+  background: var(--color12);
+  border: 1px solid var(--color12);
+  color: var(--color0);
+  font-weight: 700;
+}
+
+/* Active Workspace (displayed on another screen) */
+.ws-btn.ws-active {
+  background: var(--color1);
+  border: 1px solid var(--color3);
+  color: var(--color6);
+}
+
+/* Inactive Workspace */
+.ws-btn.ws-inactive {
+  background: var(--color0);
+  border: 1px solid var(--color1);
+  color: var(--color5);
+}
+
+.ws-btn.ws-inactive:hover {
+  background: var(--color1);
+  border-color: var(--color3);
+  color: var(--color6);
+}
+
+/* Urgent Workspace: Red badge with black text */
+.ws-btn.ws-urgent {
+  background: var(--color8);
+  border: 1px solid var(--color8);
+  color: var(--color0);
+  font-weight: 700;
+}
+
+/* GlazeWM Binding Modes & Status Indicators */
+.binding-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: 0 8px;
+  margin-left: 4px;
+  background: var(--color12);
+  border: 1px solid var(--color12);
+  color: var(--color0);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.paused-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: 0 8px;
+  margin-left: 4px;
+  background: var(--color8);
+  border: 1px solid var(--color8);
+  color: var(--color0);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tiling-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: 0 6px;
+  margin-left: 2px;
+  background: var(--color0);
+  border: 1px solid var(--color1);
+  color: var(--color6);
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.tiling-btn:hover {
+  background: var(--color1);
+  border-color: var(--color3);
+}
+
+/* ==========================================================================
+   Center Section (Media Player)
+   ========================================================================== */
+.section-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 35%;
+  height: 100%;
+}
+
+.media-player {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: var(--btn-height);
+  padding: 0 8px;
+  background: var(--color0);
+  border: 1px solid var(--color1);
+  color: var(--color6);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.media-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color12);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0 3px;
+  outline: none;
+}
+
+.media-btn:hover {
+  color: var(--color4);
+}
+
+.media-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.media-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.media-icon {
+  color: var(--color12);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.media-title {
+  color: var(--color6);
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.media-artist {
+  color: var(--color5);
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   Right Section (Statusline Blocks matching i3status)
+   ========================================================================== */
+.section-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.status-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  padding: 0 6px;
+  color: var(--color6);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.status-block:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.status-block .icon {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.separator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color3);
+  font-size: 12px;
+  padding: 0 1px;
+  font-weight: 300;
+  user-select: none;
+}
+
+/* Threshold Colors matching i3status.conf */
+.color-good {
+  color: var(--color12) !important;
+}
+
+.color-degraded {
+  color: var(--color10) !important;
+}
+
+.color-bad {
+  color: var(--color8) !important;
+}
+
+/* Systray Container & Icons */
+.systray-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.systray-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: 0 4px;
+  background: transparent;
+  border: 1px solid var(--color1);
+  color: var(--color5);
+  font-family: inherit;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.systray-toggle:hover {
+  background: var(--color1);
+  color: var(--color6);
+}
+
+.systray-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 2px;
+}
+
+.systray-icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  filter: contrast(110%);
+  transition: transform 0.1s ease;
+}
+
+.systray-icon:hover {
+  transform: scale(1.15);
+}

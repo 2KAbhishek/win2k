@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>zebar2k</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <script
+      src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"
+      integrity="sha256-aS0B0wnsaDByLfE16h4MDCP1fQFccysd1YWOcV+gbBo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+      import React, { useState, useEffect } from 'https://esm.sh/react@18?dev';
+      import { createRoot } from 'https://esm.sh/react-dom@18/client?dev';
+      import * as zebar from 'https://esm.sh/zebar@3.0';
+
+      const providers = zebar.createProviderGroup({
+        glazewm: { type: 'glazewm' },
+        date: { type: 'date', formatting: 'ccc LLL dd, hh:mm a' },
+        audio: { type: 'audio' },
+        network: { type: 'network', refreshInterval: 2000 },
+        cpu: { type: 'cpu', refreshInterval: 2000 },
+        memory: { type: 'memory', refreshInterval: 2000 },
+        disk: { type: 'disk', refreshInterval: 10000 },
+        battery: { type: 'battery', refreshInterval: 10000 },
+        media: { type: 'media' },
+        systray: { type: 'systray' },
+      });
+
+      function formatSpeed(bytesPerSec) {
+        if (!bytesPerSec || bytesPerSec <= 0) return '0 B/s';
+        if (bytesPerSec < 1024) return `${Math.round(bytesPerSec)} B/s`;
+        if (bytesPerSec < 1024 * 1024) return `${(bytesPerSec / 1024).toFixed(0)} KB/s`;
+        if (bytesPerSec < 1024 * 1024 * 1024) return `${(bytesPerSec / (1024 * 1024)).toFixed(1)} MB/s`;
+        return `${(bytesPerSec / (1024 * 1024 * 1024)).toFixed(1)} GB/s`;
+      }
+
+      function App() {
+        const [output, setOutput] = useState(providers.outputMap);
+        const [systrayExpanded, setSystrayExpanded] = useState(false);
+
+        useEffect(() => {
+          providers.onOutput(() => setOutput(providers.outputMap));
+        }, []);
+
+        // --- GlazeWM Helpers ---
+        const glazewm = output.glazewm;
+        const currentWorkspaces = glazewm?.currentWorkspaces ?? [];
+        const bindingModes = glazewm?.bindingModes ?? [];
+        const isPaused = glazewm?.isPaused ?? false;
+        const tilingDirection = glazewm?.tilingDirection ?? 'horizontal';
+
+        // --- Media Session ---
+        const media = output.media;
+        const session = media?.currentSession;
+
+        // --- Audio Output ---
+        const audio = output.audio;
+        const defaultDevice = audio?.defaultPlaybackDevice;
+        const volume = defaultDevice ? Math.round(defaultDevice.volume) : 0;
+        const isMuted = audio?.isMuted || defaultDevice?.isMuted || false;
+
+        const handleVolumeWheel = (e) => {
+          e.preventDefault();
+          if (!audio) return;
+          const delta = e.deltaY < 0 ? 5 : -5;
+          const nextVol = Math.max(0, Math.min(100, volume + delta));
+          audio.setVolume(nextVol);
+        };
+
+        const toggleMute = () => {
+          if (!audio) return;
+          audio.setMute(!isMuted);
+        };
+
+        // --- Network ---
+        const network = output.network;
+        const ifaceType = network?.defaultInterface?.type;
+        const isConnected = !!ifaceType;
+        const isWifi = ifaceType === 'wifi';
+        const netIcon = isConnected ? (isWifi ? '' : '󰈀') : '󰖪';
+        const rxSpeed = network?.traffic?.received?.bytes ?? 0;
+
+        // --- CPU ---
+        const cpu = output.cpu;
+        const cpuUsage = cpu ? Math.round(cpu.usage) : 0;
+        const cpuClass = cpuUsage > 85 ? 'color-bad' : cpuUsage > 60 ? 'color-degraded' : '';
+
+        // --- Memory ---
+        const memory = output.memory;
+        const memUsedGiB = memory?.usedMemory ? (memory.usedMemory / 1073741824).toFixed(1) : '0.0';
+        const memPercent = memory?.usage ?? 0;
+        const memClass = memPercent > 90 ? 'color-bad' : memPercent > 75 ? 'color-degraded' : '';
+
+        // --- Disk ---
+        const diskList = output.disk?.disks ?? [];
+        const primaryDisk = diskList.find((d) => d.mountPoint?.toUpperCase().startsWith('C')) || diskList[0];
+        const diskAvailGiB = primaryDisk?.availableSpace?.bytes
+          ? (primaryDisk.availableSpace.bytes / 1073741824).toFixed(1)
+          : null;
+
+        // --- Battery ---
+        const battery = output.battery;
+        const hasBattery = battery && battery.chargePercent != null;
+        const battPct = hasBattery ? Math.round(battery.chargePercent) : 0;
+        const battCharging = battery?.isCharging || battery?.state === 'charging';
+        const battIcon = battCharging ? '󰂄' : battPct <= 15 ? '󰂎' : '󰁹';
+        const battClass = battPct <= 15 ? 'color-bad' : '';
+
+        // --- Systray ---
+        const systrayIcons = output.systray?.icons ?? [];
+
+        return (
+          <div className="bar">
+            {/* Left Section: GlazeWM Workspaces, Binding Modes, Tiling */}
+            <div className="section-left">
+              {glazewm && (
+                <div className="workspaces">
+                  {currentWorkspaces.map((ws) => {
+                    let stateClass = 'ws-inactive';
+                    if (ws.hasFocus) stateClass = 'ws-focused';
+                    else if (ws.isDisplayed) stateClass = 'ws-active';
+
+                    return (
+                      <button
+                        key={ws.name}
+                        className={`ws-btn ${stateClass}`}
+                        onClick={() => glazewm.runCommand(`focus --workspace ${ws.name}`)}
+                        title={`Workspace ${ws.displayName ?? ws.name}`}
+                      >
+                        {ws.displayName ?? ws.name}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {glazewm && (
+                <>
+                  {bindingModes.map((bm) => (
+                    <button
+                      key={bm.name}
+                      className="binding-mode-btn"
+                      onClick={() => glazewm.runCommand(`wm-disable-binding-mode --name ${bm.name}`)}
+                      title="Click to exit binding mode"
+                    >
+                      {bm.displayName ?? bm.name}
+                    </button>
+                  ))}
+
+                  {isPaused && (
+                    <button
+                      className="paused-badge"
+                      onClick={() => glazewm.runCommand('wm-toggle-pause')}
+                      title="WM is paused. Click to resume."
+                    >
+                      PAUSED
+                    </button>
+                  )}
+
+                  <button
+                    className="tiling-btn"
+                    onClick={() => glazewm.runCommand('toggle-tiling-direction')}
+                    title={`Tiling: ${tilingDirection}. Click to toggle.`}
+                  >
+                    {tilingDirection === 'horizontal' ? '󰍉' : '󰍊'}
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Center Section: Media Player */}
+            <div className="section-center">
+              {session && (
+                <div className="media-player" title={`${session.title} - ${session.artist ?? 'Unknown'}`}>
+                  <button
+                    className="media-btn"
+                    onClick={() => media.previous()}
+                    disabled={!session.isPreviousEnabled}
+                    title="Previous"
+                  >
+                    󰒮
+                  </button>
+                  <button
+                    className="media-btn"
+                    onClick={() => media.togglePlayPause()}
+                    title={session.isPlaying ? 'Pause' : 'Play'}
+                  >
+                    {session.isPlaying ? '󰏤' : '󰐊'}
+                  </button>
+                  <button
+                    className="media-btn"
+                    onClick={() => media.next()}
+                    disabled={!session.isNextEnabled}
+                    title="Next"
+                  >
+                    󰒭
+                  </button>
+                  <div className="media-info">
+                    <span className="media-icon">󰎆</span>
+                    <span className="media-title">{session.title}</span>
+                    {session.artist && <span className="media-artist">- {session.artist}</span>}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Right Section: Statusline blocks matching i3status order */}
+            <div className="section-right">
+              {/* 1. Date / Clock */}
+              {output.date && (
+                <div
+                  className="status-block"
+                  onClick={() => glazewm?.runCommand('shell-exec explorer.exe ms-actioncenter:')}
+                  title="Click to open Notification Center & Calendar"
+                >
+                  <span className="icon">󰥔</span>
+                  <span>{output.date.formatted}</span>
+                </div>
+              )}
+
+              {/* 2. Volume */}
+              {audio && (
+                <>
+                  <span className="separator">│</span>
+                  <div
+                    className={`status-block ${isMuted ? 'color-bad' : ''}`}
+                    onClick={toggleMute}
+                    onWheel={handleVolumeWheel}
+                    title="Left click to mute/unmute, Scroll to adjust volume"
+                  >
+                    <span className="icon">{isMuted ? '󰝟' : '󰕾'}</span>
+                    <span>{volume}%</span>
+                  </div>
+                </>
+              )}
+
+              {/* 3. Bandwidth / Network */}
+              {network && (
+                <>
+                  <span className="separator">│</span>
+                  <div
+                    className={`status-block ${!isConnected ? 'color-bad' : ''}`}
+                    onClick={() => glazewm?.runCommand('shell-exec explorer.exe ms-availablenetworks:')}
+                    title={network.defaultGateway?.ssid ? `SSID: ${network.defaultGateway.ssid}` : 'Network Settings'}
+                  >
+                    <span className="icon">{netIcon}</span>
+                    {isConnected && <span> {formatSpeed(rxSpeed)}</span>}
+                  </div>
+                </>
+              )}
+
+              {/* 4. CPU Usage */}
+              {cpu && (
+                <>
+                  <span className="separator">│</span>
+                  <div
+                    className={`status-block ${cpuClass}`}
+                    onClick={() => glazewm?.runCommand('shell-exec taskmgr.exe')}
+                    title="CPU Usage (Click for Task Manager)"
+                  >
+                    <span className="icon">󰍛</span>
+                    <span>{String(cpuUsage).padStart(2, '0')}%</span>
+                  </div>
+                </>
+              )}
+
+              {/* 5. Memory */}
+              {memory && (
+                <>
+                  <span className="separator">│</span>
+                  <div
+                    className={`status-block ${memClass}`}
+                    onClick={() => glazewm?.runCommand('shell-exec taskmgr.exe')}
+                    title={`RAM: ${memUsedGiB} GiB used (${Math.round(memPercent)}%)`}
+                  >
+                    <span className="icon">󰘚</span>
+                    <span>{memUsedGiB} GiB</span>
+                  </div>
+                </>
+              )}
+
+              {/* 6. Disk */}
+              {diskAvailGiB && (
+                <>
+                  <span className="separator">│</span>
+                  <div
+                    className="status-block"
+                    onClick={() => glazewm?.runCommand('shell-exec explorer.exe')}
+                    title={`Disk (${primaryDisk?.mountPoint}): ${diskAvailGiB} GiB available`}
+                  >
+                    <span className="icon">󰋊</span>
+                    <span>{diskAvailGiB} GiB</span>
+                  </div>
+                </>
+              )}
+
+              {/* 7. Battery (shown if battery present) */}
+              {hasBattery && (
+                <>
+                  <span className="separator">│</span>
+                  <div
+                    className={`status-block ${battClass}`}
+                    onClick={() => glazewm?.runCommand('shell-exec explorer.exe ms-settings:powersleep')}
+                    title={`Battery: ${battPct}% (${battCharging ? 'Charging' : 'Discharging'})`}
+                  >
+                    <span className="icon">{battIcon}</span>
+                    <span>{battPct}%</span>
+                  </div>
+                </>
+              )}
+
+              {/* 8. Windows System Tray (Collapsible) */}
+              {output.systray && systrayIcons.length > 0 && (
+                <>
+                  <span className="separator">│</span>
+                  <div className="systray-wrapper">
+                    <button
+                      className="systray-toggle"
+                      onClick={() => setSystrayExpanded(!systrayExpanded)}
+                      title={systrayExpanded ? 'Collapse Systray' : 'Expand Systray'}
+                    >
+                      {systrayExpanded ? '' : ''}
+                    </button>
+                    {systrayExpanded && (
+                      <div className="systray-icons">
+                        {systrayIcons.map((icon) => (
+                          <img
+                            key={icon.id}
+                            src={icon.iconUrl}
+                            className="systray-icon"
+                            title={icon.tooltip || 'System Tray Icon'}
+                            alt=""
+                            onClick={(e) => {
+                              e.preventDefault();
+                              output.systray.onLeftClick(icon.id);
+                            }}
+                            onContextMenu={(e) => {
+                              e.preventDefault();
+                              output.systray.onRightClick(icon.id);
+                            }}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        );
+      }
+
+      createRoot(document.getElementById('root')).render(<App />);
+    </script>
+  </body>
+</html>

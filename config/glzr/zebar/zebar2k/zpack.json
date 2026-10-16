@@ -1,0 +1,76 @@
+{
+  "$schema": "https://github.com/glzr-io/zebar/raw/v3.1.1/resources/zpack-schema.json",
+  "name": "zebar2k",
+  "version": "1.0.0",
+  "description": "AMOLED i32k-inspired status bar for Zebar and GlazeWM.",
+  "tags": [
+    "topbar",
+    "i3wm",
+    "minimal"
+  ],
+  "previewImages": [
+    "resources/preview.png"
+  ],
+  "repositoryUrl": "https://github.com/2KAbhishek/win2k",
+  "widgets": [
+    {
+      "name": "top-bar",
+      "htmlPath": "index.html",
+      "zOrder": "normal",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "resources/*"
+      ],
+      "caching": {
+        "defaultDuration": 604800,
+        "rules": [
+          {
+            "pattern": "**/*.{js,css}",
+            "duration": 604800,
+            "urlRegex": ""
+          },
+          {
+            "pattern": "**/*.{ttf,woff,woff2}",
+            "duration": 604800,
+            "urlRegex": ""
+          }
+        ]
+      },
+      "privileges": {
+        "shellCommands": [
+          {
+            "program": "explorer.exe",
+            "argsRegex": ".*"
+          },
+          {
+            "program": "taskmgr.exe",
+            "argsRegex": ".*"
+          }
+        ]
+      },
+      "presets": [
+        {
+          "name": "default",
+          "anchor": "top_left",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "width": "100%",
+          "height": "32px",
+          "monitorSelection": {
+            "type": "all"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    }
+  ]
+}

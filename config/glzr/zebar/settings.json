@@ -2,7 +2,7 @@
   "$schema": "https://github.com/glzr-io/zebar/raw/v3.3.1/resources/settings-schema.json",
   "startupConfigs": [
     {
-      "pack": "emptope.attaquer-modified",
+      "pack": "zebar2k",
       "widget": "top-bar",
       "preset": "default"
     }
