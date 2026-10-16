@@ -32,9 +32,9 @@
       <div class="section-right">
         <!-- Media Player (Uniform with status blocks) -->
         <div id="media-player" class="status-block media-block" style="display: none;">
-          <span id="media-prev" class="media-ctrl" title="Previous">󰒮</span>
+          <span id="media-prev" class="media-ctrl" title="Previous Track" style="display: none;">󰒮</span>
           <span id="media-toggle" class="media-ctrl" title="Play/Pause">󰐊</span>
-          <span id="media-next" class="media-ctrl" title="Next">󰒭</span>
+          <span id="media-next" class="media-ctrl" title="Next Track" style="display: none;">󰒭</span>
           <span class="icon media-icon">󰎆</span>
           <span id="media-title" class="media-title"></span>
           <span id="media-artist" class="media-artist"></span>
@@ -293,8 +293,47 @@
       initGlazeWmSocket();
 
       // ---------------------------------------------------------------------------
-      // Media & System Status Indicators
+      // Media & Playback Controls
       // ---------------------------------------------------------------------------
+
+      function handleMediaPrev(e) {
+        if (e) e.stopPropagation();
+        const media = latestOutput.media;
+        const session = media?.currentSession;
+        if (!media) return;
+        const opts = session?.sessionId ? { sessionId: session.sessionId } : {};
+        try {
+          media.previous(opts);
+        } catch (err) {
+          media.previous();
+        }
+      }
+
+      function handleMediaToggle(e) {
+        if (e) e.stopPropagation();
+        const media = latestOutput.media;
+        const session = media?.currentSession;
+        if (!media) return;
+        const opts = session?.sessionId ? { sessionId: session.sessionId } : {};
+        try {
+          media.togglePlayPause(opts);
+        } catch (err) {
+          media.togglePlayPause();
+        }
+      }
+
+      function handleMediaNext(e) {
+        if (e) e.stopPropagation();
+        const media = latestOutput.media;
+        const session = media?.currentSession;
+        if (!media) return;
+        const opts = session?.sessionId ? { sessionId: session.sessionId } : {};
+        try {
+          media.next(opts);
+        } catch (err) {
+          media.next();
+        }
+      }
 
       function updateMedia(media) {
         const session = media?.currentSession;
@@ -312,8 +351,10 @@
 
         el.mediaToggle.textContent = session.isPlaying ? '󰏤' : '󰐊';
         el.mediaToggle.title = session.isPlaying ? 'Pause' : 'Play';
-        el.mediaPrev.classList.toggle('disabled', !session.isPreviousEnabled);
-        el.mediaNext.classList.toggle('disabled', !session.isNextEnabled);
+
+        // Only show prev / next buttons when supported and enabled by the active player
+        el.mediaPrev.style.display = session.isPreviousEnabled ? 'inline-flex' : 'none';
+        el.mediaNext.style.display = session.isNextEnabled ? 'inline-flex' : 'none';
       }
 
       function updateClock(date) {
@@ -536,34 +577,20 @@
         latestOutput.glazewm?.runCommand('wm-toggle-pause');
       });
 
-      // Media controls
-      el.mediaPrev.addEventListener('click', (e) => {
-        e.stopPropagation();
-        latestOutput.media?.previous();
-      });
-
-      el.mediaToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        latestOutput.media?.togglePlayPause();
-      });
-
-      el.mediaNext.addEventListener('click', (e) => {
-        e.stopPropagation();
-        latestOutput.media?.next();
-      });
-
-      el.mediaTitle.addEventListener('click', () => {
-        latestOutput.media?.togglePlayPause();
-      });
+      // Media controls: clean dispatch with session ID
+      el.mediaPrev.addEventListener('click', handleMediaPrev);
+      el.mediaToggle.addEventListener('click', handleMediaToggle);
+      el.mediaNext.addEventListener('click', handleMediaNext);
+      el.mediaTitle.addEventListener('click', handleMediaToggle);
 
       el.mediaPlayer.addEventListener(
         'wheel',
         (e) => {
           e.preventDefault();
           if (e.deltaY < 0) {
-            latestOutput.media?.previous();
+            handleMediaPrev(e);
           } else {
-            latestOutput.media?.next();
+            handleMediaNext(e);
           }
         },
         { passive: false },

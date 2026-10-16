@@ -231,20 +231,21 @@ html, body {
   align-items: center;
   justify-content: center;
   color: var(--color12);
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
-  padding: 0 2px;
+  padding: 0 3px;
   user-select: none;
   flex-shrink: 0;
+  transition: color 0.1s ease, transform 0.1s ease;
 }
 
 .media-ctrl:hover {
   color: var(--color4);
+  transform: scale(1.15);
 }
 
-.media-ctrl.disabled {
-  opacity: 0.3;
-  cursor: default;
+.media-ctrl:active {
+  transform: scale(0.9);
 }
 
 .media-icon {
