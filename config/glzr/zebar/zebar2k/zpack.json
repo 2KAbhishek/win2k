@@ -24,6 +24,7 @@
       "includeFiles": [
         "*.html",
         "*.css",
+        "*.js",
         "resources/*"
       ],
       "caching": {

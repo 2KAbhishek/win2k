@@ -5,18 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>zebar2k</title>
     <link rel="stylesheet" type="text/css" href="./styles.css" />
-    <script
-      src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"
-      integrity="sha256-aS0B0wnsaDByLfE16h4MDCP1fQFccysd1YWOcV+gbBo="
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
-    <div id="root"></div>
+    <div class="bar">
+      <!-- Left Section: GlazeWM Workspaces, Binding Modes, Tiling -->
+      <div class="section-left">
+        <div id="workspaces" class="workspaces"></div>
+        <div id="binding-modes" class="binding-modes"></div>
+        <button id="paused-badge" class="paused-badge" style="display: none;">PAUSED</button>
+        <button id="tiling-btn" class="tiling-btn" title="Toggle Tiling Direction">󰍉</button>
+      </div>
 
-    <script type="text/babel" data-type="module">
-      import React, { useState, useEffect } from 'https://esm.sh/react@18?dev';
-      import { createRoot } from 'https://esm.sh/react-dom@18/client?dev';
+      <!-- Center Section: Media Player -->
+      <div class="section-center">
+        <div id="media-player" class="media-player" style="display: none;">
+          <button id="media-prev" class="media-btn" title="Previous">󰒮</button>
+          <button id="media-toggle" class="media-btn" title="Play/Pause">󰐊</button>
+          <button id="media-next" class="media-btn" title="Next">󰒭</button>
+          <div class="media-info">
+            <span class="media-icon">󰎆</span>
+            <span id="media-title" class="media-title"></span>
+            <span id="media-artist" class="media-artist"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section: Statusline blocks matching i3status order -->
+      <div class="section-right">
+        <!-- 1. Date / Clock -->
+        <div id="clock-block" class="status-block" title="Click to open Notification Center & Calendar">
+          <span class="icon">󰥔</span>
+          <span id="clock-text">--:--</span>
+        </div>
+
+        <span class="separator">│</span>
+
+        <!-- 2. Volume -->
+        <div id="volume-block" class="status-block" title="Left click to mute/unmute, Scroll to adjust volume">
+          <span id="volume-icon" class="icon">󰕾</span>
+          <span id="volume-text">--%</span>
+        </div>
+
+        <span class="separator">│</span>
+
+        <!-- 3. Bandwidth / Network -->
+        <div id="net-block" class="status-block" title="Network Settings">
+          <span id="net-icon" class="icon"></span>
+          <span id="net-text"> 0 B/s</span>
+        </div>
+
+        <span class="separator">│</span>
+
+        <!-- 4. CPU Usage -->
+        <div id="cpu-block" class="status-block" title="CPU Usage (Click for Task Manager)">
+          <span class="icon">󰍛</span>
+          <span id="cpu-text">00%</span>
+        </div>
+
+        <span class="separator">│</span>
+
+        <!-- 5. Memory -->
+        <div id="mem-block" class="status-block" title="RAM Usage (Click for Task Manager)">
+          <span class="icon">󰘚</span>
+          <span id="mem-text">0.0 GiB</span>
+        </div>
+
+        <span class="separator" id="disk-separator">│</span>
+
+        <!-- 6. Disk -->
+        <div id="disk-block" class="status-block" title="Disk Space (Click for File Explorer)">
+          <span class="icon">󰋊</span>
+          <span id="disk-text">-- GiB</span>
+        </div>
+
+        <span class="separator" id="battery-separator" style="display: none;">│</span>
+
+        <!-- 7. Battery -->
+        <div id="battery-block" class="status-block" style="display: none;">
+          <span id="battery-icon" class="icon">󰁹</span>
+          <span id="battery-text">--%</span>
+        </div>
+
+        <span class="separator" id="systray-separator" style="display: none;">│</span>
+
+        <!-- 8. Systray -->
+        <div id="systray-wrapper" class="systray-wrapper" style="display: none;">
+          <button id="systray-toggle" class="systray-toggle" title="Expand Systray"></button>
+          <div id="systray-icons" class="systray-icons" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
       import * as zebar from 'https://esm.sh/zebar@3.0';
 
       const providers = zebar.createProviderGroup({
@@ -32,6 +112,54 @@
         systray: { type: 'systray' },
       });
 
+      const el = {
+        workspaces: document.getElementById('workspaces'),
+        bindingModes: document.getElementById('binding-modes'),
+        pausedBadge: document.getElementById('paused-badge'),
+        tilingBtn: document.getElementById('tiling-btn'),
+
+        mediaPlayer: document.getElementById('media-player'),
+        mediaPrev: document.getElementById('media-prev'),
+        mediaToggle: document.getElementById('media-toggle'),
+        mediaNext: document.getElementById('media-next'),
+        mediaTitle: document.getElementById('media-title'),
+        mediaArtist: document.getElementById('media-artist'),
+
+        clockBlock: document.getElementById('clock-block'),
+        clockText: document.getElementById('clock-text'),
+
+        volumeBlock: document.getElementById('volume-block'),
+        volumeIcon: document.getElementById('volume-icon'),
+        volumeText: document.getElementById('volume-text'),
+
+        netBlock: document.getElementById('net-block'),
+        netIcon: document.getElementById('net-icon'),
+        netText: document.getElementById('net-text'),
+
+        cpuBlock: document.getElementById('cpu-block'),
+        cpuText: document.getElementById('cpu-text'),
+
+        memBlock: document.getElementById('mem-block'),
+        memText: document.getElementById('mem-text'),
+
+        diskSeparator: document.getElementById('disk-separator'),
+        diskBlock: document.getElementById('disk-block'),
+        diskText: document.getElementById('disk-text'),
+
+        batterySeparator: document.getElementById('battery-separator'),
+        batteryBlock: document.getElementById('battery-block'),
+        batteryIcon: document.getElementById('battery-icon'),
+        batteryText: document.getElementById('battery-text'),
+
+        systraySeparator: document.getElementById('systray-separator'),
+        systrayWrapper: document.getElementById('systray-wrapper'),
+        systrayToggle: document.getElementById('systray-toggle'),
+        systrayIcons: document.getElementById('systray-icons'),
+      };
+
+      let latestOutput = providers.outputMap;
+      let systrayExpanded = false;
+
       function formatSpeed(bytesPerSec) {
         if (!bytesPerSec || bytesPerSec <= 0) return '0 B/s';
         if (bytesPerSec < 1024) return `${Math.round(bytesPerSec)} B/s`;
@@ -40,323 +168,334 @@
         return `${(bytesPerSec / (1024 * 1024 * 1024)).toFixed(1)} GB/s`;
       }
 
-      function App() {
-        const [output, setOutput] = useState(providers.outputMap);
-        const [systrayExpanded, setSystrayExpanded] = useState(false);
+      function updateWorkspaces(glazewm) {
+        if (!glazewm?.currentWorkspaces) return;
+        const workspaces = glazewm.currentWorkspaces;
 
-        useEffect(() => {
-          providers.onOutput(() => setOutput(providers.outputMap));
-        }, []);
+        let buttons = Array.from(el.workspaces.children);
+        if (buttons.length !== workspaces.length) {
+          el.workspaces.innerHTML = '';
+          workspaces.forEach((ws) => {
+            const btn = document.createElement('button');
+            btn.className = 'ws-btn';
+            btn.dataset.name = ws.name;
+            btn.addEventListener('click', () => {
+              latestOutput.glazewm?.runCommand(`focus --workspace ${ws.name}`);
+            });
+            el.workspaces.appendChild(btn);
+          });
+          buttons = Array.from(el.workspaces.children);
+        }
 
-        // --- GlazeWM Helpers ---
-        const glazewm = output.glazewm;
-        const currentWorkspaces = glazewm?.currentWorkspaces ?? [];
-        const bindingModes = glazewm?.bindingModes ?? [];
-        const isPaused = glazewm?.isPaused ?? false;
-        const tilingDirection = glazewm?.tilingDirection ?? 'horizontal';
+        workspaces.forEach((ws, i) => {
+          const btn = buttons[i];
+          if (!btn) return;
+          const displayName = ws.displayName ?? ws.name;
+          if (btn.textContent !== displayName) btn.textContent = displayName;
+          btn.title = `Workspace ${displayName}`;
 
-        // --- Media Session ---
-        const media = output.media;
-        const session = media?.currentSession;
+          let stateClass = 'ws-inactive';
+          if (ws.hasFocus) stateClass = 'ws-focused';
+          else if (ws.isDisplayed) stateClass = 'ws-active';
 
-        // --- Audio Output ---
-        const audio = output.audio;
-        const defaultDevice = audio?.defaultPlaybackDevice;
-        const volume = defaultDevice ? Math.round(defaultDevice.volume) : 0;
-        const isMuted = audio?.isMuted || defaultDevice?.isMuted || false;
-
-        const handleVolumeWheel = (e) => {
-          e.preventDefault();
-          if (!audio) return;
-          const delta = e.deltaY < 0 ? 5 : -5;
-          const nextVol = Math.max(0, Math.min(100, volume + delta));
-          audio.setVolume(nextVol);
-        };
-
-        const toggleMute = () => {
-          if (!audio) return;
-          audio.setMute(!isMuted);
-        };
-
-        // --- Network ---
-        const network = output.network;
-        const ifaceType = network?.defaultInterface?.type;
-        const isConnected = !!ifaceType;
-        const isWifi = ifaceType === 'wifi';
-        const netIcon = isConnected ? (isWifi ? '' : '󰈀') : '󰖪';
-        const rxSpeed = network?.traffic?.received?.bytes ?? 0;
-
-        // --- CPU ---
-        const cpu = output.cpu;
-        const cpuUsage = cpu ? Math.round(cpu.usage) : 0;
-        const cpuClass = cpuUsage > 85 ? 'color-bad' : cpuUsage > 60 ? 'color-degraded' : '';
-
-        // --- Memory ---
-        const memory = output.memory;
-        const memUsedGiB = memory?.usedMemory ? (memory.usedMemory / 1073741824).toFixed(1) : '0.0';
-        const memPercent = memory?.usage ?? 0;
-        const memClass = memPercent > 90 ? 'color-bad' : memPercent > 75 ? 'color-degraded' : '';
-
-        // --- Disk ---
-        const diskList = output.disk?.disks ?? [];
-        const primaryDisk = diskList.find((d) => d.mountPoint?.toUpperCase().startsWith('C')) || diskList[0];
-        const diskAvailGiB = primaryDisk?.availableSpace?.bytes
-          ? (primaryDisk.availableSpace.bytes / 1073741824).toFixed(1)
-          : null;
-
-        // --- Battery ---
-        const battery = output.battery;
-        const hasBattery = battery && battery.chargePercent != null;
-        const battPct = hasBattery ? Math.round(battery.chargePercent) : 0;
-        const battCharging = battery?.isCharging || battery?.state === 'charging';
-        const battIcon = battCharging ? '󰂄' : battPct <= 15 ? '󰂎' : '󰁹';
-        const battClass = battPct <= 15 ? 'color-bad' : '';
-
-        // --- Systray ---
-        const systrayIcons = output.systray?.icons ?? [];
-
-        return (
-          <div className="bar">
-            {/* Left Section: GlazeWM Workspaces, Binding Modes, Tiling */}
-            <div className="section-left">
-              {glazewm && (
-                <div className="workspaces">
-                  {currentWorkspaces.map((ws) => {
-                    let stateClass = 'ws-inactive';
-                    if (ws.hasFocus) stateClass = 'ws-focused';
-                    else if (ws.isDisplayed) stateClass = 'ws-active';
-
-                    return (
-                      <button
-                        key={ws.name}
-                        className={`ws-btn ${stateClass}`}
-                        onClick={() => glazewm.runCommand(`focus --workspace ${ws.name}`)}
-                        title={`Workspace ${ws.displayName ?? ws.name}`}
-                      >
-                        {ws.displayName ?? ws.name}
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
-
-              {glazewm && (
-                <>
-                  {bindingModes.map((bm) => (
-                    <button
-                      key={bm.name}
-                      className="binding-mode-btn"
-                      onClick={() => glazewm.runCommand(`wm-disable-binding-mode --name ${bm.name}`)}
-                      title="Click to exit binding mode"
-                    >
-                      {bm.displayName ?? bm.name}
-                    </button>
-                  ))}
-
-                  {isPaused && (
-                    <button
-                      className="paused-badge"
-                      onClick={() => glazewm.runCommand('wm-toggle-pause')}
-                      title="WM is paused. Click to resume."
-                    >
-                      PAUSED
-                    </button>
-                  )}
-
-                  <button
-                    className="tiling-btn"
-                    onClick={() => glazewm.runCommand('toggle-tiling-direction')}
-                    title={`Tiling: ${tilingDirection}. Click to toggle.`}
-                  >
-                    {tilingDirection === 'horizontal' ? '󰍉' : '󰍊'}
-                  </button>
-                </>
-              )}
-            </div>
-
-            {/* Center Section: Media Player */}
-            <div className="section-center">
-              {session && (
-                <div className="media-player" title={`${session.title} - ${session.artist ?? 'Unknown'}`}>
-                  <button
-                    className="media-btn"
-                    onClick={() => media.previous()}
-                    disabled={!session.isPreviousEnabled}
-                    title="Previous"
-                  >
-                    󰒮
-                  </button>
-                  <button
-                    className="media-btn"
-                    onClick={() => media.togglePlayPause()}
-                    title={session.isPlaying ? 'Pause' : 'Play'}
-                  >
-                    {session.isPlaying ? '󰏤' : '󰐊'}
-                  </button>
-                  <button
-                    className="media-btn"
-                    onClick={() => media.next()}
-                    disabled={!session.isNextEnabled}
-                    title="Next"
-                  >
-                    󰒭
-                  </button>
-                  <div className="media-info">
-                    <span className="media-icon">󰎆</span>
-                    <span className="media-title">{session.title}</span>
-                    {session.artist && <span className="media-artist">- {session.artist}</span>}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Right Section: Statusline blocks matching i3status order */}
-            <div className="section-right">
-              {/* 1. Date / Clock */}
-              {output.date && (
-                <div
-                  className="status-block"
-                  onClick={() => glazewm?.runCommand('shell-exec explorer.exe ms-actioncenter:')}
-                  title="Click to open Notification Center & Calendar"
-                >
-                  <span className="icon">󰥔</span>
-                  <span>{output.date.formatted}</span>
-                </div>
-              )}
-
-              {/* 2. Volume */}
-              {audio && (
-                <>
-                  <span className="separator">│</span>
-                  <div
-                    className={`status-block ${isMuted ? 'color-bad' : ''}`}
-                    onClick={toggleMute}
-                    onWheel={handleVolumeWheel}
-                    title="Left click to mute/unmute, Scroll to adjust volume"
-                  >
-                    <span className="icon">{isMuted ? '󰝟' : '󰕾'}</span>
-                    <span>{volume}%</span>
-                  </div>
-                </>
-              )}
-
-              {/* 3. Bandwidth / Network */}
-              {network && (
-                <>
-                  <span className="separator">│</span>
-                  <div
-                    className={`status-block ${!isConnected ? 'color-bad' : ''}`}
-                    onClick={() => glazewm?.runCommand('shell-exec explorer.exe ms-availablenetworks:')}
-                    title={network.defaultGateway?.ssid ? `SSID: ${network.defaultGateway.ssid}` : 'Network Settings'}
-                  >
-                    <span className="icon">{netIcon}</span>
-                    {isConnected && <span> {formatSpeed(rxSpeed)}</span>}
-                  </div>
-                </>
-              )}
-
-              {/* 4. CPU Usage */}
-              {cpu && (
-                <>
-                  <span className="separator">│</span>
-                  <div
-                    className={`status-block ${cpuClass}`}
-                    onClick={() => glazewm?.runCommand('shell-exec taskmgr.exe')}
-                    title="CPU Usage (Click for Task Manager)"
-                  >
-                    <span className="icon">󰍛</span>
-                    <span>{String(cpuUsage).padStart(2, '0')}%</span>
-                  </div>
-                </>
-              )}
-
-              {/* 5. Memory */}
-              {memory && (
-                <>
-                  <span className="separator">│</span>
-                  <div
-                    className={`status-block ${memClass}`}
-                    onClick={() => glazewm?.runCommand('shell-exec taskmgr.exe')}
-                    title={`RAM: ${memUsedGiB} GiB used (${Math.round(memPercent)}%)`}
-                  >
-                    <span className="icon">󰘚</span>
-                    <span>{memUsedGiB} GiB</span>
-                  </div>
-                </>
-              )}
-
-              {/* 6. Disk */}
-              {diskAvailGiB && (
-                <>
-                  <span className="separator">│</span>
-                  <div
-                    className="status-block"
-                    onClick={() => glazewm?.runCommand('shell-exec explorer.exe')}
-                    title={`Disk (${primaryDisk?.mountPoint}): ${diskAvailGiB} GiB available`}
-                  >
-                    <span className="icon">󰋊</span>
-                    <span>{diskAvailGiB} GiB</span>
-                  </div>
-                </>
-              )}
-
-              {/* 7. Battery (shown if battery present) */}
-              {hasBattery && (
-                <>
-                  <span className="separator">│</span>
-                  <div
-                    className={`status-block ${battClass}`}
-                    onClick={() => glazewm?.runCommand('shell-exec explorer.exe ms-settings:powersleep')}
-                    title={`Battery: ${battPct}% (${battCharging ? 'Charging' : 'Discharging'})`}
-                  >
-                    <span className="icon">{battIcon}</span>
-                    <span>{battPct}%</span>
-                  </div>
-                </>
-              )}
-
-              {/* 8. Windows System Tray (Collapsible) */}
-              {output.systray && systrayIcons.length > 0 && (
-                <>
-                  <span className="separator">│</span>
-                  <div className="systray-wrapper">
-                    <button
-                      className="systray-toggle"
-                      onClick={() => setSystrayExpanded(!systrayExpanded)}
-                      title={systrayExpanded ? 'Collapse Systray' : 'Expand Systray'}
-                    >
-                      {systrayExpanded ? '' : ''}
-                    </button>
-                    {systrayExpanded && (
-                      <div className="systray-icons">
-                        {systrayIcons.map((icon) => (
-                          <img
-                            key={icon.id}
-                            src={icon.iconUrl}
-                            className="systray-icon"
-                            title={icon.tooltip || 'System Tray Icon'}
-                            alt=""
-                            onClick={(e) => {
-                              e.preventDefault();
-                              output.systray.onLeftClick(icon.id);
-                            }}
-                            onContextMenu={(e) => {
-                              e.preventDefault();
-                              output.systray.onRightClick(icon.id);
-                            }}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        );
+          const fullClass = `ws-btn ${stateClass}`;
+          if (btn.className !== fullClass) btn.className = fullClass;
+        });
       }
 
-      createRoot(document.getElementById('root')).render(<App />);
+      function updateBindingModes(glazewm) {
+        const modes = glazewm?.bindingModes ?? [];
+        el.bindingModes.innerHTML = '';
+        modes.forEach((bm) => {
+          const btn = document.createElement('button');
+          btn.className = 'binding-mode-btn';
+          btn.textContent = bm.displayName ?? bm.name;
+          btn.title = 'Click to exit binding mode';
+          btn.addEventListener('click', () => {
+            latestOutput.glazewm?.runCommand(`wm-disable-binding-mode --name ${bm.name}`);
+          });
+          el.bindingModes.appendChild(btn);
+        });
+      }
+
+      function updateGlazeWmControls(glazewm) {
+        if (!glazewm) return;
+        el.pausedBadge.style.display = glazewm.isPaused ? 'inline-flex' : 'none';
+        const isHoriz = glazewm.tilingDirection === 'horizontal';
+        el.tilingBtn.textContent = isHoriz ? '󰍉' : '󰍊';
+        el.tilingBtn.title = `Tiling: ${glazewm.tilingDirection ?? 'horizontal'}. Click to toggle.`;
+      }
+
+      function updateMedia(media) {
+        const session = media?.currentSession;
+        if (!session || !session.title) {
+          el.mediaPlayer.style.display = 'none';
+          return;
+        }
+
+        el.mediaPlayer.style.display = 'flex';
+        el.mediaPlayer.title = `${session.title}${session.artist ? ' - ' + session.artist : ''}`;
+        el.mediaTitle.textContent = session.title;
+        el.mediaArtist.textContent = session.artist ? ` - ${session.artist}` : '';
+
+        el.mediaToggle.textContent = session.isPlaying ? '󰏤' : '󰐊';
+        el.mediaToggle.title = session.isPlaying ? 'Pause' : 'Play';
+        el.mediaPrev.disabled = !session.isPreviousEnabled;
+        el.mediaNext.disabled = !session.isNextEnabled;
+      }
+
+      function updateClock(date) {
+        if (!date?.formatted) return;
+        el.clockText.textContent = date.formatted;
+      }
+
+      function updateAudio(audio) {
+        if (!audio) return;
+        const dev = audio.defaultPlaybackDevice;
+        const volume = dev?.volume != null ? Math.round(dev.volume) : 0;
+        const isMuted = audio.isMuted || dev?.isMuted || false;
+
+        el.volumeIcon.textContent = isMuted ? '󰝟' : '󰕾';
+        el.volumeText.textContent = `${volume}%`;
+
+        if (isMuted) {
+          el.volumeBlock.classList.add('color-bad');
+        } else {
+          el.volumeBlock.classList.remove('color-bad');
+        }
+      }
+
+      function updateNetwork(network) {
+        if (!network) return;
+        const ifaceType = network.defaultInterface?.type;
+        const isConnected = !!ifaceType;
+        const isWifi = ifaceType === 'wifi';
+        const rxSpeed = network.traffic?.received?.bytes ?? 0;
+
+        el.netIcon.textContent = isConnected ? (isWifi ? '' : '󰈀') : '󰖪';
+        el.netText.textContent = isConnected ? ` ${formatSpeed(rxSpeed)}` : '';
+
+        if (!isConnected) {
+          el.netBlock.classList.add('color-bad');
+          el.netBlock.title = 'No network connection';
+        } else {
+          el.netBlock.classList.remove('color-bad');
+          el.netBlock.title = network.defaultGateway?.ssid
+            ? `SSID: ${network.defaultGateway.ssid}`
+            : `Interface: ${network.defaultInterface?.name ?? ifaceType}`;
+        }
+      }
+
+      function updateCpu(cpu) {
+        if (!cpu || cpu.usage == null) return;
+        const usage = Math.round(cpu.usage);
+        el.cpuText.textContent = `${String(usage).padStart(2, '0')}%`;
+
+        el.cpuBlock.classList.remove('color-bad', 'color-degraded');
+        if (usage > 85) el.cpuBlock.classList.add('color-bad');
+        else if (usage > 60) el.cpuBlock.classList.add('color-degraded');
+      }
+
+      function updateMemory(memory) {
+        if (!memory || memory.usedMemory == null) return;
+        const memUsedGiB = (memory.usedMemory / 1073741824).toFixed(1);
+        const memPercent = memory.usage ?? 0;
+        el.memText.textContent = `${memUsedGiB} GiB`;
+        el.memBlock.title = `RAM: ${memUsedGiB} GiB used (${Math.round(memPercent)}%)`;
+
+        el.memBlock.classList.remove('color-bad', 'color-degraded');
+        if (memPercent > 90) el.memBlock.classList.add('color-bad');
+        else if (memPercent > 75) el.memBlock.classList.add('color-degraded');
+      }
+
+      function updateDisk(disk) {
+        const diskList = disk?.disks ?? [];
+        const primaryDisk = diskList.find((d) => d.mountPoint?.toUpperCase().startsWith('C')) || diskList[0];
+        if (!primaryDisk?.availableSpace?.bytes) {
+          el.diskSeparator.style.display = 'none';
+          el.diskBlock.style.display = 'none';
+          return;
+        }
+
+        el.diskSeparator.style.display = 'inline-flex';
+        el.diskBlock.style.display = 'inline-flex';
+        const availGiB = (primaryDisk.availableSpace.bytes / 1073741824).toFixed(1);
+        el.diskText.textContent = `${availGiB} GiB`;
+        el.diskBlock.title = `Disk (${primaryDisk.mountPoint}): ${availGiB} GiB available`;
+      }
+
+      function updateBattery(battery) {
+        const hasBattery = battery && battery.chargePercent != null;
+        if (!hasBattery) {
+          el.batterySeparator.style.display = 'none';
+          el.batteryBlock.style.display = 'none';
+          return;
+        }
+
+        el.batterySeparator.style.display = 'inline-flex';
+        el.batteryBlock.style.display = 'inline-flex';
+
+        const pct = Math.round(battery.chargePercent);
+        const isCharging = battery.isCharging || battery.state === 'charging';
+        const icon = isCharging ? '󰂄' : pct <= 15 ? '󰂎' : '󰁹';
+
+        el.batteryIcon.textContent = icon;
+        el.batteryText.textContent = `${pct}%`;
+        el.batteryBlock.title = `Battery: ${pct}% (${isCharging ? 'Charging' : 'Discharging'})`;
+
+        if (pct <= 15 && !isCharging) {
+          el.batteryBlock.classList.add('color-bad');
+        } else {
+          el.batteryBlock.classList.remove('color-bad');
+        }
+      }
+
+      function updateSystray(systray) {
+        const icons = systray?.icons ?? [];
+        if (icons.length === 0) {
+          el.systraySeparator.style.display = 'none';
+          el.systrayWrapper.style.display = 'none';
+          return;
+        }
+
+        el.systraySeparator.style.display = 'inline-flex';
+        el.systrayWrapper.style.display = 'flex';
+
+        el.systrayIcons.innerHTML = '';
+        icons.forEach((icon) => {
+          const img = document.createElement('img');
+          img.className = 'systray-icon';
+          img.src = icon.iconUrl;
+          img.title = icon.tooltip || 'System Tray Icon';
+          img.alt = '';
+          img.addEventListener('click', (e) => {
+            e.preventDefault();
+            latestOutput.systray?.onLeftClick(icon.id);
+          });
+          img.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            latestOutput.systray?.onRightClick(icon.id);
+          });
+          el.systrayIcons.appendChild(img);
+        });
+      }
+
+      function renderAll(output) {
+        if (!output) return;
+        latestOutput = output;
+        updateWorkspaces(output.glazewm);
+        updateBindingModes(output.glazewm);
+        updateGlazeWmControls(output.glazewm);
+        updateMedia(output.media);
+        updateClock(output.date);
+        updateAudio(output.audio);
+        updateNetwork(output.network);
+        updateCpu(output.cpu);
+        updateMemory(output.memory);
+        updateDisk(output.disk);
+        updateBattery(output.battery);
+        updateSystray(output.systray);
+      }
+
+      // Event handlers
+      el.volumeBlock.addEventListener('click', () => {
+        const audio = latestOutput.audio;
+        if (!audio) return;
+        const dev = audio.defaultPlaybackDevice;
+        const isMuted = audio.isMuted || dev?.isMuted || false;
+        audio.setMute(!isMuted);
+      });
+
+      el.volumeBlock.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        latestOutput.glazewm?.runCommand('shell-exec sndvol.exe');
+      });
+
+      el.volumeBlock.addEventListener(
+        'wheel',
+        (e) => {
+          e.preventDefault();
+          const audio = latestOutput.audio;
+          if (!audio) return;
+          const dev = audio.defaultPlaybackDevice;
+          const currentVol = dev?.volume != null ? Math.round(dev.volume) : 0;
+          const delta = e.deltaY < 0 ? 5 : -5;
+          const nextVol = Math.max(0, Math.min(100, currentVol + delta));
+          audio.setVolume(nextVol);
+        },
+        { passive: false },
+      );
+
+      el.clockBlock.addEventListener('click', () => {
+        latestOutput.glazewm?.runCommand('shell-exec explorer.exe ms-actioncenter:');
+      });
+
+      el.clockBlock.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        latestOutput.glazewm?.runCommand('shell-exec timedate.cpl');
+      });
+
+      el.netBlock.addEventListener('click', () => {
+        latestOutput.glazewm?.runCommand('shell-exec explorer.exe ms-availablenetworks:');
+      });
+
+      el.netBlock.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        latestOutput.glazewm?.runCommand('shell-exec ncpa.cpl');
+      });
+
+      el.cpuBlock.addEventListener('click', () => {
+        latestOutput.glazewm?.runCommand('shell-exec taskmgr.exe');
+      });
+
+      el.memBlock.addEventListener('click', () => {
+        latestOutput.glazewm?.runCommand('shell-exec taskmgr.exe');
+      });
+
+      el.diskBlock.addEventListener('click', () => {
+        latestOutput.glazewm?.runCommand('shell-exec explorer.exe');
+      });
+
+      el.batteryBlock.addEventListener('click', () => {
+        latestOutput.glazewm?.runCommand('shell-exec explorer.exe ms-settings:powersleep');
+      });
+
+      el.tilingBtn.addEventListener('click', () => {
+        latestOutput.glazewm?.runCommand('toggle-tiling-direction');
+      });
+
+      el.pausedBadge.addEventListener('click', () => {
+        latestOutput.glazewm?.runCommand('wm-toggle-pause');
+      });
+
+      el.mediaPrev.addEventListener('click', () => {
+        latestOutput.media?.previous();
+      });
+
+      el.mediaToggle.addEventListener('click', () => {
+        latestOutput.media?.togglePlayPause();
+      });
+
+      el.mediaNext.addEventListener('click', () => {
+        latestOutput.media?.next();
+      });
+
+      el.mediaTitle.addEventListener('click', () => {
+        latestOutput.media?.togglePlayPause();
+      });
+
+      el.systrayToggle.addEventListener('click', () => {
+        systrayExpanded = !systrayExpanded;
+        el.systrayIcons.style.display = systrayExpanded ? 'flex' : 'none';
+        el.systrayToggle.textContent = systrayExpanded ? '' : '';
+        el.systrayToggle.title = systrayExpanded ? 'Collapse Systray' : 'Expand Systray';
+      });
+
+      providers.onOutput(() => {
+        renderAll(providers.outputMap);
+      });
+
+      renderAll(providers.outputMap);
     </script>
   </body>
 </html>

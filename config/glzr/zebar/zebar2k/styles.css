@@ -1,5 +1,3 @@
-@import 'https://www.nerdfonts.com/assets/css/webfont.css';
-
 :root {
   --color0: #000000;
   --color1: #282a2b;
@@ -15,7 +13,7 @@
 
   --bar-height: 32px;
   --btn-height: 22px;
-  --font-family: 'FiraCode Nerd Font', 'Fira Code', 'CaskaydiaMono Nerd Font', ui-monospace, monospace;
+  --font-family: 'FiraCode Nerd Font', 'FiraCode NF', 'FiraCode Nerd Font Mono', 'CaskaydiaMono Nerd Font', ui-monospace, monospace;
 }
 
 * {
@@ -37,7 +35,7 @@ html, body {
   cursor: default;
 }
 
-#root {
+#root, .bar {
   height: 100%;
   width: 100%;
 }
@@ -46,8 +44,6 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
-  width: 100%;
   padding: 0 4px;
   background: var(--color0);
   border-bottom: 1px solid #1a1a1a;
@@ -63,7 +59,7 @@ html, body {
   height: 100%;
 }
 
-.workspaces {
+.workspaces, .binding-modes {
   display: flex;
   align-items: center;
   gap: 2px;
