@@ -218,78 +218,56 @@ html, body {
   max-width: calc(50% - 130px);
 }
 
-/* Media Player (Capped Length) */
-.media-player {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  height: var(--btn-height);
-  padding: 0 6px;
-  background: var(--color0);
-  border: 1px solid var(--color1);
-  color: var(--color6);
-  max-width: 220px;
-  overflow: hidden;
-  white-space: nowrap;
-  flex-shrink: 1;
+/* Media Player (Uniform with other status blocks: borderless, full-height) */
+.media-block {
+  gap: 4px;
+  max-width: 250px;
+  border: none;
+  background: transparent;
 }
 
-.media-btn {
+.media-ctrl {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: none;
   color: var(--color12);
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
   padding: 0 2px;
-  outline: none;
+  user-select: none;
   flex-shrink: 0;
 }
 
-.media-btn:hover {
+.media-ctrl:hover {
   color: var(--color4);
 }
 
-.media-btn:disabled {
-  opacity: 0.35;
+.media-ctrl.disabled {
+  opacity: 0.3;
   cursor: default;
-}
-
-.media-info {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  min-width: 0;
-  max-width: 140px;
 }
 
 .media-icon {
   color: var(--color12);
-  font-size: 12px;
-  flex-shrink: 0;
+  margin-left: 2px;
 }
 
 .media-title {
   color: var(--color6);
-  font-size: 11px;
+  font-size: 12px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  cursor: pointer;
+  max-width: 130px;
 }
 
 .media-artist {
   color: var(--color5);
-  font-size: 11px;
+  font-size: 12px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 60px;
+  max-width: 80px;
 }
 
 /* Status Blocks */

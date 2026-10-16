@@ -28,17 +28,16 @@
         </div>
       </div>
 
+      <!-- Right Section: Media Player + Statusline blocks -->
       <div class="section-right">
-        <!-- Media Player (capped length) -->
-        <div id="media-player" class="media-player" style="display: none;">
-          <button id="media-prev" class="media-btn" title="Previous">󰒮</button>
-          <button id="media-toggle" class="media-btn" title="Play/Pause">󰐊</button>
-          <button id="media-next" class="media-btn" title="Next">󰒭</button>
-          <div class="media-info">
-            <span class="media-icon">󰎆</span>
-            <span id="media-title" class="media-title"></span>
-            <span id="media-artist" class="media-artist"></span>
-          </div>
+        <!-- Media Player (Uniform with status blocks) -->
+        <div id="media-player" class="status-block media-block" style="display: none;">
+          <span id="media-prev" class="media-ctrl" title="Previous">󰒮</span>
+          <span id="media-toggle" class="media-ctrl" title="Play/Pause">󰐊</span>
+          <span id="media-next" class="media-ctrl" title="Next">󰒭</span>
+          <span class="icon media-icon">󰎆</span>
+          <span id="media-title" class="media-title"></span>
+          <span id="media-artist" class="media-artist"></span>
         </div>
         <span class="separator" id="media-separator" style="display: none;">│</span>
 
@@ -305,7 +304,7 @@
           return;
         }
 
-        el.mediaPlayer.style.display = 'flex';
+        el.mediaPlayer.style.display = 'inline-flex';
         if (el.mediaSeparator) el.mediaSeparator.style.display = 'inline-flex';
         el.mediaPlayer.title = `${session.title}${session.artist ? ' - ' + session.artist : ''}`;
         el.mediaTitle.textContent = session.title;
@@ -313,8 +312,8 @@
 
         el.mediaToggle.textContent = session.isPlaying ? '󰏤' : '󰐊';
         el.mediaToggle.title = session.isPlaying ? 'Pause' : 'Play';
-        el.mediaPrev.disabled = !session.isPreviousEnabled;
-        el.mediaNext.disabled = !session.isNextEnabled;
+        el.mediaPrev.classList.toggle('disabled', !session.isPreviousEnabled);
+        el.mediaNext.classList.toggle('disabled', !session.isNextEnabled);
       }
 
       function updateClock(date) {
@@ -537,21 +536,38 @@
         latestOutput.glazewm?.runCommand('wm-toggle-pause');
       });
 
-      el.mediaPrev.addEventListener('click', () => {
+      // Media controls
+      el.mediaPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
         latestOutput.media?.previous();
       });
 
-      el.mediaToggle.addEventListener('click', () => {
+      el.mediaToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         latestOutput.media?.togglePlayPause();
       });
 
-      el.mediaNext.addEventListener('click', () => {
+      el.mediaNext.addEventListener('click', (e) => {
+        e.stopPropagation();
         latestOutput.media?.next();
       });
 
       el.mediaTitle.addEventListener('click', () => {
         latestOutput.media?.togglePlayPause();
       });
+
+      el.mediaPlayer.addEventListener(
+        'wheel',
+        (e) => {
+          e.preventDefault();
+          if (e.deltaY < 0) {
+            latestOutput.media?.previous();
+          } else {
+            latestOutput.media?.next();
+          }
+        },
+        { passive: false },
+      );
 
       el.systrayToggle.addEventListener('click', () => {
         systrayExpanded = !systrayExpanded;
