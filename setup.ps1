@@ -17,9 +17,25 @@ if (-not $Symlinks) {
     }
 
     # Scoop Packages (gow is first so that later package installs overwrite the shims)
-    scoop install gow 7zip aria2 bat delta eza fd fzf gcc gh git glazewm jq lazygit mise neovim nodejs oh-my-posh openssh powertoys python ripgrep tree-sitter vifm winget windows-terminal win32yank zebar
+    $apps = @(
+        'gow', '7zip', 'aria2', 'bat', 'delta', 'eza', 'fd', 'fzf', 'gcc', 'gh', 'git',
+        'glazewm', 'jq', 'lazygit', 'mise', 'neovim', 'nodejs', 'oh-my-posh', 'openssh',
+        'powertoys', 'python', 'ripgrep', 'tree-sitter', 'vifm', 'winget', 'windows-terminal',
+        'win32yank', 'zebar'
+    )
+    $scoopAppsDir = Join-Path $scoopRoot 'apps'
+    $installedApps = @(Get-ChildItem -Path $scoopAppsDir -Directory -ErrorAction SilentlyContinue | Where-Object {
+        (Test-Path (Join-Path $_.FullName 'current\install.json')) -or
+        (Test-Path (Join-Path $_.FullName 'current\scoop-install.json'))
+    } | ForEach-Object { $_.Name })
+    $appsToInstall = $apps | Where-Object { $_ -notin $installedApps }
 
-    scoop update *
+    if ($appsToInstall) {
+        scoop install $appsToInstall
+    }
+
+    # Quietly update available apps (silencing noisy in-use process locks on stderr)
+    scoop update * 2>$null
 
     # Fetch submodules
     git -C $repoRoot submodule update --init --recursive
@@ -27,16 +43,29 @@ if (-not $Symlinks) {
     # Install Font
     oh-my-posh font install FiraCode
 
-    # Install neovim helper
-    pip install neovim
+    # Install neovim helper quietly
+    pip install neovim --quiet
 
-    # PowerShell
-    Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
-    Install-Module -Name z -Scope CurrentUser -Force -AllowClobber
-    Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber
-    Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
+    # PowerShell Modules (only install if missing or outdated to prevent file-lock warnings)
+    if (-not (Get-Module -ListAvailable -Name Terminal-Icons)) {
+        Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser -Force -AllowClobber
+    }
+    if (-not (Get-Module -ListAvailable -Name z)) {
+        Install-Module -Name z -Scope CurrentUser -Force -AllowClobber
+    }
+    if (-not (Get-Module -ListAvailable -Name PSFzf)) {
+        Install-Module -Name PSFzf -Scope CurrentUser -Force -AllowClobber
+    }
+    $psrl = Get-Module -ListAvailable -Name PSReadLine | Sort-Object Version -Descending | Select-Object -First 1
+    if (-not $psrl -or $psrl.Version -lt [version]'2.2.0') {
+        try {
+            Install-Module -Name PSReadLine -Repository PSGallery -Scope CurrentUser -Force -SkipPublisherCheck -AllowClobber -ErrorAction Stop
+        } catch {
+            Write-Warning "PSReadLine could not be updated (likely in use by current session): $_"
+        }
+    }
 
-    Update-Module
+    Update-Module -ErrorAction SilentlyContinue
 }
 
 New-Item -ItemType SymbolicLink -Path (Join-Path $documents 'WindowsPowerShell') -Target (Join-Path $repoRoot 'config\PowerShell') -Force
