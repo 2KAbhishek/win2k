@@ -9,3 +9,4 @@ config/Terminal/elevated-state.json
 
 # Logs
 *.log
+*.pid
