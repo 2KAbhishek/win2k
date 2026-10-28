@@ -4,7 +4,7 @@ general:
   # Example: The below command launches Zebar.
   startup_commands:
     - 'shell-exec zebar'
-    - 'shell-exec node %userprofile%/.glzr/scripts/autotile.mjs'
+    - 'shell-exec --hide-window node %userprofile%/.glzr/scripts/autotile.mjs'
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar.
