@@ -10,10 +10,11 @@ general:
   # Example: The below command kills Zebar.
   shutdown_commands:
     - 'shell-exec taskkill /IM zebar.exe /F'
-    - 'shell-exec powershell -NoProfile -Command "if (Test-Path ''$env:USERPROFILE\.glzr\scripts\autotile.pid'') { Stop-Process -Id (Get-Content ''$env:USERPROFILE\.glzr\scripts\autotile.pid'') -Force -ErrorAction SilentlyContinue; Remove-Item ''$env:USERPROFILE\.glzr\scripts\autotile.pid'' -Force -ErrorAction SilentlyContinue }"'
+    - 'shell-exec --hide-window powershell -NoProfile -Command "if (Test-Path ''$env:USERPROFILE\.glzr\scripts\autotile.pid'') { Stop-Process -Id (Get-Content ''$env:USERPROFILE\.glzr\scripts\autotile.pid'') -Force -ErrorAction SilentlyContinue; Remove-Item ''$env:USERPROFILE\.glzr\scripts\autotile.pid'' -Force -ErrorAction SilentlyContinue }"'
 
   # Commands to run after the WM config is reloaded.
-  config_reload_commands: []
+  config_reload_commands:
+    - 'shell-exec --hide-window powershell -NoProfile -Command "Stop-Process -Name zebar -Force -ErrorAction SilentlyContinue; Start-Sleep -Milliseconds 400; Start-Process -FilePath zebar.exe"'
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: true

@@ -37,14 +37,6 @@ Bash-Alias pwshc "$env:EDITOR $PSScriptRoot\Profile.ps1"
 Bash-Alias loca "$env:EDITOR $PSScriptRoot\local.ps1"
 Bash-Alias reload ". $PROFILE"
 
-function Restart-Zebar {
-    Get-Process -Name zebar -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
-    Start-Sleep -Milliseconds 400
-    Start-Process -FilePath "zebar.exe" -WindowStyle Hidden
-    Write-Host "Restarted Zebar." -ForegroundColor Cyan
-}
-Set-Alias zebarr Restart-Zebar
-
 Bash-Alias sci "scoop install @args"
 Bash-Alias scr "scoop uninstall @args"
 Bash-Alias scs "scoop search @args"
