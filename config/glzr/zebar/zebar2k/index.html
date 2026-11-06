@@ -463,9 +463,18 @@
         return '󰂎';
       }
 
+      let lastValidBattery = null;
+      let hasEverHadBattery = false;
+
       function updateBattery(battery) {
-        const hasBattery = battery && battery.chargePercent != null;
-        if (!hasBattery) {
+        if (battery && battery.chargePercent != null) {
+          lastValidBattery = battery;
+          hasEverHadBattery = true;
+        } else if (hasEverHadBattery && lastValidBattery) {
+          // Retain last known valid state during transient driver recalibration or poll errors
+          battery = lastValidBattery;
+        } else {
+          // System has never reported a battery (e.g. desktop PC without battery hardware)
           el.batterySeparator.style.display = 'none';
           el.batteryBlock.style.display = 'none';
           return;
